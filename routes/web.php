@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [BeritaController::class,'display'])->name('welcome');
+
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/berita', function () {
+//     return view('admin/berita/index');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+// Route::resource('/', BeritaController::class);
+Route::resource('/berita', BeritaController::class)->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

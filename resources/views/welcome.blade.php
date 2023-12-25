@@ -63,20 +63,20 @@
             <li>
                 <div class="header-top-left">
                     <ul>
-                        <li class="select-opt">
+                        {{-- <li class="select-opt">
                             <select name="language" id="language">
                                 <option value="default">EN</option>
                                 <option value="Bangla">BN</option>
                                 <option value="Arabic">AB</option>
                             </select>
-                        </li>
-                        <li class="select-opt">
+                        </li> --}}
+                        {{-- <li class="select-opt">
                             <select name="currency" id="currency">
                                 <option value="usd">USD</option>
                                 <option value="euro">Euro</option>
                                 <option value="bdt">BDT</option>
                             </select>
-                        </li>
+                        </li> --}}
                         <li class="select-opt">
                             <a href="#"><span class="lnr lnr-magnifier"></span></a>
                         </li>
@@ -88,12 +88,6 @@
                     <ul>
                         <li class="header-top-contact">
                             +1 222 777 6565
-                        </li>
-                        <li class="header-top-contact">
-                            <a href="#">sign in</a>
-                        </li>
-                        <li class="header-top-contact">
-                            <a href="#">register</a>
                         </li>
                     </ul>
                 </div>
@@ -159,7 +153,9 @@
                 {{-- tagline/slogan --}}
                 <h2>Sekolah adalah tempat belajar<br> juga menuntut ilmu </h2>
                 <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit inventore nulla nisi sit soluta ea distinctio! Numquam qui amet repudiandae facere autem reprehenderit natus excepturi, harum, doloremque officiis perspiciatis tempora?
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit inventore nulla nisi sit soluta ea
+                    distinctio! Numquam qui amet repudiandae facere autem reprehenderit natus excepturi, harum,
+                    doloremque officiis perspiciatis tempora?
                 </p>
             </div>
         </div>
@@ -908,51 +904,22 @@
             </div><!--/.section-header-->
             <div class="blog-content">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-blog-item">
-                            <div class="single-blog-item-img">
-                                <img src="assets/images/blog/b1.jpg" alt="blog image">
-                            </div>
-                            <div class="single-blog-item-txt">
-                                <h2><a href="#">How to find your Desired Place more quickly</a></h2>
-                                <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do eiusmod tempore
-                                    incididunt ut labore et dolore magna.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-blog-item">
-                            <div class="single-blog-item-img">
-                                <img src="assets/images/blog/b2.jpg" alt="blog image">
-                            </div>
-                            <div class="single-blog-item-txt">
-                                <h2><a href="#">How to find your Desired Place more quickly</a></h2>
-                                <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do eiusmod tempore
-                                    incididunt ut labore et dolore magna.
-                                </p>
+                    @foreach ($berita as $item)
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-blog-item">
+                                <div class="single-blog-item-img">
+                                    <img src="foto/{{$item->foto}}" alt="blog image">
+                                </div>
+                                <div class="single-blog-item-txt">
+                                    <h2><a href="#">{{$item->judulBerita}}</a></h2>
+                                    <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
+                                    <p>
+                                        {{$item->sinopsis}}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-blog-item">
-                            <div class="single-blog-item-img">
-                                <img src="assets/images/blog/b3.jpg" alt="blog image">
-                            </div>
-                            <div class="single-blog-item-txt">
-                                <h2><a href="#">How to find your Desired Place more quickly</a></h2>
-                                <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur de adipisicing elit, sed do eiusmod tempore
-                                    incididunt ut labore et dolore magna.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div><!--/.container-->
@@ -1033,13 +1000,13 @@
             </div><!--/.hm-footer-copyright-->
         </div><!--/.container--> --}}
 
-        <div id="scroll-Top">
-            <div class="return-to-top">
-                <i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top"
-                    title="" data-original-title="Back to Top" aria-hidden="true"></i>
-            </div>
+            <div id="scroll-Top">
+                <div class="return-to-top">
+                    <i class="fa fa-angle-up " id="scroll-top" data-toggle="tooltip" data-placement="top"
+                        title="" data-original-title="Back to Top" aria-hidden="true"></i>
+                </div>
 
-        </div><!--/.scroll-Top-->
+            </div><!--/.scroll-Top-->
 
     </footer><!--/.footer-->
     <!--footer end-->
