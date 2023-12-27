@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('beritas', function (Blueprint $table) {
-            $table->uuid('idBerita');
-            $table->primary('idBerita');
-            $table->string('judulBerita', 45);
-            $table->string('sinopsis',300);
-            $table->string('isiBerita');
-            $table->string('foto', 50);
+        Schema::create('mapels', function (Blueprint $table) {
+            $table->uuid('idMapel');
+            $table->primary('idMapel');
+            $table->enum('kelas', ['10','11','12'])->default('10');
+            $table->string('mataPelajaran', 30);
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('beritas');
+        Schema::dropIfExists('mapels');
     }
 };

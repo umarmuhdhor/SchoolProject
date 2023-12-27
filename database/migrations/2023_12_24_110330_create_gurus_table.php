@@ -12,11 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('gurus', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('idGuru');
+            $table->primary('idGuru');
             $table->string('nama', 45);
-            $table->string('bagian', 45);
-            $table->string('profile', 45);
+            $table->string('noHp', 15);
+            $table->string('email', 45);
+            $table->string('mapel', 45);
+            $table->string('deskripsi', 100);
+            $table->enum('jk', ['lk','pr'])->default('lk');
+            $table->enum('status', ['aktif','nonAktif'])->default('aktif');
             $table->string('foto', 50);
+            $table->uuid('idMapel');
+            $table->foreign('idMapel')->references('idMapel')->on('mapels')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

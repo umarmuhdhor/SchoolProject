@@ -13,6 +13,8 @@ class GuruController extends Controller
     public function index()
     {
         //
+        $guru = Guru::all();
+        return view("admin.guru.index")->with("guru", $guru);
     }
 
     /**
@@ -21,6 +23,8 @@ class GuruController extends Controller
     public function create()
     {
         //
+        $guru = Guru::all();
+        return view("admin.guru.create")->with("guru", $guru);
     }
 
     /**
@@ -28,7 +32,27 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi data input form mahasiswa
+        $validasi = $request->validate([
+            "judulBerita" => "required",
+            "sinopsis" => "required",
+            "isiBerita" => "required",
+            "foto" => "image",
+        ]);
+
+        $ext = $request->foto->getClientOriginalExtension();
+
+        // Buat nama file baru dengan timestamp atau string acak
+        $newFileName = uniqid() . '.' . $ext;
+
+        // Validasi foto menggunakan nama file baru
+        $validasi["foto"] = $newFileName;
+
+        // Upload file foto ke dalam folder public
+        $request->foto->move(public_path('foto'), $newFileName);
+
+        Guru::create($validasi);
+        return redirect("berita")->with("success", "Data mahasiswa berhasil disimpan");
     }
 
     /**

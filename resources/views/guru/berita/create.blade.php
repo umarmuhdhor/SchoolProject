@@ -7,7 +7,7 @@
                     <h5 class="card-title fw-semibold mb-4">Berita Baru</h5>
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" method="POST" action="{{ route('adminBerita.store') }}"
+                            <form class="forms-sample" method="POST" action="{{ route('berita.store') }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group mb-3">

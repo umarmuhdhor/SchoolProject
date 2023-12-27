@@ -126,8 +126,13 @@
                             @if (Route::has('login'))
                                 <li class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                                     @auth
-                                        <a href="{{ url('/dashboard') }}"
-                                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                        @if (Auth::user()->role == 'admin')
+                                            <a href="{{ url('/admin') }}"
+                                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                        @else
+                                            <a href="{{ url('/dashboard') }}"
+                                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                                        @endif
                                     @else
                                         <a href="{{ route('login') }}"
                                             class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
@@ -908,13 +913,13 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="single-blog-item">
                                 <div class="single-blog-item-img">
-                                    <img src="foto/{{$item->foto}}" alt="blog image">
+                                    <img src="foto/{{ $item->foto }}" alt="blog image">
                                 </div>
                                 <div class="single-blog-item-txt">
-                                    <h2><a href="#">{{$item->judulBerita}}</a></h2>
+                                    <h2><a href="#">{{ $item->judulBerita }}</a></h2>
                                     <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
                                     <p>
-                                        {{$item->sinopsis}}
+                                        {{ $item->sinopsis }}
                                     </p>
                                 </div>
                             </div>
