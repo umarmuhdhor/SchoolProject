@@ -55,10 +55,10 @@ class BeritaController extends Controller
         $validasi["foto"] = $newFileName;
 
         // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('foto'), $newFileName);
+        $request->foto->move(public_path('fotoBerita'), $newFileName);
 
         Berita::create($validasi);
-        return redirect("berita")->with("success", "Data mahasiswa berhasil disimpan");
+        return redirect("adminBerita")->with("success", "Data mahasiswa berhasil disimpan");
     }
 
     /**

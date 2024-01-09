@@ -32,7 +32,13 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validasi data input form mahasiswa
+        $validasi = $request->validate([
+            "kelas" => "required",
+            "mataPelajaran" => "required",
+        ]);
+        Mapel::create($validasi);
+        return redirect("adminMapel")->with("success", "Data mahasiswa berhasil disimpan");
     }
 
     /**

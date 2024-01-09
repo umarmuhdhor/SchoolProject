@@ -10,4 +10,10 @@ class mapel extends Model
 {
     use HasFactory, HasUuids;
     protected $fillable = ['kelas', 'mataPelajaran'];
+    protected $primaryKey = 'idMapel'; // Gantilah 'id' dengan nama kolom UUID Anda
+    protected $keyType = 'string';
+
+
+
+
 }

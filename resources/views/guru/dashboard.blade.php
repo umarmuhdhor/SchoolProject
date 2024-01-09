@@ -1,3 +1,3 @@
-@extends('admin/layout.main')
+@extends('guru/layout.main')
 @section('content')
 @endsection

@@ -50,7 +50,7 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
-                                <a href="{{ url('berita') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</button>
+                                <a href="{{ url('adminBerita') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</button>
                             </form>
                         </div>
                     </div>

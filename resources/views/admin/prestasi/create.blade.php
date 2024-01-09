@@ -4,36 +4,36 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title fw-semibold mb-4">Berita Baru</h5>
+                    <h5 class="card-title fw-semibold mb-4">Prestasi Baru</h5>
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" method="POST" action="{{ route('berita.store') }}"
+                            <form class="forms-sample" method="POST" action="{{ route('adminPrestasi.store') }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <label for="judulBerita">Judul Berita</label>
-                                    <input type="text" class="form-control" name="judulBerita" placeholder="Judul"
+                                    <label for="judul">Judul Prestasi</label>
+                                    <input type="text" class="form-control" name="judul" placeholder="Judul"
                                         value="{{ old('judul') }}">
                                     @error('judul')
-                                        <label for-"judulBerita" class="text-danger">{{ $message }}</label>
+                                        <label for-"judul" class="text-danger">{{ $message }}</label>
                                     @enderror
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="sinopsis">Sinopsis</label>
                                     <input type="text" class="form-control" name="sinopsis"
-                                        placeholder="Penggalan Berita" value="{{ old('sinopsis') }}">
+                                        placeholder="Penggalan Prestasi" value="{{ old('sinopsis') }}">
                                     @error('sinopsis')
                                         <label for-"sinopsis" class="text-danger">{{ $message }}</label>
                                     @enderror
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="isiBerita">Isi Berita</label>
-                                    <input type="text" class="form-control" name="isiBerita" placeholder="Isi Berita"
-                                        value="{{ old('berita') }}">
-                                    @error('berita')
-                                        <label for-"isiBerita" class="text-danger">{{ $message }}</label>
+                                    <label for="isiPrestasi">Isi Prestasi</label>
+                                    <input type="text" class="form-control" name="isiPrestasi" placeholder="Isi Prestasi"
+                                        value="{{ old('Prestasi') }}">
+                                    @error('Prestasi')
+                                        <label for-"isiPrestasi" class="text-danger">{{ $message }}</label>
                                     @enderror
                                 </div>
 
@@ -50,7 +50,7 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
-                                <a href="{{ url('berita') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</button>
+                                <a href="{{ url('adminPrestasi') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</button>
                             </form>
                         </div>
                     </div>

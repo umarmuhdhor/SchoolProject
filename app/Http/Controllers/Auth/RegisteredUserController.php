@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\guru;
+use App\Models\murid;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -30,22 +32,64 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
+        // Validasi data utama user
+        $validate = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'role' => 'required',
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = User::create($validate);
 
-        event(new Registered($user));
+        // Periksa apakah user berhasil dibuat
+        if ($user->role == 'guru') {
+            // Validasi data guru
+            $validasi = $request->validate([
+                "noHp" => "required",
+                "email" => "required",
+                "deskripsi" => "required",
+                "jk" => "required",
+                "status" => "required",
+                "foto" => "image",
+            ]);
 
-        Auth::login($user);
+            // Tambahkan data tambahan ke array validasi
+            $validasi["nama"] = $request->name;
+            $validasi["idAkun"] = $user->id;
 
-        return redirect(RouteServiceProvider::HOME);
+            // Proses upload foto
+            $ext = $request->foto->getClientOriginalExtension();
+            $newFileName = uniqid() . '.' . $ext;
+            $validasi["foto"] = $newFileName;
+            $request->foto->move(public_path('fotoGuru'), $newFileName);
+
+            // Buat record Guru baru
+            Guru::create($validasi);
+            return redirect('adminGuru')->with('success', 'Guru berhasil ditambahkan');
+        } else if ($user->role == 'Murid') {
+            $validasi = $request->validate([
+                "tempatLahir" => "required",
+                "tanggalLahir" => "required",
+                "agama" => "required",
+                "jk" => "required",
+                "noHp" => "required",
+                "alamat" => "required",
+                "tanggalPenerimaan" => "required",
+                "foto" => "image",
+            ]);
+            $validasi["nama"] = $request->name;
+            $validasi["idAkun"] = $user->id;
+
+            // Proses upload foto
+            $ext = $request->foto->getClientOriginalExtension();
+            $newFileName = uniqid() . '.' . $ext;
+            $validasi["foto"] = $newFileName;
+            $request->foto->move(public_path('fotoMurid'), $newFileName);
+
+            // Buat record Guru baru
+            Murid::create($validasi);
+            return redirect('adminMurid')->with('success', 'Murid berhasil ditambahkan');;
+        }
     }
 }

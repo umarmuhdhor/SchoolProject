@@ -17,13 +17,12 @@ return new class extends Migration
             $table->string('nama', 45);
             $table->string('noHp', 15);
             $table->string('email', 45);
-            $table->string('mapel', 45);
             $table->string('deskripsi', 100);
             $table->enum('jk', ['lk','pr'])->default('lk');
             $table->enum('status', ['aktif','nonAktif'])->default('aktif');
             $table->string('foto', 50);
-            $table->uuid('idMapel');
-            $table->foreign('idMapel')->references('idMapel')->on('mapels')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->uuid('idAkun');
+            $table->foreign('idAkun')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\guru;
+use App\Models\mapel;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -10,6 +12,7 @@ class GuruController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         //
@@ -22,22 +25,27 @@ class GuruController extends Controller
      */
     public function create()
     {
-        //
-        $guru = Guru::all();
-        return view("admin.guru.create")->with("guru", $guru);
+        $mapel = Mapel::all();
+        $akun = User::all();
+
+        return view("admin.guru.create")->with(["mapel" => $mapel, "akun" => $akun]);
     }
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //validasi data input form mahasiswa
         $validasi = $request->validate([
-            "judulBerita" => "required",
-            "sinopsis" => "required",
-            "isiBerita" => "required",
+            "nama" => "required",
+            "noHp" => "required",
+            "email" => "required",
+            "deskripsi" => "required",
+            "jk" => "required",
+            "status" => "required",
             "foto" => "image",
+            "idAkun" => "required",
         ]);
 
         $ext = $request->foto->getClientOriginalExtension();
@@ -49,10 +57,10 @@ class GuruController extends Controller
         $validasi["foto"] = $newFileName;
 
         // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('foto'), $newFileName);
+        $request->foto->move(public_path('fotoGuru'), $newFileName);
 
         Guru::create($validasi);
-        return redirect("berita")->with("success", "Data mahasiswa berhasil disimpan");
+        return redirect("adminGuru")->with("success", "Data mahasiswa berhasil disimpan");
     }
 
     /**

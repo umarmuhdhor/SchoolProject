@@ -10,5 +10,6 @@ class berita extends Model
 {
     use HasFactory, HasUuids;
     protected $fillable = ['judulBerita', 'sinopsis', 'isiBerita','foto'];
-
+    protected $primaryKey = 'idBerita';
+    protected $keyType = 'string';
 }
