@@ -18,4 +18,10 @@ class murid extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function kelas()
+    {
+        return $this->belongsToMany(Kelas::class, 'kelasmurids', 'idMurid', 'idKelas')
+            ->withPivot('idKelasMurid'); // Pastikan Anda memasukkan pivot key di sini
+    }
 }

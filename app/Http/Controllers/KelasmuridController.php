@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\kelasmurid;
+use App\Models\murid;
 use Illuminate\Http\Request;
 
 class KelasmuridController extends Controller
@@ -13,6 +14,7 @@ class KelasmuridController extends Controller
     public function index()
     {
         //
+        dd('tes');
     }
 
     /**
@@ -20,7 +22,6 @@ class KelasmuridController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -29,14 +30,34 @@ class KelasmuridController extends Controller
     public function store(Request $request)
     {
         //
+        $validasi = $request->validate([
+            "idKelas" => "required",
+            "idMurid" => "required",
+            'status' => 'required'
+        ]);
+
+        kelasmurid::create($validasi);
+        return redirect()->back()->with("success", "murid berhasil ditambahkan kedalam kelas");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(kelasmurid $kelasmurid)
+    public function show($id)
     {
-        //
+        $jumlahMurid = KelasMurid::where('idkelas', $id)->count();
+
+        // Mengambil murid yang belum tergabung pada kelas tersebut
+        $muridNoKelas = Murid::whereNotIn('idMurid', function ($query) {
+            $query->select('idMurid')->from('kelasmurids');
+        })->get();
+
+        // Atau, jika Anda ingin menyertakan murid yang sudah tergabung di kelas lain dengan status tidak aktif
+        // $muridNoKelas = Murid::whereDoesntHave('kelasMurid', function ($query) use ($id) {
+        //     $query->where('idkelas', $id)->where('status', 'tidak aktif');
+        // })->get();
+
+        return view("admin.kelas.tambahMurid")->with('jumlahMurid', $jumlahMurid)->with('muridNoKelas', $muridNoKelas)->with('idKelas', $id);
     }
 
     /**
@@ -58,8 +79,13 @@ class KelasmuridController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(kelasmurid $kelasmurid)
+    public function destroy($id)
     {
         //
+        $kelasmurid = kelasmurid::find($id);
+
+        if ($kelasmurid->delete()) {
+            return redirect()->back()->with("success", "murid berhasil ditambahkan kedalam kelas");
+        }
     }
 }

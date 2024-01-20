@@ -68,7 +68,7 @@
                         </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">INPUT COMPONENT</span>
+                            <span class="hide-menu">Tampilan</span>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('adminBerita') }}" aria-expanded="false">
@@ -78,6 +78,19 @@
                                 <span class="hide-menu">Berita
                                 </span>
                             </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-cards"></i>
+                                </span>
+                                <span class="hide-menu">Ekskul</span>
+                            </a>
+                        </li>
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Data Sekolah</span>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('adminGuru') }}" aria-expanded="false">
@@ -104,6 +117,14 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminPeriode') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-alert-circle"></i>
+                                </span>
+                                <span class="hide-menu">Periode</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('adminMapel') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
@@ -111,12 +132,26 @@
                                 <span class="hide-menu">Mapel</span>
                             </a>
                         </li>
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Update/tahun
+
+                            </span>
+                        </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ url('adminJadwal') }}" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-cards"></i>
+                                    <i class="ti ti-alert-circle"></i>
                                 </span>
-                                <span class="hide-menu">Ekskul</span>
+                                <span class="hide-menu">Jadwal</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminJamPelajaran') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-alert-circle"></i>
+                                </span>
+                                <span class="hide-menu">Jam Pelajaran</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

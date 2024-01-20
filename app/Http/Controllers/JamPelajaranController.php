@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\periode;
+use App\Models\jamPelajaran;
 use Illuminate\Http\Request;
 
-class PeriodeController extends Controller
+class JamPelajaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,18 +13,15 @@ class PeriodeController extends Controller
     public function index()
     {
         //
-        $periode = Periode::all();
-        return view("admin.periode.index")->with("periode", $periode);
+        $jam = jamPelajaran::all();
+        return view("admin.jamPelajaran.index")->with("jam", $jam);
     }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         //
-        $periode = periode::all();
-        return view("admin.periode.create")->with("periode", $periode);
     }
 
     /**
@@ -32,20 +29,13 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-
-        $validasi = $request->validate([
-            "tahunPeriode" => "required",
-            "semester" => "required",
-        ]);
-
-        Periode::create($validasi);
-        return redirect("adminPeriode")->with("success", "Data periode berhasil disimpan");
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(periode $periode)
+    public function show(jamPelajaran $jamPelajaran)
     {
         //
     }
@@ -53,7 +43,7 @@ class PeriodeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(periode $periode)
+    public function edit(jamPelajaran $jamPelajaran)
     {
         //
     }
@@ -61,7 +51,7 @@ class PeriodeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, periode $periode)
+    public function update(Request $request, jamPelajaran $jamPelajaran)
     {
         //
     }
@@ -69,7 +59,7 @@ class PeriodeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(periode $periode)
+    public function destroy(jamPelajaran $jamPelajaran)
     {
         //
     }

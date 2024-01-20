@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('periodes', function (Blueprint $table) {
-            $table->uuid('idPeriode');
-            $table->primary('idPeriode');
-            $table->char('tahunPeriode')->length(9);
-            $table->enum('semester', ['Ganjil','Genap'])->default('Ganjil');
+        Schema::create('jam_pelajarans', function (Blueprint $table) {
+            $table->uuid('idJam');
+            $table->primary('idJam');
+            $table->time('jam');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('periodes');
+        Schema::dropIfExists('jam_pelajarans');
     }
 };

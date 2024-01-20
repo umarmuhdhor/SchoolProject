@@ -9,19 +9,24 @@
                             <a href="{{ route('adminKelas.create') }}"><span class="btn btn-outline-primary mx-3 ">Tambah Data
                                     Kelas</span></a>
                         </h5>
-                        @foreach ($kelas as $item)
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <img src="fotoKelas/{{ $item->foto }}" class="card-img-top" alt="..."
-                                        width="20" height="230">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $item->namaKelas }}</h5>
-                                        <p class="card-text">{{ $item->deskripsi }}</p>
-                                        <a href="#" class="btn btn-primary">Edit</a>
+                        {{-- <div class="row"> --}}
+                            @foreach ($kelas as $item)
+                                <div class="col-md-12 mb-3">
+                                    <div class="card d-flex flex-row align-items-center" style="padding-right: 10px">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $item->namaKelas }}</h5>
+                                            <p class="card-text">{{ $item->periode->tahunPeriode }}</p>
+                                        </div>
+                                        <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
+                                            <a href="#" class="btn btn-primary">Edit</a>
+                                            <a href="{{route('adminKelasMurid.show', $item->idKelas)}}" class="btn btn-success">Tambahkan</a>
+                                            <a href="{{route('adminKelas.show', $item->idKelas)}}" class="btn btn-warning">Detail</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        {{-- </div> --}}
+
 
                     </div>
                 </div>

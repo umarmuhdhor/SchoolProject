@@ -18,6 +18,11 @@ class guru extends Model
         return $this->belongsTo(Mapel::class);
     }
 
+    public function kelas()
+    {
+        return $this->hasMany(Kelas::class, 'idGuru');
+    }
+
     public function akun() {
         return $this->belongsTo(User::class);
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\periode;
+use App\Models\jadwal;
 use Illuminate\Http\Request;
 
-class PeriodeController extends Controller
+class JadwalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class PeriodeController extends Controller
     public function index()
     {
         //
-        $periode = Periode::all();
-        return view("admin.periode.index")->with("periode", $periode);
+        $jadwal = Jadwal::all();
+        return view("admin.jadwal.index")->with("jadwal", $jadwal);
     }
 
     /**
@@ -23,8 +23,6 @@ class PeriodeController extends Controller
     public function create()
     {
         //
-        $periode = periode::all();
-        return view("admin.periode.create")->with("periode", $periode);
     }
 
     /**
@@ -32,20 +30,13 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-
-        $validasi = $request->validate([
-            "tahunPeriode" => "required",
-            "semester" => "required",
-        ]);
-
-        Periode::create($validasi);
-        return redirect("adminPeriode")->with("success", "Data periode berhasil disimpan");
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(periode $periode)
+    public function show(jadwal $jadwal)
     {
         //
     }
@@ -53,7 +44,7 @@ class PeriodeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(periode $periode)
+    public function edit(jadwal $jadwal)
     {
         //
     }
@@ -61,7 +52,7 @@ class PeriodeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, periode $periode)
+    public function update(Request $request, jadwal $jadwal)
     {
         //
     }
@@ -69,7 +60,7 @@ class PeriodeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(periode $periode)
+    public function destroy(jadwal $jadwal)
     {
         //
     }
