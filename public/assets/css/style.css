@@ -621,8 +621,11 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 }
 .testimonial-img {
     position: relative;
-    top: 11px;
+    height: 70px;
+    width: 70px;
+    top: 5px;
     margin-right: 5px;
+    margin-bottom: 5px;
     border-radius:50%;
     -webkit-transition: .3s;
     -moz-transition:.3s;

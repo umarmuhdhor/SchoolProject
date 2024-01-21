@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DisplayController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\JamPelajaranController;
@@ -27,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [BeritaController::class,'display'])->name('welcome');
+Route::get('/', [DisplayController::class,'index'])->name('welcome');
 Route::get('/prestasi', [PrestasiMuridController::class,'display'])->name('prestasi');
 Route::get('/ppdb', function () {
     return view('ppdb');

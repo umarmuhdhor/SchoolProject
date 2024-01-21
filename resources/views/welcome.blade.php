@@ -118,165 +118,29 @@
         </div><!--/.section-header-->
         <div class="reviews-content">
             <div class="testimonial-carousel">
-                <div class="single-testimonial-box">
-                    <div class="testimonial-description">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="assets/images/clients/c1.png" alt="clients">
-                            </div><!--/.testimonial-img-->
-                            <div class="testimonial-person">
-                                <h1>Tom Leakar</h1>
-                                <h4>Guru Matematika</h4>
-                            </div><!--/.testimonial-person-->
-                        </div><!--/.testimonial-info-->
-                        <div class="testimonial-comment">
-                            <p>
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum. Sed ut perspiciatis eaque.
-                            </p>
-                        </div><!--/.testimonial-comment-->
-                    </div><!--/.testimonial-description-->
-                </div><!--/.single-testimonial-box-->
-                <div class="single-testimonial-box">
-                    <div class="testimonial-description">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="assets/images/clients/c2.png" alt="clients">
-                            </div><!--/.testimonial-img-->
-                            <div class="testimonial-person">
-                                <h2>monirul islam</h2>
-                                <h4>london, UK</h4>
+                @foreach ($guru as $item)
+                    <div class="single-testimonial-box">
+                        <div class="testimonial-description">
+                            <div class="testimonial-info">
+                                <div class="testimonial-img">
+                                    <img  class="testimonial-img" src="fotoGuru/{{$item->foto}}" alt="clients">
+                                </div><!--/.testimonial-img-->
+                                <div class="testimonial-person">
+                                    <h1>{{$item->nama}}</h1>
+                                    <h4>Guru Matematika</h4>
+                                </div><!--/.testimonial-person-->
+                            </div><!--/.testimonial-info-->
+                            <div class="testimonial-comment">
+                                <p>
+                                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                                    mollit anim id est laborum. Sed ut perspiciatis eaque.
+                                </p>
+                            </div><!--/.testimonial-comment-->
+                        </div><!--/.testimonial-description-->
+                    </div><!--/.single-testimonial-box-->
+                @endforeach
 
-                            </div><!--/.testimonial-person-->
-                        </div><!--/.testimonial-info-->
-                        <div class="testimonial-comment">
-                            <p>
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum. Sed ut perspiciatis eaque.
-                            </p>
-                        </div><!--/.testimonial-comment-->
-                    </div><!--/.testimonial-description-->
-                </div><!--/.single-testimonial-box-->
-                <div class="single-testimonial-box">
-                    <div class="testimonial-description">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="assets/images/clients/c3.png" alt="clients">
-                            </div><!--/.testimonial-img-->
-                            <div class="testimonial-person">
-                                <h2>Shohrab Hossain</h2>
-                                <h4>london, UK</h4>
 
-                            </div><!--/.testimonial-person-->
-                        </div><!--/.testimonial-info-->
-                        <div class="testimonial-comment">
-                            <p>
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum. Sed ut perspiciatis eaque.
-                            </p>
-                        </div><!--/.testimonial-comment-->
-                    </div><!--/.testimonial-description-->
-                </div><!--/.single-testimonial-box-->
-                <div class="single-testimonial-box">
-                    <div class="testimonial-description">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="assets/images/clients/c4.png" alt="clients">
-                            </div><!--/.testimonial-img-->
-                            <div class="testimonial-person">
-                                <h2>Tom Leakar</h2>
-                                <h4>london, UK</h4>
-
-                            </div><!--/.testimonial-person-->
-                        </div><!--/.testimonial-info-->
-                        <div class="testimonial-comment">
-                            <p>
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum. Sed ut perspiciatis eaque.
-                            </p>
-                        </div><!--/.testimonial-comment-->
-                    </div><!--/.testimonial-description-->
-                </div><!--/.single-testimonial-box-->
-                <div class="single-testimonial-box">
-                    <div class="testimonial-description">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="assets/images/clients/c1.png" alt="clients">
-                            </div><!--/.testimonial-img-->
-                            <div class="testimonial-person">
-                                <h2>Tom Leakar</h2>
-                                <h4>london, UK</h4>
-
-                            </div><!--/.testimonial-person-->
-                        </div><!--/.testimonial-info-->
-                        <div class="testimonial-comment">
-                            <p>
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum. Sed ut perspiciatis eaque.
-                            </p>
-                        </div><!--/.testimonial-comment-->
-                    </div><!--/.testimonial-description-->
-                </div><!--/.single-testimonial-box-->
-                <div class="single-testimonial-box">
-                    <div class="testimonial-description">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="assets/images/clients/c2.png" alt="clients">
-                            </div><!--/.testimonial-img-->
-                            <div class="testimonial-person">
-                                <h2>monirul islam</h2>
-                                <h4>london, UK</h4>
-
-                            </div><!--/.testimonial-person-->
-                        </div><!--/.testimonial-info-->
-                        <div class="testimonial-comment">
-                            <p>
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum. Sed ut perspiciatis eaque.
-                            </p>
-                        </div><!--/.testimonial-comment-->
-                    </div><!--/.testimonial-description-->
-                </div><!--/.single-testimonial-box-->
-                <div class="single-testimonial-box">
-                    <div class="testimonial-description">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="assets/images/clients/c3.png" alt="clients">
-                            </div><!--/.testimonial-img-->
-                            <div class="testimonial-person">
-                                <h2>Shohrab Hossain</h2>
-                                <h4>london, UK</h4>
-
-                            </div><!--/.testimonial-person-->
-                        </div><!--/.testimonial-info-->
-                        <div class="testimonial-comment">
-                            <p>
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum. Sed ut perspiciatis eaque.
-                            </p>
-                        </div><!--/.testimonial-comment-->
-                    </div><!--/.testimonial-description-->
-                </div><!--/.single-testimonial-box-->
-                <div class="single-testimonial-box">
-                    <div class="testimonial-description">
-                        <div class="testimonial-info">
-                            <div class="testimonial-img">
-                                <img src="assets/images/clients/c4.png" alt="clients">
-                            </div><!--/.testimonial-img-->
-                            <div class="testimonial-person">
-                                <h2>Tom Leakar</h2>
-                                <h4>london, UK</h4>
-
-                            </div><!--/.testimonial-person-->
-                        </div><!--/.testimonial-info-->
-                        <div class="testimonial-comment">
-                            <p>
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum. Sed ut perspiciatis eaque.
-                            </p>
-                        </div><!--/.testimonial-comment-->
-                    </div><!--/.testimonial-description-->
-                </div><!--/.single-testimonial-box-->
             </div>
         </div>
 

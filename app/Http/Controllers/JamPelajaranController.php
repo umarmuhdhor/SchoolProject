@@ -22,6 +22,7 @@ class JamPelajaranController extends Controller
     public function create()
     {
         //
+        return view("admin.jamPelajaran.create");
     }
 
     /**
@@ -30,6 +31,12 @@ class JamPelajaranController extends Controller
     public function store(Request $request)
     {
         //
+        $validasi = $request->validate([
+            "jam" => "required",
+        ]);
+
+        jamPelajaran::create($validasi);
+        return redirect("adminJamPelajaran")->with("success", "Data jam pelajaran berhasil disimpan");
     }
 
     /**

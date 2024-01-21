@@ -10,12 +10,7 @@ class BeritaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function display()
-    {
-        //
-        $berita = Berita::all();
-        return view("welcome")->with("berita", $berita);
-    }
+    
     public function index()
     {
         //
