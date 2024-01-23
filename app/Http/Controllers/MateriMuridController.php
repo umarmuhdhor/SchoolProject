@@ -12,13 +12,13 @@ class MateriMuridController extends Controller
     /**
      * Display a listing of the resource.
      */
-    // public function display()
-    // {
-    //     //
-    //     $mapel = Mapel::find($idMapel);
-    //     $materi = Materi::where('idMapel', $idMapel)->get();
-    //     return view("guru.materi.create")->with(["materi" => $materi, "mapel" => $mapel]);
-    // }
+    public function display($idMapel)
+    {
+        //
+        $mapel = Mapel::find($idMapel);
+        $materi = Materi::where('idMapel', $idMapel)->get();
+        return view("guru.materi.create")->with(["materi" => $materi, "mapel" => $mapel]);
+    }
 
     public function index()
     {

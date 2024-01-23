@@ -117,12 +117,28 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class=" scroll active"><a href="#home">home</a></li>
+                            <li class="scroll active"><a href="#home">home</a></li>
                             <li class="scroll"><a href="#works">Visi Misi</a></li>
-                            <li class="scroll"><a href="#explore">Tentang Kami</a></li>
+                            <li class="scroll"><a href="#explore">Sejarah Singkat</a></li>
                             <li class="scroll"><a href="#reviews">Staff</a></li>
                             <li class="scroll"><a href="#blog">Berita</a></li>
-                            <li class="scroll"><a href="#contact">contact</a></li>
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Kesiswaan <span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{url('daftarMurid')}}">Data Siswa</a></li>
+                                    <li><a href="">Osis</a></li>
+                                    <li><a href="">Ekstrakulikuler</a></li>
+                                </ul>
+                            </li>
+                            <li class="scroll dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kurikulum <span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#kurikulum">Informasi Kurikulum</a></li>
+                                    <li><a href="#guru">Informasi Guru</a></li>
+                                </ul>
+                            </li>
                             @if (Route::has('login'))
                                 <li class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                                     @auth

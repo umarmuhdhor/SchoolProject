@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('jadwals', function (Blueprint $table) {
             $table->uuid('idJadwal');
             $table->primary('idJadwal');
-            $table->uuid('idMapel');
-            $table->foreign('idMapel')->references('idMapel')->on('mapels')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->uuid('idMapelGuru');
+            $table->foreign('idMapelGuru')->references('idMapelGuru')->on('mapel_gurus')->cascadeOnDelete()->cascadeOnUpdate();
             $table->uuid('idKelas');
             $table->foreign('idKelas')->references('idKelas')->on('kelas')->cascadeOnDelete()->cascadeOnUpdate();
             $table->uuid('idGuru');

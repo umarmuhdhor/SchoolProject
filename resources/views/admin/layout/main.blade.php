@@ -36,6 +36,7 @@
 </head>
 
 <body>
+
     @if (Session::get('success'))
         <div class="alert alert-success"
             style="position: fixed; top: 10px; right: 10px; z-index: 1000; opacity: 1; transition: opacity 2s ease-in-out;">
@@ -81,6 +82,24 @@
                                 <span>
                                     <i class="ti ti-article"></i>
                                 </span>
+                                <span class="hide-menu">Tentang Sekolah</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminVisimisi') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-article"></i>
+                                </span>
+                                <span class="hide-menu">Visi Misi
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminBerita') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-article"></i>
+                                </span>
                                 <span class="hide-menu">Berita
                                 </span>
                             </a>
@@ -92,6 +111,14 @@
                                     <i class="ti ti-cards"></i>
                                 </span>
                                 <span class="hide-menu">Ekskul</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminPrestasi') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-cards"></i>
+                                </span>
+                                <span class="hide-menu">Prestasi</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
@@ -114,14 +141,7 @@
                                 <span class="hide-menu">Murid</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ url('adminKelas') }}" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-alert-circle"></i>
-                                </span>
-                                <span class="hide-menu">Kelas</span>
-                            </a>
-                        </li>
+
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('adminPeriode') }}" aria-expanded="false">
                                 <span>
@@ -138,11 +158,35 @@
                                 <span class="hide-menu">Mapel</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminJamPelajaran') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-alert-circle"></i>
+                                </span>
+                                <span class="hide-menu">Jam Pelajaran</span>
+                            </a>
+                        </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Update/tahun
 
                             </span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminKelas') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-alert-circle"></i>
+                                </span>
+                                <span class="hide-menu">Kelas</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminMapelGuru') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-alert-circle"></i>
+                                </span>
+                                <span class="hide-menu">Pengajar</span>
+                            </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('adminJadwal') }}" aria-expanded="false">
@@ -152,14 +196,7 @@
                                 <span class="hide-menu">Jadwal</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ url('adminJamPelajaran') }}" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-alert-circle"></i>
-                                </span>
-                                <span class="hide-menu">Jam Pelajaran</span>
-                            </a>
-                        </li>
+
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
                                 <span>
@@ -304,6 +341,21 @@
     <script src="../assetsAdmin/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../assetsAdmin/libs/simplebar/dist/simplebar.js"></script>
     <script src="../assetsAdmin/js/dashboard.js"></script>
+    <script>
+        // Menyembunyikan alert setelah 3 detik
+        setTimeout(function() {
+            var alertElement = document.getElementById('alert');
+            if (alertElement) {
+                alertElement.style.opacity = 0;
+                alertElement.style.transition = 'opacity 2s ease-in-out';
+
+                // Menghilangkan elemen dari DOM setelah transisi selesai
+                setTimeout(function() {
+                    alertElement.parentNode.removeChild(alertElement);
+                }, 2000);
+            }
+        }, 3000);
+    </script>
 </body>
 
 </html>

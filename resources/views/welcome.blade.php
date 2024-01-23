@@ -30,11 +30,10 @@
                             <div class="single-list-topics-icon">
                                 <i class="flaticon-pills"></i>
                             </div>
-                            <h2><a href="#">Album Foto</a></h2>
-                            <p>Kenangan</p>
+                            <h2><a href="#">P5</a></h2>
+                            <p>Kurikulum Merdeka</p>
                         </div>
                     </li>
-
                 </ul>
             </div>
         </div><!--/.container-->
@@ -51,42 +50,21 @@
             </div><!--/.section-header-->
             <div class="works-content">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-how-works">
-                            <div class="single-how-works-icon">
-                                <i class="flaticon-lightbulb-idea"></i>
-                            </div>
-                            <h2><a href="#">choose <span> what to</span> do</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt
-                                ut laboremagna aliqua.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-how-works">
-                            <div class="single-how-works-icon">
+                    @foreach ($visi as $item)
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-how-works">
+                                {{-- <div class="single-how-works-icon">
                                 <i class="flaticon-networking"></i>
+                            </div> --}}
+                                <h2 ><a href="#"><span style="text-transform: capitalize;"> {{$item->judul}}</span></a></h2>
+                                <p style="text-align: justify;text-justify: inter-word;hyphens: auto;">
+                                    {{$item->misi}}
+                                </p>
                             </div>
-                            <h2><a href="#">find <span> what you want</span></a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt
-                                ut laboremagna aliqua.
-                            </p>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-how-works">
-                            <div class="single-how-works-icon">
-                                <i class="flaticon-location-on-road"></i>
-                            </div>
-                            <h2><a href="#">explore <span> amazing</span> place</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt
-                                ut laboremagna aliqua.
-                            </p>
-                        </div>
-                    </div>
+                    @endforeach
+
+
                 </div>
             </div>
         </div><!--/.container-->
@@ -98,17 +76,42 @@
     <section id="explore" class="explore">
         <div class="container">
             <div class="section-header">
-                <h2>Tentang Kami</h2>
-                <p>Membentuk generasi penerus melalui pendidikan karakter dan vokasi keahlian dalam berbagai bidang</p>
-            </div><!--/.section-header-->
-            <div class="explore-content">
-                <div class="row">
-                </div>
-            </div>
-        </div><!--/.container-->
+                <h2>Sejarah Singkat</h2>
+                <div class="rowSejarah">
+                    <p>
+                        "SMA Nusantara":
 
+                        SMA Nusantara didirikan pada tahun 1975 di kota fiktif "Harmonyville," yang terletak di
+                        tengah-tengah
+                        pulau utama Nusantara. Ide pendirian sekolah ini muncul dari kebutuhan masyarakat setempat untuk
+                        menyediakan pendidikan berkualitas tinggi kepada generasi muda di wilayah tersebut.
+
+                        Selama perjalanan sejarahnya, SMA Nusantara telah mengalami berbagai perubahan dan perkembangan.
+                        Pada
+                        tahun 1990-an, sekolah ini mengadopsi teknologi pendidikan modern dan memperluas fasilitasnya untuk
+                        memenuhi tuntutan kurikulum yang terus berkembang.
+
+                        Pada tahun 2000-an, SMA Nusantara mulai menonjol dalam berbagai kegiatan ekstrakurikuler, seperti
+                        olahraga, seni, dan sains. Prestasi akademis dan non-akademis yang luar biasa membuat nama sekolah
+                        ini
+                        semakin dikenal di tingkat nasional.
+
+                        SMA Nusantara terus menjadi lembaga pendidikan yang inovatif dan adaptif, terus mengikuti
+                        perkembangan
+                        teknologi dan metode pembelajaran terbaru. Dengan staf pengajar yang berkualitas tinggi dan
+                        fasilitas
+                        yang memadai, sekolah ini tetap menjadi pilihan utama bagi para orangtua yang menginginkan
+                        pendidikan
+                        terbaik untuk anak-anak mereka.
+
+                        Hingga saat ini, SMA Nusantara tetap menjadi pusat pendidikan yang berperan penting dalam membentuk
+                        generasi muda yang cerdas, kreatif, dan bertanggung jawab di wilayah "Harmonyville" dan sekitarnya.
+                    </p>
+                </div>
+            </div><!--/.section-header-->
+        </div><!--/.container-->
     </section><!--/.explore-->
-    <!--explore end -->
+
 
     <!--reviews start -->
     <section id="reviews" class="reviews">
@@ -123,10 +126,10 @@
                         <div class="testimonial-description">
                             <div class="testimonial-info">
                                 <div class="testimonial-img">
-                                    <img  class="testimonial-img" src="fotoGuru/{{$item->foto}}" alt="clients">
+                                    <img class="testimonial-img" src="fotoGuru/{{ $item->foto }}" alt="clients">
                                 </div><!--/.testimonial-img-->
                                 <div class="testimonial-person">
-                                    <h1>{{$item->nama}}</h1>
+                                    <h1>{{ $item->nama }}</h1>
                                     <h4>Guru Matematika</h4>
                                 </div><!--/.testimonial-person-->
                             </div><!--/.testimonial-info-->
@@ -139,7 +142,6 @@
                         </div><!--/.testimonial-description-->
                     </div><!--/.single-testimonial-box-->
                 @endforeach
-
 
             </div>
         </div>
@@ -199,7 +201,7 @@
                                 <div class="single-blog-item-txt">
                                     <h2><a href="#">{{ $item->judulBerita }}</a></h2>
                                     <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-                                    <p>
+                                    <p class="blog-item-description">
                                         {{ $item->sinopsis }}
                                     </p>
                                 </div>
@@ -213,7 +215,7 @@
     </section><!--/.blog-->
     <!--blog end -->
 
-    <!--subscription strat -->
+    {{-- <!--subscription strat -->
     <section id="contact" class="subscription">
         <div class="container">
             <div class="subscribe-title text-center">
@@ -239,5 +241,5 @@
         </div>
 
     </section><!--/subscription-->
-    <!--subscription end -->
+    <!--subscription end --> --}}
 @endsection

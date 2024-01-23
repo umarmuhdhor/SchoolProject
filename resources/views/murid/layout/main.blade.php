@@ -51,7 +51,7 @@
                         </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">PEMBELAJARAN</span>
+                            <span class="hide-menu">Pembelajaran</span>
                         </li>
 
                         <li class="sidebar-item">
@@ -68,7 +68,7 @@
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
                                 </span>
-                                <span class="hide-menu">Pelajaran</span>
+                                <span class="hide-menu">Materi</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -76,10 +76,11 @@
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
                                 </span>
-                                <span class="hide-menu">Kelas</span>
+                                <span class="hide-menu">Pengumuman Kelas</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            
                             <a class="sidebar-link" href="{{ url('adminMapel') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>

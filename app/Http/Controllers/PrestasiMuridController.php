@@ -20,6 +20,8 @@ class PrestasiMuridController extends Controller
     public function index()
     {
         //
+        $prestasi = PrestasiMurid::all();
+        return view("admin.prestasi.index")->with("prestasi", $prestasi);
     }
 
     /**
@@ -29,7 +31,7 @@ class PrestasiMuridController extends Controller
     {
         //
         $prestasi = PrestasiMurid::all();
-        return view("prestasi")->with("prestasi", $prestasi);
+        return view("admin.prestasi.create")->with("prestasi", $prestasi);
     }
 
     /**

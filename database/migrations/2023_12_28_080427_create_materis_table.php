@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('file', 100);
             $table->uuid('idGuru');
             $table->foreign('idGuru')->references('idGuru')->on('gurus')->onDelete('restrict');
-            $table->uuid('idMapel');
-            $table->foreign('idMapel')->references('idMapel')->on('mapels')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->uuid('idMapelGuru');
+            $table->foreign('idMapelGuru')->references('idMapelGuru')->on('mapel_gurus')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

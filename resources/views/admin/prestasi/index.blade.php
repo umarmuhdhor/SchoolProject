@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <div class="row">
                         <h5 class="card-title fw-semibold mb-4">Prestasi
-                            <a href="{{ route('adminBerita.create') }}"><span class="btn btn-outline-primary mx-3 ">Tambah Prestasi</span></a>
+                            <a href="{{ route('adminPrestasi.create') }}"><span class="btn btn-outline-primary mx-3 ">Tambah Prestasi</span></a>
                         </h5>
                         @foreach ($prestasi as $item)
                         <div class="col-md-4">
