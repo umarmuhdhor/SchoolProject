@@ -58,25 +58,25 @@
 </head>
 
 <body>
-    <header id="header-top" class="header-top">
+    {{-- <header id="header-top" class="header-top">
         <ul>
             <li>
                 <div class="header-top-left">
                     <ul>
-                        {{-- <li class="select-opt">
+                        <li class="select-opt">
                             <select name="language" id="language">
                                 <option value="default">EN</option>
                                 <option value="Bangla">BN</option>
                                 <option value="Arabic">AB</option>
                             </select>
-                        </li> --}}
-                        {{-- <li class="select-opt">
+                        </li>
+                        <li class="select-opt">
                             <select name="currency" id="currency">
                                 <option value="usd">USD</option>
                                 <option value="euro">Euro</option>
                                 <option value="bdt">BDT</option>
                             </select>
-                        </li> --}}
+                        </li>
                         <li class="select-opt">
                             <a href="#"><span class="lnr lnr-magnifier"></span></a>
                         </li>
@@ -93,8 +93,8 @@
                 </div>
             </li>
         </ul>
-
-    </header><!--/.header-top-->
+    </header> --}}
+    <!--/.header-top-->
     <!-- top-area Start -->
     <section class="top-area">
         <div class="header-area">
@@ -117,28 +117,46 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li class="scroll active"><a href="#home">home</a></li>
-                            <li class="scroll"><a href="#works">Visi Misi</a></li>
-                            <li class="scroll"><a href="#explore">Sejarah Singkat</a></li>
-                            <li class="scroll"><a href="#reviews">Staff</a></li>
-                            <li class="scroll"><a href="#blog">Berita</a></li>
+                            <li><a href="{{ url('/') }}">home</a></li>
+                            <li class="scroll"><a href="/">Berita</a></li>
                             <li class="dropdown">
-                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Kesiswaan <span
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Kesiswaan<span
                                         class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{url('daftarMurid')}}">Data Siswa</a></li>
+                                    <li><a href="{{ url('daftarMurid') }}">Data Siswa</a></li>
                                     <li><a href="">Osis</a></li>
-                                    <li><a href="">Ekstrakulikuler</a></li>
+                                    <li><a href="{{ url('ekskul') }}">Ekskul</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kurikulum <span
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Kurikulum<span
                                         class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#kurikulum">Informasi Kurikulum</a></li>
-                                    <li><a href="#guru">Informasi Guru</a></li>
+                                    <li><a href="{{url('informasiGuru')}}">Informasi Kurikulum</a></li>
+                                    <li><a href="{{url('informasiGuru')}}">Informasi Guru</a></li>
+                                    <li><a href="{{url('informasiMurid')}}">Informasi Murid</a></li>
                                 </ul>
                             </li>
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Profile<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url('tentangSekolah') }}">Tentang Sekolah</a></li>
+                                    <li><a href="{{ url('daftarMurid') }}">Sejarah Singkat</a></li>
+                                    <li><a href="{{ url('visimisi') }}">Visi dan Misi</a></li>
+                                    <li><a href="{{ url('daftarMurid') }}">Guru dan Staff</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Prestasi<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url('daftarMurid') }}">Siswa</a></li>
+                                    <li><a href="{{ url('daftarMurid') }}">Guru</a></li>
+                                    <li><a href="{{ url('daftarMurid') }}">Sekolah</a></li>
+                                </ul>
+                            </li>
+
                             @if (Route::has('login'))
                                 <li class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                                     @auth
@@ -270,6 +288,7 @@
 
     <!--Custom JS-->
     <script src="assets/js/custom.js"></script>
+
 
 </body>
 

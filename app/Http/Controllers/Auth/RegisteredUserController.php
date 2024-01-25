@@ -91,9 +91,8 @@ class RegisteredUserController extends Controller
             Murid::create($validasi);
             return redirect('adminMurid')->with('success', 'Murid berhasil ditambahkan');;
         }else {
-            
-        }
 
+        }
 
     }
 }

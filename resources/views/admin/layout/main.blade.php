@@ -24,8 +24,6 @@
     <title>Sekolah</title>
     <link rel="shortcut icon" type="image/png" href="../../assetsAdmin/images/logos/favicon.png" />
     <link rel="stylesheet" href="../../assetsAdmin/css/styles.min.css" />
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <!-- Select2 CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
@@ -38,7 +36,7 @@
 <body>
 
     @if (Session::get('success'))
-        <div class="alert alert-success"
+        <div class="alert alert-success" id='alert'
             style="position: fixed; top: 10px; right: 10px; z-index: 1000; opacity: 1; transition: opacity 2s ease-in-out;">
             {{ Session::get('success') }}
         </div>
@@ -341,8 +339,9 @@
     <script src="../assetsAdmin/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../assetsAdmin/libs/simplebar/dist/simplebar.js"></script>
     <script src="../assetsAdmin/js/dashboard.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <script>
-        // Menyembunyikan alert setelah 3 detik
         setTimeout(function() {
             var alertElement = document.getElementById('alert');
             if (alertElement) {
@@ -356,6 +355,10 @@
             }
         }, 3000);
     </script>
+
+
+    <!-- Script Pencarian -->
+
 </body>
 
 </html>

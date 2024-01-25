@@ -84,6 +84,8 @@
                 <input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation"
                     required autocomplete="new-password" placeholder="Konfirmasi Password" />
 
+                <input type="hidden" name="role" value="admin"/>
+
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 <button type="submit">Sign Up</button>
             </form>
@@ -117,7 +119,7 @@
                 <div class="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
                     <p>Enter your personal details and start journey with us</p>
-                    {{-- <button type="submit" class="ghost" id="signUp">Sign Up</button> --}}
+                    <button type="submit" class="ghost" id="signUp">Sign Up</button>
                 </div>
             </div>
         </div>

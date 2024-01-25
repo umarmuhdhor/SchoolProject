@@ -32,6 +32,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DisplayController::class,'index'])->name('welcome');
 Route::get('/daftarMurid', [DisplayController::class,'daftarMurid'])->name('daftarMurid');
+Route::get('/tentangSekolah', [DisplayController::class,'tentangSekolah'])->name('tentangSekolah');
+Route::get('/sejarah', [DisplayController::class,'sejarah'])->name('sejarah');
+Route::get('/visimisi', [DisplayController::class,'visimisi'])->name('visimisi');
+Route::get('/ekskul', [DisplayController::class,'ekskul'])->name('ekskul');
+Route::get('/informasiGuru', [DisplayController::class,'informasiGuru'])->name('informasiGuru');
+Route::get('/informasiMurid', [DisplayController::class,'informasiMurid'])->name('informasiMurid');
 Route::get('/prestasi', [PrestasiMuridController::class,'display'])->name('prestasi');
 Route::get('/ppdb', function () {
     return view('ppdb');

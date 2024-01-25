@@ -248,7 +248,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     background-size:cover;
     text-align: center;
     height:600px;
-    z-index: 1;
+    z-index: 0;
 }
 .welcome-hero:before{
     position: absolute;

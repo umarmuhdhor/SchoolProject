@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ekskuls', function (Blueprint $table) {
-            $table->uuid('idEkskul');
-            $table->primary('idEkskul');
-            $table->string('nama', 45);
-            $table->string('status', 50);
+        Schema::create('kegiatanekskuls', function (Blueprint $table) {
+            $table->id();
+            $table->string('judulKegiatan');
             $table->string('foto', 50);
-            $table->uuid('idGuru');
-            $table->foreign('idGuru')->references('idGuru')->on('gurus')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->date('tanggal');
+            $table->String('ringkasan');
+            $table->uuid('idEkskul');
+            $table->foreign('idEkskul')->references('idEkskul')->on('ekskuls')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ekskuls');
+        Schema::dropIfExists('kegiatanekskuls');
     }
 };
