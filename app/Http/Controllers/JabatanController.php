@@ -2,17 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\guru;
 use App\Models\jabatan;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class JabatanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function getGuruList(Request $request)
+    {
+        $term = $request->input('term');
+
+        $guruList = guru::where('nama', 'LIKE', '%' . $term . '%')->pluck('nama');
+
+        return response()->json($guruList);
+    }
     public function index()
     {
         //
+        $jabatan = jabatan::all();
+        return view('admin.jabatan.index')->with('jabatan', $jabatan);
     }
 
     /**
@@ -21,6 +33,8 @@ class JabatanController extends Controller
     public function create()
     {
         //
+        $jabatan = jabatan::all();
+        return view('admin.jabatan.create')->with('jabatan', $jabatan);
     }
 
     /**
@@ -29,6 +43,15 @@ class JabatanController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'jabatan' => 'required',
+            'guru' => [
+                'required',
+                Rule::exists('gurus', 'nama'), // Pastikan nama guru ada dalam tabel guru
+            ],
+            'tahun' => 'required',
+            'status' => 'required',
+        ]);
     }
 
     /**

@@ -149,6 +149,14 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminJabatan') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-alert-circle"></i>
+                                </span>
+                                <span class="hide-menu">Jabatan</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('adminMapel') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
