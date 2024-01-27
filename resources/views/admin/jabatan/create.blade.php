@@ -14,6 +14,15 @@
                                     <label for="jabatan">Jabatan</label>
                                     <input type="text" class="form-control" name="jabatan" placeholder="Jabatan"
                                         value="{{ old('jabatan') }}">
+                                    {{-- disni ado 3 option
+                                        1. Guru
+                                        2. Pejabaaat
+                                        3. Staff
+
+                                        kalo guru gek bawah nyo ado mapel apo.
+                                        nah kalo pejabat ni sebenenyo langsong kenla
+                                        staff ni gek buat be table 1 lagi eee, jadi ck ado table guru?
+                                        --}}
                                     @error('jabatan')
                                         <label for-"jabatan" class="text-danger">{{ $message }}</label>
                                     @enderror

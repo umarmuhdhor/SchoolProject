@@ -7,7 +7,7 @@
                     <h5 class="card-title fw-semibold mb-4">Tambahkan Ekskul</h5>
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" method="POST" action="{{ route('adminBerita.store') }}"
+                            <form class="forms-sample" method="POST" action="{{ route('adminEkskul.store') }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group mb-3">
@@ -32,17 +32,16 @@
                                     <label for="exampleInputUsername2">Status</label>
                                     <select name="status" class="form-control">
                                         <option value="aktif">aktif</option>
-                                        <option value="nonAktif">tidak aktif</option>
+                                        <option value="tidak aktif">tidak aktif</option>
                                     </select>
                                     {{-- @error('mapel_id')
                                         <label for="name" class="text-danger">{{ $$message }}</label>
                                     @enderror --}}
                                 </div>
-
                                 <div style="margin-bottom: 15px;">
                                     <label for="guru" style="display: block; margin-bottom: 5px;">Pembimbing /
                                         Guru</label>
-                                    <select class="guruSelector" style="width: 100%;height: 200px;">
+                                    <select name="idGuru" class="guruSelector" style="width: 100%;height: 200px;">
                                         @foreach ($guru as $item)
                                             <option value="{{ $item->idGuru }}">{{ $item->nama }}</option>
                                         @endforeach
@@ -51,7 +50,7 @@
 
                                 <div style="margin-bottom: 15px;">
                                     <label for="guru" style="display: block; margin-bottom: 5px;">Ketua / Murid</label>
-                                    <select class="guruSelector" style="width: 100%;height: 200px;">
+                                    <select name="idMurid" class="guruSelector" style="width: 100%;height: 200px;">
                                         @foreach ($murid as $item)
                                             <option value="{{ $item->idMurid }}">{{ $item->nama }}</option>
                                         @endforeach
@@ -60,15 +59,26 @@
 
                                 <div style="margin-bottom: 15px;">
                                     <label for="guru" style="display: block; margin-bottom: 5px;">Periode</label>
-                                    <select class="guruSelector" style="width: 100%;height: 200px;">
+                                    <select name="idPeriode" class="guruSelector" style="width: 100%;height: 200px;">
                                         @foreach ($periode as $item)
-                                            <option value="{{ $item->idPeriode }}">{{ $item->tahunPeriode }} || {{$item->semester}}</option>
+                                            <option value="{{ $item->idPeriode }}">{{ $item->tahunPeriode }} ||
+                                                {{ $item->semester }}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
+                                <div class="form-group mb-3">
+                                    <label for="foto">Logo Ekskul</label>
+                                    <input type="file" class="form-control" name="foto" placeholder="Foto"
+                                        value="{{ old('foto') }}" accept="image/png, image/jpeg">
+                                    @error('foto')
+                                        <label for-"foto" class="text-danger">{{ $message }}</label>
+                                    @enderror
+                                </div>
+
+
                                 <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
-                                <a href="{{ url('admindeskripsi') }}" class="btn btn-light"
+                                <a href="{{ url('adminEkskul') }}" class="btn btn-light"
                                     fdprocessedid="s74qgr">Batal</button>
                             </form>
                         </div>

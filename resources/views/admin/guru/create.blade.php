@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="foto">Thumbnail
+                    <label for="foto">Foto Guru
 
                     </label>
                     <input type="file" class="form-control" name="foto" placeholder="Foto" value="{{ old('foto') }}"

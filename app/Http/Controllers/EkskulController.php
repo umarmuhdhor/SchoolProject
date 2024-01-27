@@ -40,7 +40,28 @@ class EkskulController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validasi = $request->validate([
+            "nama" => "required",
+            "status" => "required",
+            "deskripsi" => "required",
+            "idGuru" => "required",
+            "idMurid" => "required",
+            "idPeriode" => "required",
+            "foto" => "image",
+        ]);
+
+        $ext = $request->foto->getClientOriginalExtension();
+
+        // Buat nama file baru dengan timestamp atau string acak
+        $newFileName = uniqid() . '.' . $ext;
+
+        // Validasi foto menggunakan nama file baru
+        $validasi["foto"] = $newFileName;
+
+        // Upload file foto ke dalam folder public
+        $request->foto->move(public_path('LogoEkskul'), $newFileName);
+        ekskul::create($validasi);
+        return redirect("adminEkskul")->with("success", "Data ekskul berhasil disimpan");
     }
 
     /**
