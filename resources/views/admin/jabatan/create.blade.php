@@ -19,10 +19,21 @@
                                     @enderror
                                 </div>
 
+                                <div style="margin-bottom: 15px;">
+                                    <label for="guru" style="display: block; margin-bottom: 2px;">Guru</label>
+                                    <select class="guruSelector"
+                                        style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid gray;height ">
+                                        @foreach ($guru as $item)
+                                            <option value="{{$item->idGuru}}">{{$item->nama}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+
                                 <div class="form-group mb-3">
                                     <label for="guru">Guru</label>
-                                    <input type="text" class="form-control" name="guru"
-                                        placeholder="Guru" value="{{ old('guru') }}">
+                                    <input type="text" class="form-control" name="guru" placeholder="Guru"
+                                        value="{{ old('guru') }}">
                                     @error('guru')
                                         <label for="guru" class="text-danger">{{ $message }}</label>
                                     @enderror
@@ -50,6 +61,12 @@
 
     <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 
 
+    <script>
+        $(".guruSelector").select2();
+    </script>
 @endsection

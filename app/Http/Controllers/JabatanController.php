@@ -12,14 +12,6 @@ class JabatanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function getGuruList(Request $request)
-    {
-        $term = $request->input('term');
-
-        $guruList = guru::where('nama', 'LIKE', '%' . $term . '%')->pluck('nama');
-
-        return response()->json($guruList);
-    }
     public function index()
     {
         //
@@ -33,8 +25,8 @@ class JabatanController extends Controller
     public function create()
     {
         //
-        $jabatan = jabatan::all();
-        return view('admin.jabatan.create')->with('jabatan', $jabatan);
+        $guru = guru::all();
+        return view('admin.jabatan.create')->with('guru', $guru);
     }
 
     /**
