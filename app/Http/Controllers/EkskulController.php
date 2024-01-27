@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ekskul;
+use App\Models\guru;
 use Illuminate\Http\Request;
 
 class EkskulController extends Controller
@@ -13,6 +14,8 @@ class EkskulController extends Controller
     public function index()
     {
         //
+        $ekskul = ekskul::all();
+        return view('admin.ekskul.index')->with('ekskul', $ekskul);
     }
 
     /**
@@ -21,6 +24,8 @@ class EkskulController extends Controller
     public function create()
     {
         //
+        $guru = guru::all();
+        return view('admin.ekskul.create')->with('guru', $guru);
     }
 
     /**

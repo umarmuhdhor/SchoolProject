@@ -5,10 +5,10 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <h5 class="card-title fw-semibold mb-4">Berita
-                            <a href="{{ route('adminBerita.create') }}"><span class="btn btn-outline-primary mx-3 ">Tambah Berita</span></a>
+                        <h5 class="card-title fw-semibold mb-4">Ekstrakulikuler
+                            <a href="{{ route('adminEkskul.create') }}"><span class="btn btn-outline-primary mx-3 ">Tambah Berita</span></a>
                         </h5>
-                        @foreach ($berita as $item)
+                        @foreach ($ekskul as $item)
                         <div class="col-md-4">
                             <div class="card">
                                 <img src="foto/{{$item->foto}}" class="card-img-top" alt="..." width="20" height="230">
