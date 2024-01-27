@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ekskul;
 use App\Models\guru;
+use App\Models\murid;
+use App\Models\periode;
 use Illuminate\Http\Request;
 
 class EkskulController extends Controller
@@ -24,8 +26,13 @@ class EkskulController extends Controller
     public function create()
     {
         //
+        $murid = murid::all();
+        $periode = periode::all();
         $guru = guru::all();
-        return view('admin.ekskul.create')->with('guru', $guru);
+        return view('admin.ekskul.create')
+            ->with('guru', $guru)
+            ->with('murid', $murid)
+            ->with('periode', $periode);
     }
 
     /**

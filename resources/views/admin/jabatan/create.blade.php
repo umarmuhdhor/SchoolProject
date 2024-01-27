@@ -20,23 +20,13 @@
                                 </div>
 
                                 <div style="margin-bottom: 15px;">
-                                    <label for="guru" style="display: block; margin-bottom: 2px;">Guru</label>
+                                    <label for="guru" style="display: block; margin-bottom: 5px;">Guru</label>
                                     <select class="guruSelector"
-                                        style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid gray;height ">
+                                        style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid gray;">
                                         @foreach ($guru as $item)
                                             <option value="{{$item->idGuru}}">{{$item->nama}}</option>
                                         @endforeach
                                     </select>
-                                </div>
-
-
-                                <div class="form-group mb-3">
-                                    <label for="guru">Guru</label>
-                                    <input type="text" class="form-control" name="guru" placeholder="Guru"
-                                        value="{{ old('guru') }}">
-                                    @error('guru')
-                                        <label for="guru" class="text-danger">{{ $message }}</label>
-                                    @enderror
                                 </div>
 
                                 <div class="form-group mb-3">

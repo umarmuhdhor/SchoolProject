@@ -11,57 +11,64 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <label for="jabatan">Nama</label>
-                                    <input type="text" class="form-control" name="jabatan" placeholder="Jabatan"
-                                        value="{{ old('jabatan') }}">
-                                    @error('jabatan')
-                                        <label for-"jabatan" class="text-danger">{{ $message }}</label>
+                                    <label for="name">Nama</label>
+                                    <input type="text" class="form-control" name="nama" placeholder="Nama Ekskul"
+                                        value="{{ old('nama') }}">
+                                    @error('nama')
+                                        <label for-"nama" class="text-danger">{{ $message }}</label>
                                     @enderror
                                 </div>
 
-
+                                <div class="form-group mb-3">
+                                    <label for="deskripsi">Deskripsi`</label>
+                                    <input type="text" class="form-control" name="deskripsi" placeholder="Isi deskripsi"
+                                        value="{{ old('deskripsi') }}">
+                                    @error('deskripsi')
+                                        <label for-"deskripsi" class="text-danger">{{ $message }}</label>
+                                    @enderror
+                                </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="tahun">Deskripsi`</label>
-                                    <input type="text" class="form-control" name="tahun" placeholder="Isi Berita"
-                                        value="{{ old('berita') }}">
-                                    @error('berita')
-                                        <label for-"tahun" class="text-danger">{{ $message }}</label>
-                                    @enderror
+                                    <label for="exampleInputUsername2">Status</label>
+                                    <select name="status" class="form-control">
+                                        <option value="aktif">aktif</option>
+                                        <option value="nonAktif">tidak aktif</option>
+                                    </select>
+                                    {{-- @error('mapel_id')
+                                        <label for="name" class="text-danger">{{ $$message }}</label>
+                                    @enderror --}}
                                 </div>
 
                                 <div style="margin-bottom: 15px;">
-                                    <label for="guru" style="display: block; margin-bottom: 5px;">Pembimbing / Guru</label>
-                                    <select class="guruSelector"
-                                        style="width: 100%;height: 200px;">
+                                    <label for="guru" style="display: block; margin-bottom: 5px;">Pembimbing /
+                                        Guru</label>
+                                    <select class="guruSelector" style="width: 100%;height: 200px;">
                                         @foreach ($guru as $item)
-                                            <option value="{{$item->idGuru}}">{{$item->nama}}</option>
+                                            <option value="{{ $item->idGuru }}">{{ $item->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div style="margin-bottom: 15px;">
                                     <label for="guru" style="display: block; margin-bottom: 5px;">Ketua / Murid</label>
-                                    <select class="guruSelector"
-                                        style="width: 100%;height: 200px;">
-                                        @foreach ($guru as $item)
-                                            <option value="{{$item->idGuru}}">{{$item->nama}}</option>
+                                    <select class="guruSelector" style="width: 100%;height: 200px;">
+                                        @foreach ($murid as $item)
+                                            <option value="{{ $item->idMurid }}">{{ $item->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div style="margin-bottom: 15px;">
                                     <label for="guru" style="display: block; margin-bottom: 5px;">Periode</label>
-                                    <select class="guruSelector"
-                                        style="width: 100%;height: 200px;">
-                                        @foreach ($guru as $item)
-                                            <option value="{{$item->idGuru}}">{{$item->nama}}</option>
+                                    <select class="guruSelector" style="width: 100%;height: 200px;">
+                                        @foreach ($periode as $item)
+                                            <option value="{{ $item->idPeriode }}">{{ $item->tahunPeriode }} || {{$item->semester}}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
-                                <a href="{{ url('adminBerita') }}" class="btn btn-light"
+                                <a href="{{ url('admindeskripsi') }}" class="btn btn-light"
                                     fdprocessedid="s74qgr">Batal</button>
                             </form>
                         </div>
