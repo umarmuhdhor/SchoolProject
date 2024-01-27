@@ -63,7 +63,6 @@ Route::get('/admin', function () {
     return view('admin/dashboard');
 })->middleware(['auth', 'verified','checkRole:admin']);
 
-Route::get('/getGuruList', [JabatanController::class, 'getGuruList'])->name('getGuruList');
 // Route::resource('/berita', BeritaController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminBerita', BeritaController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminGuru', GuruController::class)->middleware(['auth', 'verified','checkRole:admin']);

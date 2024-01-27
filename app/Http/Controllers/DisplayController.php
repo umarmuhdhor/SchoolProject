@@ -58,8 +58,7 @@ class DisplayController extends Controller
     public function sejarah(){
 
         $sekolah = tentangSekolah::all();
-        return view("tentangSekolah")
-            ->with("sekolah", $sekolah);
+        return view("sejarah");
     }
 
     public function visimisi(){

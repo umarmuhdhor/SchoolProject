@@ -142,7 +142,7 @@
                                         class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('tentangSekolah') }}">Tentang Sekolah</a></li>
-                                    <li><a href="{{ url('daftarMurid') }}">Sejarah Singkat</a></li>
+                                    <li><a href="{{ url('sejarah') }}">Sejarah Singkat</a></li>
                                     <li><a href="{{ url('visimisi') }}">Visi dan Misi</a></li>
                                     <li><a href="{{ url('daftarMurid') }}">Guru dan Staff</a></li>
                                 </ul>
