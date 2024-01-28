@@ -14,4 +14,11 @@ class ekskul extends Model
     protected $primaryKey = 'idEkskul';
     protected $keyType = 'string';
 
+    public function guru() {
+        return $this->belongsTo(Guru::class, 'idGuru');
+    }
+
+    public function periode() {
+        return $this->belongsTo(Periode::class, 'idPeriode');
+    }
 }

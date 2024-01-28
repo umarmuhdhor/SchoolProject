@@ -1,7 +1,7 @@
 @extends('layout.main')
 @section('content')
-    <!-- Student Table start -->
-    <section id="student-table" style="margin : 100px 0px">
+    <!-- item Table start -->
+    <section id="item-table" style="margin : 100px 0px">
         <div class="container">
             <h1 style="text-align: center; margin-bottom: 20px;">Data Ekstrakulikuler</h1>
 
@@ -16,6 +16,7 @@
                         <th style="padding: 10px; border: 1px solid #ddd; width: 5%;">Nomor</th>
                         <th style="padding: 10px; border: 1px solid #ddd; width: 40%;">Nama Ekskul</th>
                         <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Pembina</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Kegiatan</th>
                         <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Status</th>
                     </tr>
                 </thead>
@@ -24,13 +25,14 @@
                         $nomorekskul = 1;
                     @endphp
 
-                    @foreach ($murid as $student)
-                        <tr class="ekskul-row" data-tahun="{{ $student->tahunLulus }}">
+                    @foreach ($ekskul as $item)
+                        <tr class="ekskul-row" data-tahun="{{ $item->tahunLulus }}">
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $nomorekskul++ }}</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $student->nama }}</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">
-                                {{ $student->jk == 'lk' ? 'Laki-Laki' : 'Perempuan' }}</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $student->tanggalPendaftara }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $item->nama }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $item->guru->nama }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $item->idEkskul }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $item->status }}</td>
+
                         </tr>
                     @endforeach
                 </tbody>
@@ -38,7 +40,7 @@
 
         </div>
     </section>
-    <!-- Student Table end -->
+    <!-- item Table end -->
 
     <!--reviews start -->
     <section id="reviews" class="reviews">
@@ -79,7 +81,7 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <!-- JavaScript for Student Table -->
+    <!-- JavaScript for item Table -->
     <script>
         $(document).ready(function() {
             $("#searchInput").on("keyup", function() {
@@ -90,24 +92,24 @@
             });
         });
     </script>
-    <!-- JavaScript for Student Table -->
+    <!-- JavaScript for item Table -->
     <script>
         $(document).ready(function() {
             var rowsPerPage = 10; // Tentukan jumlah baris yang ditampilkan per halaman
             var currentPage = 1;
 
             // Hitung jumlah halaman
-            var totalRows = $(".student-row").length;
+            var totalRows = $(".item-row").length;
             var totalPages = Math.ceil(totalRows / rowsPerPage);
 
             function showPage(page) {
-                $(".student-row").hide();
+                $(".item-row").hide();
 
                 // Tampilkan baris pada halaman yang sesuai
                 var start = (page - 1) * rowsPerPage;
                 var end = start + rowsPerPage;
 
-                $(".student-row").slice(start, end).show();
+                $(".item-row").slice(start, end).show();
             }
 
             function updatePaginationButtons() {

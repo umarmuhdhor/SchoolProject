@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\berita;
+use App\Models\ekskul;
 use App\Models\guru;
 use App\Models\informasi;
 use App\Models\murid;
@@ -41,10 +42,12 @@ class DisplayController extends Controller
         $guru = guru::all();
         $murid = murid::all();
         $berita = berita::all();
+        $ekskul = ekskul::all();
         $visi = visimisi::all();
         return view("ekskul")
             ->with("berita", $berita)
             ->with("murid", $murid)
+            ->with("ekskul", $ekskul)
             ->with("guru", $guru);
     }
 
