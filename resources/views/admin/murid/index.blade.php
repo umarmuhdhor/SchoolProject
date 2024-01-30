@@ -9,16 +9,42 @@
                     </a>
                 </h5>
 
-                <!-- Kolom Pencarian -->
-                <div class="mb-3">
-                    <label for="searchInput" class="form-label">Cari Murid:</label>
-                    <input type="text" class="form-control" id="searchInput" placeholder="Nama Murid">
+                <div class="row">
+                    <!-- Kolom Pencarian -->
+                    <div class="col-md-6 mb-3">
+                        <label for="searchInput" class="form-label">Cari Murid:</label>
+                        <input type="text" class="form-control" id="searchInput" placeholder="Nama Murid">
+                    </div>
+
+                    <!-- Filter untuk memilih tahun penerimaan -->
+                    <div class="col-md-6 mb-3">
+                        <label for="tahunFilter" class="form-label">Filter Tahun Penerimaan:</label>
+                        <select id="tahunFilter" class="form-control" onchange="filterByYear()">
+                            <option value="">Semua Tahun</option>
+                            @php
+                                $distinctYears = [];
+                                foreach ($murid as $item) {
+                                    $year = \Carbon\Carbon::parse($item->tanggalPenerimaan)->format('Y');
+                                    if (!in_array($year, $distinctYears)) {
+                                        $distinctYears[] = $year;
+                                    }
+                                }
+                            @endphp
+                            @foreach ($distinctYears as $year)
+                                <option value="{{ $year }}">{{ $year }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 <!-- Daftar Murid -->
                 <div class="row" id="muridList">
                     @foreach ($murid as $item)
-                        <div class="col-md-12 mb-3 murid-card" data-nama="{{ strtolower($item->nama) }}">
+                        @php
+                            $year = \Carbon\Carbon::parse($item->tanggalPenerimaan)->format('Y');
+                        @endphp
+                        <div class="col-md-12 mb-3 murid-card" data-nama="{{ strtolower($item->nama) }}"
+                            data-tahun="{{ $year }}">
                             <div class="card d-flex flex-row align-items-center" style="padding-right: 10px">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->nama }}</h5>
@@ -51,5 +77,14 @@
                 });
             });
         });
+
+        function filterByYear() {
+            var selectedYear = $("#tahunFilter").val();
+
+            $(".murid-card").filter(function () {
+                var tahunMurid = $(this).data("tahun").toString();
+                $(this).toggle(selectedYear === "" || tahunMurid === selectedYear);
+            });
+        }
     </script>
 @endsection

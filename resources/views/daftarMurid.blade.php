@@ -1,9 +1,19 @@
 @extends('layout.main')
 @section('content')
+    <!--welcome-hero start -->
+    <section id="home" class="welcome-hero2">
+        <div class="container">
+            <div class="welcome-hero-txt2">
+                <h2>Daftar Murid dan Alumni
+
+                </h2>
+            </div>
+        </div>
+    </section><!--/.welcome-hero-->
+    <!--welcome-hero end -->
     <!-- Student Table start -->
     <section id="student-table" style="margin : 100px 0px">
         <div class="container">
-            <h1 style="text-align: center; margin-bottom: 20px;">Data Siswa dan Alumni</h1>
 
             <!-- Dropdown untuk memilih tipe data -->
             <div style="margin-bottom: 15px;">
@@ -24,14 +34,17 @@
                 <thead style="background-color: #f2f2f2;">
                     <tr>
                         <th style="padding: 10px; border: 1px solid #ddd; width: 5%;">Nomor</th>
-                        <th style="padding: 10px; border: 1px solid #ddd; width: 40%;">Nama</th>
-                        <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Jenis Kelamin</th>
-                        <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Tahun Pendaftaran</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; width: 30%;">Nama</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; width: 5%;">Foto</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; width: 15%;">Jenis Kelamin</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; width: 15%;">Angkatan || Tahun Masuk</th>
+                        <!-- Tambahkan kolom foto -->
                     </tr>
                 </thead>
                 <tbody>
                     @php
                         $nomorSiswa = 1;
+                        use Carbon\Carbon;
                     @endphp
 
                     @foreach ($murid as $student)
@@ -39,8 +52,16 @@
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $nomorSiswa++ }}</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $student->nama }}</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">
-                                {{ $student->jk == 'lk' ? 'Laki-Laki' : 'Perempuan' }}</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $student->tanggalPendaftara }}</td>
+                                <img src="fotoMurid/{{ $student->foto }}" alt="Foto Siswa" width="50"
+                                    style="border-radius: 50%;">
+                            </td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">
+                                {{ $student->jk == 'lk' ? 'Laki-Laki' : 'Perempuan' }}
+                            </td>
+                            <td style="padding: 10px; border: 1px solid #ddd">
+                                {{ \Carbon\Carbon::parse($student->tanggalPenerimaan)->format('Y') }}
+                            </td>
+
                         </tr>
                     @endforeach
                 </tbody>

@@ -1,9 +1,19 @@
 @extends('layout.main')
 @section('content')
+    <!--welcome-hero start -->
+    <section id="home" class="welcome-hero2">
+        <div class="container">
+            <div class="welcome-hero-txt2">
+                <h2>
+                    Data Ektrakulikuler
+                </h2>
+            </div>
+        </div>
+    </section><!--/.welcome-hero-->
+    <!--welcome-hero end -->
     <!-- item Table start -->
     <section id="item-table" style="margin : 100px 0px">
         <div class="container">
-            <h1 style="text-align: center; margin-bottom: 20px;">Data Ekstrakulikuler</h1>
 
             <!-- Search Input -->
             <input type="text" id="searchInput" placeholder="Cari nama ekskul atau alumni"

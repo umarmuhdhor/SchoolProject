@@ -118,23 +118,22 @@
                     <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
                             <li><a href="{{ url('/') }}">home</a></li>
-                            <li class="scroll"><a href="/">Berita</a></li>
                             <li class="dropdown">
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown">Kesiswaan<span
                                         class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('daftarMurid') }}">Data Siswa</a></li>
-                                    <li><a href="">Osis</a></li>
+                                    {{-- <li><a href="{{url('osis')}}">Osis</a></li> --}}
                                     <li><a href="{{ url('ekskul') }}">Ekskul</a></li>
+                                    <li><a href="{{ url('daftarMurid') }}">Siswa dan Alumni</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown">Kurikulum<span
                                         class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{url('informasiGuru')}}">Informasi Kurikulum</a></li>
-                                    <li><a href="{{url('informasiGuru')}}">Informasi Guru</a></li>
-                                    <li><a href="{{url('informasiMurid')}}">Informasi Murid</a></li>
+                                    <li><a href="{{ url('informasiGuru') }}">Informasi Guru</a></li>
+                                    <li><a href="{{ url('informasiMurid') }}">Informasi Murid</a></li>
+                                    <li><a href="{{ url('informasiKurikulum') }}">Informasi Kurikulum</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -188,22 +187,6 @@
     </section><!-- /.top-area-->
     <!-- top-area End -->
 
-    <!--welcome-hero start -->
-    <section id="home" class="welcome-hero">
-        <div class="container">
-            <div class="welcome-hero-txt">
-                {{-- tagline/slogan --}}
-                <h2>Sekolah adalah tempat belajar<br> juga menuntut ilmu </h2>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit inventore nulla nisi sit soluta ea
-                    distinctio! Numquam qui amet repudiandae facere autem reprehenderit natus excepturi, harum,
-                    doloremque officiis perspiciatis tempora?
-                </p>
-            </div>
-        </div>
-    </section><!--/.welcome-hero-->
-    <!--welcome-hero end -->
-
     @yield('content');
 
     <!--footer start-->
@@ -221,7 +204,6 @@
                             <li class="scroll"><a href="#works">Visi Misi</a></li>
                             <li class="scroll"><a href="#explore">Tentang Kami</a></li>
                             <li class="scroll"><a href="#reviews">Staf</a></li>
-                            <li class="scroll"><a href="#blog">Berita</a></li>
                             <li class="scroll"><a href="#contact">contact</a></li>
                             <li class=" scroll"><a href="#contact">my account</a></li>
                         </ul><!--/.nav -->

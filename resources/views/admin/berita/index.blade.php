@@ -15,7 +15,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{$item->judulBerita}}</h5>
                                     <p class="card-text">{{$item->sinopsis}}</p>
-                                    <a href="#" class="btn btn-primary">Edit</a>
+                                    <a href="{{url('adminBerita.edit')}}" class="btn btn-primary">Edit</a>
                                 </div>
                             </div>
                         </div>

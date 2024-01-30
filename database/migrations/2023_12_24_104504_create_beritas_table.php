@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('beritas', function (Blueprint $table) {
             $table->uuid('idBerita');
             $table->primary('idBerita');
-            $table->string('judulBerita', 45);
-            $table->string('sinopsis',300);
+            $table->string('judulBerita');
+            $table->longText('sinopsis');
             $table->longText('isiBerita');
             $table->string('foto', 50);
             $table->timestamps();

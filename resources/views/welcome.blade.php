@@ -1,5 +1,21 @@
 @extends('layout.main')
 @section('content')
+    <!--welcome-hero start -->
+    <section id="home" class="welcome-hero">
+        <div class="container">
+            <div class="welcome-hero-txt">
+                {{-- tagline/slogan --}}
+                <h2>Sekolah adalah tempat belajar<br> juga menuntut ilmu </h2>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit inventore nulla nisi sit soluta ea
+                    distinctio! Numquam qui amet repudiandae facere autem reprehenderit natus excepturi, harum,
+                    doloremque officiis perspiciatis tempora?
+                </p>
+            </div>
+        </div>
+    </section><!--/.welcome-hero-->
+    <!--welcome-hero end -->
+
     <!--list-topics start -->
     <section id="list-topics" class="list-topics">
         <div class="container">
@@ -56,9 +72,10 @@
                                 {{-- <div class="single-how-works-icon">
                                 <i class="flaticon-networking"></i>
                             </div> --}}
-                                <h2 ><a href="#"><span style="text-transform: capitalize;"> {{$item->judul}}</span></a></h2>
+                                <h2><a href="#"><span style="text-transform: capitalize;">
+                                            {{ $item->judul }}</span></a></h2>
                                 <p style="text-align: justify;text-justify: inter-word;hyphens: auto;">
-                                    {{$item->misi}}
+                                    {{ $item->misi }}
                                 </p>
                             </div>
                         </div>

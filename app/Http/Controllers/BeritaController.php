@@ -10,7 +10,7 @@ class BeritaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    
+
     public function index()
     {
         //
@@ -70,6 +70,7 @@ class BeritaController extends Controller
     public function edit(berita $berita)
     {
         //
+        return view("admin.berita.edit")->with("berita", $berita);
     }
 
     /**
@@ -78,6 +79,7 @@ class BeritaController extends Controller
     public function update(Request $request, berita $berita)
     {
         //
+        
     }
 
     /**
