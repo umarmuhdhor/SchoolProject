@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\guru;
 use App\Models\jabatan;
+use App\Models\periode;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -26,7 +27,8 @@ class JabatanController extends Controller
     {
         //
         $guru = guru::all();
-        return view('admin.jabatan.create')->with('guru', $guru);
+        $periode = periode::all();
+        return view('admin.jabatan.create')->with('guru', $guru)->with('periode',$periode);
     }
 
     /**

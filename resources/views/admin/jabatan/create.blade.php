@@ -33,18 +33,19 @@
                                     <select class="guruSelector"
                                         style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid gray;">
                                         @foreach ($guru as $item)
-                                            <option value="{{$item->idGuru}}">{{$item->nama}}</option>
+                                            <option value="{{ $item->idGuru }}">{{ $item->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="tahun">Tahun Menjabat</label>
-                                    <input type="text" class="form-control" name="tahun" placeholder="Isi Berita"
-                                        value="{{ old('berita') }}">
-                                    @error('berita')
-                                        <label for-"tahun" class="text-danger">{{ $message }}</label>
-                                    @enderror
+                                    <select name="idPeriode" class="form-control">
+                                        @foreach ($periode as $item)
+                                            <option value="{{ $item->idPeriode }}">{{ $item->tahunPeriode }} semester
+                                                {{ $item->semester }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
