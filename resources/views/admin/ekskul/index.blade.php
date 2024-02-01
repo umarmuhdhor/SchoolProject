@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
                                         <a href="#" class="btn btn-primary">Edit</a>
-                                        <a href="#" class="btn btn-success">Tambahkan Kegiatan</a>
+                                        <a href="{{url('adminEkskul.show')}}" class="btn btn-success">Tambahkan Kegiatan</a>
                                     </div>
                                 </div>
                             </div>

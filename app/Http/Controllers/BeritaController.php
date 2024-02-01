@@ -67,9 +67,11 @@ class BeritaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(berita $berita)
+    public function edit($id)
     {
         //
+
+        $berita = berita::find($id);
         return view("admin.berita.edit")->with("berita", $berita);
     }
 
@@ -79,7 +81,7 @@ class BeritaController extends Controller
     public function update(Request $request, berita $berita)
     {
         //
-        
+
     }
 
     /**

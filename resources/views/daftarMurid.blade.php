@@ -53,7 +53,7 @@
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $student->nama }}</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">
                                 <img src="fotoMurid/{{ $student->foto }}" alt="Foto Siswa" width="50"
-                                    style="border-radius: 50%;">
+                                    style="border-radius: 100%;">
                             </td>
                             <td style="padding: 10px; border: 1px solid #ddd;">
                                 {{ $student->jk == 'lk' ? 'Laki-Laki' : 'Perempuan' }}
