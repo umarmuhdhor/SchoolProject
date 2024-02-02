@@ -14,5 +14,19 @@ class mapelGuru extends Model
     protected $primaryKey = 'idMapelGuru';
     protected $keyType = 'string';
 
+    public function periode()
+    {
+        return $this->belongsTo(Periode::class, 'idPeriode');
+    }
+
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class, 'idGuru');
+    }
+
+    public function mapel() {
+        return $this->belongsTo(Mapel::class, 'idMapel');
+    }
+
 
 }

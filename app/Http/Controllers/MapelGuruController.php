@@ -30,13 +30,10 @@ class MapelGuruController extends Controller
         $kelas = kelas::all();
         $guru = guru::all();
         $periode = periode::all();
-
-        $mapelNoGuru = mapel::whereNotIn('idMapel', function ($query) {
-            $query->select('idMapel')->from('mapel_gurus');
-        })->get();
+        $mapel = mapel::all();
 
 
-        return view("admin.mapelGuru.create")->with("kelas", $kelas)->with('guru', $guru)->with('periode', $periode)->with('mapelNoGuru',$mapelNoGuru);
+        return view("admin.mapelGuru.create")->with("kelas", $kelas)->with('guru', $guru)->with('periode', $periode)->with('mapel',$mapel);
     }
 
     /**

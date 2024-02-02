@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title fw-semibold mb-4">Kelas Baru</h5>
+                    <h5 class="card-title fw-semibold mb-4">Sesuaikan Pengajar</h5>
                     <div class="card">
                         <div class="card-body">
                             <form class="forms-sample" method="POST" action="{{ route('adminMapelGuru.store') }}"
@@ -13,7 +13,7 @@
                                 <div class="form-group mb-3">
                                     <label for="exampleInputUsername1">Mapel</label>
                                     <select name="idMapel" class="form-control">
-                                        @foreach ($mapelNoGuru as $item)
+                                        @foreach ($mapel as $item)
                                             <option value="{{ $item->idMapel }}">{{ $item->mataPelajaran }}</option>
                                         @endforeach
                                     </select>
