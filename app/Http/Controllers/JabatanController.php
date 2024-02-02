@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\guru;
 use App\Models\jabatan;
+use App\Models\mapel;
 use App\Models\periode;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -28,7 +29,8 @@ class JabatanController extends Controller
         //
         $guru = guru::all();
         $periode = periode::all();
-        return view('admin.jabatan.create')->with('guru', $guru)->with('periode',$periode);
+        $mapel = mapel::all();
+        return view('admin.jabatan.create')->with('guru', $guru)->with('periode',$periode)->with('mapel',$mapel);
     }
 
     /**
@@ -37,15 +39,16 @@ class JabatanController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
+       $validasi =  $request->validate([
             'jabatan' => 'required',
-            'guru' => [
-                'required',
-                Rule::exists('gurus', 'nama'), // Pastikan nama guru ada dalam tabel guru
-            ],
-            'tahun' => 'required',
+            'idGuru' => 'required',
+            'tahunMenjabat' => 'required',
             'status' => 'required',
         ]);
+
+        jabatan::create($validasi);
+        return redirect("adminJabatan")->with("success", "Data Jabatan berhasil disimpan");
+
     }
 
     /**
