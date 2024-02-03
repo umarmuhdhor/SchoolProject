@@ -12,19 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tentangsekolahs', function (Blueprint $table) {
-            $table->uuid('idSekolah');
-            $table->primary('idSekolah');
-            $table->string('namaSekolah', 50);
-            $table->string('alamat', 100);
-            $table->string('kelurahan', 10);
-            $table->string('kecamatan', 10);
-            $table->string('kota', 30);
-            $table->string('provinsi', 30);
-            $table->string('kodePos', 10);
-            $table->string('nomorTelpon', 17);
-            $table->string('email', 40);
-            $table->year('tahunBerdiri');
-            $table->string('akredetasi', 2);
+            $table->id();
+            $table->string('tentang',50);
+            $table->string('deskirpsi');
             $table->timestamps();
         });
     }

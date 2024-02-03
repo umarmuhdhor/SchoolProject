@@ -5,7 +5,7 @@
         <div class="container">
             <div class="welcome-hero-txt2">
                 <h2>
-                    Data Ektrakulikuler
+                    Informasi Guru
                 </h2>
             </div>
         </div>

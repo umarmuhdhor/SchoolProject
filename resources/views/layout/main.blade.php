@@ -124,7 +124,7 @@
                                 <ul class="dropdown-menu">
                                     {{-- <li><a href="{{url('osis')}}">Osis</a></li> --}}
                                     <li><a href="{{ url('ekskul') }}">Ekskul</a></li>
-                                    <li><a href="{{ url('daftarMurid') }}">Siswa dan Alumni</a></li>
+                                    <li><a href="{{ url('daftarMurid') }}">Murid dan Alumni</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

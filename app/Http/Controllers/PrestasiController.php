@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\prestasiMurid;
+use App\Models\prestasi;
 use Illuminate\Http\Request;
 
-class PrestasiMuridController extends Controller
+class PrestasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,13 @@ class PrestasiMuridController extends Controller
     public function display()
     {
         //
-        $prestasi = PrestasiMurid::all();
+        $prestasi = prestasi::all();
         return view("prestasi")->with("prestasi", $prestasi);
     }
     public function index()
     {
         //
-        $prestasi = PrestasiMurid::all();
+        $prestasi = prestasi::all();
         return view("admin.prestasi.index")->with("prestasi", $prestasi);
     }
 
@@ -30,7 +30,7 @@ class PrestasiMuridController extends Controller
     public function create()
     {
         //
-        $prestasi = PrestasiMurid::all();
+        $prestasi = prestasi::all();
         return view("admin.prestasi.create")->with("prestasi", $prestasi);
     }
 
@@ -56,16 +56,16 @@ class PrestasiMuridController extends Controller
         $validasi["foto"] = $newFileName;
 
         // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('fotoPrestasiMurid'), $newFileName);
+        $request->foto->move(public_path('fotoprestasi'), $newFileName);
 
-        prestasiMurid::create($validasi);
+        prestasi::create($validasi);
         return redirect("adminPrestasi")->with("success", "Data Prestasi berhasil disimpan");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(prestasiMurid $prestasiMurid)
+    public function show(prestasi $prestasi)
     {
         //
     }
@@ -73,7 +73,7 @@ class PrestasiMuridController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(prestasiMurid $prestasiMurid)
+    public function edit(prestasi $prestasi)
     {
         //
     }
@@ -81,7 +81,7 @@ class PrestasiMuridController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, prestasiMurid $prestasiMurid)
+    public function update(Request $request, prestasi $prestasi)
     {
         //
     }
@@ -89,7 +89,7 @@ class PrestasiMuridController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(prestasiMurid $prestasiMurid)
+    public function destroy(prestasi $prestasi)
     {
         //
     }

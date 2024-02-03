@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('prestasi_murids', function (Blueprint $table) {
+        Schema::create('prestasis', function (Blueprint $table) {
             $table->uuid('idPrestasi');
             $table->primary('idPrestasi');
             $table->string('judul', 45);
             $table->string('deskripsi');
-            $table->longText('isiPrestasi'); 
+            $table->longText('isiPrestasi');
             $table->date('tanggal');
+            $table->enum('jenis', ['guru', 'sekolah', 'murid'])->default('murid');
             $table->string('foto', 50);
             $table->timestamps();
         });

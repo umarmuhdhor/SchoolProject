@@ -16,7 +16,7 @@ return new class extends Migration
             $table->primary('idJabatan');
             $table->string('jabatan', 50);
             $table->year('tahunMenjabat');
-            $table->enum('status', ['aktif', 'tidak aktif'])->default('aktif');
+            $table->enum('status', ['aktif', 'nonAktif'])->default('aktif');
             $table->uuid('idGuru');
             $table->foreign('idGuru')->references('idGuru')->on('gurus')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

@@ -1,5 +1,16 @@
 @extends('layout.main')
 @section('content')
+    <!--welcome-hero start -->
+    <section id="home" class="welcome-hero2">
+        <div class="container">
+            <div class="welcome-hero-txt2">
+                <h2>
+                    Visi Misi
+                </h2>
+            </div>
+        </div>
+    </section><!--/.welcome-hero-->
+    <!--welcome-hero end -->
     <!--works start -->
     <section id="works" class="works">
         <div class="container" style="margin-top:100px">

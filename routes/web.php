@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DisplayController;
 use App\Http\Controllers\EkskulController;
@@ -16,7 +17,7 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\MateriMuridController;
 use App\Http\Controllers\MuridController;
 use App\Http\Controllers\PeriodeController;
-use App\Http\Controllers\PrestasiMuridController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VisimisiController;
 use App\Http\Middleware\checkRole;
@@ -41,7 +42,10 @@ Route::get('/visimisi', [DisplayController::class,'visimisi'])->name('visimisi')
 Route::get('/ekskul', [DisplayController::class,'ekskul'])->name('ekskul');
 Route::get('/informasiGuru', [DisplayController::class,'informasiGuru'])->name('informasiGuru');
 Route::get('/informasiMurid', [DisplayController::class,'informasiMurid'])->name('informasiMurid');
-Route::get('/prestasi', [PrestasiMuridController::class,'display'])->name('prestasi');
+Route::get('/prestasi', [PrestasiController::class,'display'])->name('prestasi');
+Route::get('/prestasiMurid', [PrestasiController::class,'prestasiMurid'])->name('prestasiMurid');
+Route::get('/prestasiGuru', [PrestasiController::class,'prestasiGuru'])->name('prestasiGuru');
+Route::get('/prestasiSekolah', [PrestasiController::class,'prestasiSekolah'])->name('prestasiSekolah');
 Route::get('/ppdb', function () {
     return view('ppdb');
 });
@@ -72,7 +76,7 @@ Route::resource('/adminMapel', MapelController::class)->middleware(['auth', 'ver
 Route::resource('/adminKelas', KelasController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminEkskul', GuruController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminMurid', MuridController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminPrestasi', PrestasiMuridController::class)->middleware(['auth', 'verified','checkRole:admin']);
+Route::resource('/adminPrestasi', PrestasiController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminPeriode', PeriodeController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminJadwal', JadwalController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminKelasMurid', KelasmuridController::class)->middleware(['auth', 'verified','checkRole:admin']);
@@ -82,6 +86,7 @@ Route::resource('/adminVisimisi', VisimisiController::class)->middleware(['auth'
 Route::resource('/adminJabatan', JabatanController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminEkskul', EkskulController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminKegiatanEkskul', KegiatanekskulController::class)->middleware(['auth', 'verified','checkRole:admin']);
+Route::resource('/adminAlumni', AlumniController::class)->middleware(['auth', 'verified','checkRole:admin']);
 
 Route::resource('/guruMateri', MateriController::class)->middleware(['auth', 'verified','checkRole:guru']);
 

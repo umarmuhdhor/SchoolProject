@@ -53,9 +53,9 @@
                                 <div class="ml-auto">
                                     <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
                                     <a href="#" class="btn btn-primary">Edit</a>
-                                    {{-- <a href="{{ route('adminKelasMurid.show', $item->idKelas) }}"
-                                        class="btn btn-success">Tambahkan</a>
-                                    <a href="{{ route('adminKelas.show', $item->idKelas) }}"
+                                    <a href="{{ route('adminAlumni.show', $item->idMurid) }}"
+                                        class="btn btn-success">luluskan</a>
+                                    {{-- <a href="{{ route('adminKelas.show', $item->idKelas) }}"
                                         class="btn btn-warning">Detail</a> --}}
                                 </div>
                             </div>

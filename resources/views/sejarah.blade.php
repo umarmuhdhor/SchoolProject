@@ -1,12 +1,24 @@
 @extends('layout.main')
 @section('content')
+    <!--welcome-hero start -->
+    <section id="home" class="welcome-hero2">
+        <div class="container">
+            <div class="welcome-hero-txt2">
+                <h2>
+                    Sejarah Singkat
+                </h2>
+            </div>
+        </div>
+    </section><!--/.welcome-hero-->
+    <!--welcome-hero end -->
     <!--explore start -->
     <section id="explore" class="explore">
         <div class="container">
             <div class="section-header">
                 <h2>Sejarah Singkat</h2>
                 <div class="rowSejarah">
-                    <img src="{{ asset('path/to/your/image.jpg') }}" alt="SMA Nusantara" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+                    <img src="{{ asset('path/to/your/image.jpg') }}" alt="SMA Nusantara"
+                        style="max-width: 100%; height: auto; margin-bottom: 20px;">
                     <p>
                         "SMA Nusantara":
 
