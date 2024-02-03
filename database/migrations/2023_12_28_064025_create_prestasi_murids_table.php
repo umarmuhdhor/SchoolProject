@@ -15,7 +15,9 @@ return new class extends Migration
             $table->uuid('idPrestasi');
             $table->primary('idPrestasi');
             $table->string('judul', 45);
-            $table->string('deskripsi', 150);
+            $table->string('deskripsi');
+            $table->longText('isiPrestasi'); 
+            $table->date('tanggal');
             $table->string('foto', 50);
             $table->timestamps();
         });

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('foto', 50);
             $table->date('tanggal');
             $table->String('ringkasan');
+            $table->longText('isiKegiatan');
             $table->uuid('idEkskul');
             $table->foreign('idEkskul')->references('idEkskul')->on('ekskuls')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

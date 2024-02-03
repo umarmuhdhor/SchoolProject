@@ -12,7 +12,9 @@ class KegiatanekskulController extends Controller
      */
     public function index()
     {
+
         //
+
     }
 
     /**
@@ -21,6 +23,7 @@ class KegiatanekskulController extends Controller
     public function create()
     {
         //
+        return view('admin.ekskul.tambahKegiatan');
     }
 
     /**
@@ -34,9 +37,11 @@ class KegiatanekskulController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(kegiatanekskul $kegiatanekskul)
+    public function show($id)
     {
         //
+        $kegiatan = kegiatanekskul::find($id);
+        return view('admin.ekskul.kegiatan')->with('kegiatan', $kegiatan);
     }
 
     /**

@@ -7,6 +7,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\JamPelajaranController;
+use App\Http\Controllers\KegiatanekskulController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KelasmuridController;
 use App\Http\Controllers\MapelController;
@@ -80,6 +81,7 @@ Route::resource('/adminMapelGuru', MapelGuruController::class)->middleware(['aut
 Route::resource('/adminVisimisi', VisimisiController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminJabatan', JabatanController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminEkskul', EkskulController::class)->middleware(['auth', 'verified','checkRole:admin']);
+Route::resource('/adminKegiatanEkskul', KegiatanekskulController::class)->middleware(['auth', 'verified','checkRole:admin']);
 
 Route::resource('/guruMateri', MateriController::class)->middleware(['auth', 'verified','checkRole:guru']);
 
