@@ -6,6 +6,7 @@ use App\Http\Controllers\DisplayController;
 use App\Http\Controllers\EkskulController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\InformasiController;
+use App\Http\Controllers\InformasimapelperkelasController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\JamPelajaranController;
@@ -99,6 +100,7 @@ Route::resource('/adminTentangSekolah', TentangSekolahController::class)->middle
 Route::resource('/guruMateri', MateriController::class)->middleware(['auth', 'verified','checkRole:guru']);
 Route::get('/guruPembelajaran', [KelasmapelController::class, 'display'])->middleware(['auth', 'verified', 'checkRole:guru']);
 Route::resource('/guruWaliKelas', KelasController::class)->middleware(['auth', 'verified','checkRole:guru']);
+Route::resource('/guruInformasiPerKelas', InformasimapelperkelasController::class)->middleware(['auth', 'verified','checkRole:guru']);
 
 
 Route::resource('/muridMateri', MateriMuridController::class)->middleware(['auth', 'verified','checkRole:murid']);

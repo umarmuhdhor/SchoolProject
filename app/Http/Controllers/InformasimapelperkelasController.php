@@ -13,6 +13,7 @@ class InformasimapelperkelasController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -21,6 +22,7 @@ class InformasimapelperkelasController extends Controller
     public function create()
     {
         //
+        return view('guru.pembelajaran.create');
     }
 
     /**
@@ -34,9 +36,12 @@ class InformasimapelperkelasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(informasimapelperkelas $informasimapelperkelas)
+    public function show($id)
     {
         //
+
+        $informasi = informasimapelperkelas::where('idKelasMurid',$id);
+        return view('guru.pembelajaran.informasi')->with('informasi',$informasi);
     }
 
     /**

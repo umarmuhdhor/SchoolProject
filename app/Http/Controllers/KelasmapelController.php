@@ -91,7 +91,7 @@ class KelasmapelController extends Controller
             $idGuru = guru::where('idAkun', $userId)->first()->idGuru;
             $mapelGuruIds = mapelGuru::where('idGuru', $idGuru)->pluck('idMapelGuru')->toArray();
             $kelasMapel = kelasmapel::whereIn('idMapelGuru', $mapelGuruIds)->get();
-            return view('guru.pembelajaran.index')->with('kelas', $kelasMapel);
+            return view('guru.pembelajaran.index')->with('kelasMapel', $kelasMapel);
         } else {
 
             // No user is currently logged in

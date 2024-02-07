@@ -18,6 +18,8 @@ return new class extends Migration
             $table->longText('deskripsi');
             $table->string('foto', 100)->nullable();
             $table->string('link')->nullable();
+            $table->uuid('idKelasMapel');
+            $table->foreign('idKelasMapel')->references('idKelasMapel')->on('kelasmapels')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

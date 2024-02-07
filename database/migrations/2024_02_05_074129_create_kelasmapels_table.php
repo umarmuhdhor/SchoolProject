@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('idKelas')->references('idKelas')->on('kelas')->cascadeOnDelete()->cascadeOnUpdate();
             $table->uuid('idMapelGuru');
             $table->foreign('idMapelGuru')->references('idMapelGuru')->on('mapel_gurus')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 
