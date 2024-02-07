@@ -14,7 +14,7 @@
                                 <div class="card d-flex flex-row align-items-center" style="padding-right: 10px">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $item->guru->nama }}</h5>
-                                        <p class="card-text">{{ $item->mapel->mataPelajaran }} || {{ $item->periode->tahunPeriode }}</p>
+                                        <p class="card-text">{{ $item->mapel->mataPelajaran }} || kelas :  {{$item->mapel->kelas}} || {{ $item->periode->tahunPeriode }}</p>
                                         <p class="card-text"></p>
                                     </div>
                                     <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->

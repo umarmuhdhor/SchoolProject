@@ -20,7 +20,7 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="exampleInputUsername1">Kelas</label>
+                                    <label for="exampleInputUsername1">Semester</label>
                                     <select name="semester" class="form-control">
                                         <option value="genap">Genap</option>
                                         <option value="ganjil">Ganjil</option>

@@ -17,8 +17,12 @@ return new class extends Migration
             $table->string('judul', 70);
             $table->longText('isiInformasi');
             $table->date('tanggal');
-            $table->string('file', 100);
-            $table->string('foto', 100);
+            $table->string('file', 100)->nullable();
+            $table->string('foto1', 100)->nullable();
+            $table->string('foto2', 100)->nullable();
+            $table->string('foto3', 100)->nullable();
+            $table->string('foto4', 100)->nullable();
+            $table->string('foto5', 100)->nullable();
             $table->enum('tujuan', ['murid', 'guru'])->default('murid');
             $table->timestamps();
         });

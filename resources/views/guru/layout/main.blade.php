@@ -63,19 +63,19 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ url('adminGuru') }}" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ url('guruPembelajaran') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
                                 </span>
-                                <span class="hide-menu">Pengumuman</span>
+                                <span class="hide-menu">Informasi Pembelajaran</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ url('adminGuru') }}" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ url('guruWaliKelas') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
                                 </span>
-                                <span class="hide-menu">Kelas</span>
+                                <span class="hide-menu">Kelas Saya</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

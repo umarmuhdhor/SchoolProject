@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\informasi;
+use App\Models\informasimapelperkelas;
 use Illuminate\Http\Request;
 
-class InformasiController extends Controller
+class InformasimapelperkelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,6 @@ class InformasiController extends Controller
     public function index()
     {
         //
-        $informasi = informasi::all();
-        return view('admin.informasi.index')->with('informasi', $informasi);
     }
 
     /**
@@ -23,8 +21,6 @@ class InformasiController extends Controller
     public function create()
     {
         //
-        $informasi = informasi::all();
-        return view('admin.informasi.create')->with('informasi', $informasi);
     }
 
     /**
@@ -38,7 +34,7 @@ class InformasiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(informasi $informasi)
+    public function show(informasimapelperkelas $informasimapelperkelas)
     {
         //
     }
@@ -46,7 +42,7 @@ class InformasiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(informasi $informasi)
+    public function edit(informasimapelperkelas $informasimapelperkelas)
     {
         //
     }
@@ -54,7 +50,7 @@ class InformasiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, informasi $informasi)
+    public function update(Request $request, informasimapelperkelas $informasimapelperkelas)
     {
         //
     }
@@ -62,7 +58,7 @@ class InformasiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(informasi $informasi)
+    public function destroy(informasimapelperkelas $informasimapelperkelas)
     {
         //
     }

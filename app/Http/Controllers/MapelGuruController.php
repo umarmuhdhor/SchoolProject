@@ -49,7 +49,7 @@ class MapelGuruController extends Controller
         ]);
 
         mapelGuru::create($validasi);
-        return redirect()->back()->with("success", "guru berhasil ditambahkan sebagai pengajar");
+        return redirect('adminMapelGuru')->with("success", "guru berhasil ditambahkan sebagai pengajar");
     }
 
     /**

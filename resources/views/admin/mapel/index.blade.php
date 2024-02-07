@@ -13,8 +13,8 @@
                             <div class="col-md-4">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $item->kelas }}</h5>
-                                        <p class="card-text">{{ $item->mataPelajaran }}</p>
+                                        <h5 class="card-title">{{ $item->mataPelajaran }}</h5>
+                                        <p class="card-text"> kelas : {{ $item->kelas }}</p>
                                         <a href="#" class="btn btn-primary">Edit</a>
                                     </div>
                                 </div>

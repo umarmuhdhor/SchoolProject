@@ -6,7 +6,7 @@
                 <h5 class="card-title fw-semibold mb-4">Tambahkan Ekskul</h5>
                 <div class="card">
                     <div class="card-body">
-                        <form class="forms-sample" method="POST" action="{{ route('adminEkskul.store') }}"
+                        <form class="forms-sample" method="POST" action="{{ route('adminAlumni.store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
@@ -30,7 +30,7 @@
                             <!-- Input untuk PTN -->
                             <div class="form-group mb-3" id="ptnContainer" style="display: none;">
                                 <label for="ptn">PTN</label>
-                                <input type="text" class="form-control" name="ptn" placeholder="Nama PTN">
+                                <input type="text" class="form-control" name="namaKampus" placeholder="Nama PTN">
                             </div>
 
                             <!-- Input untuk tempatKerja -->
@@ -49,7 +49,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
-                            <a href="{{ url('adminEkskul') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</a>
+                            <a href="{{ url('adminMurid') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</a>
                         </form>
                     </div>
                 </div>

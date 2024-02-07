@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('kegiatanekskuls', function (Blueprint $table) {
             $table->id();
             $table->string('judulKegiatan');
-            $table->string('foto', 50);
+            $table->string('foto1', 50)->nullable();
+            $table->string('foto2', 50)->nullable();
+            $table->string('foto3', 50)->nullable();
+            $table->string('foto4', 50)->nullable();
+            $table->string('foto5', 50)->nullable();
             $table->date('tanggal');
             $table->String('ringkasan');
             $table->longText('isiKegiatan');

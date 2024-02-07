@@ -76,7 +76,7 @@
                             <span class="hide-menu">Tampilan</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ url('adminBerita') }}" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ url('adminTentangSekolah') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-article"></i>
                                 </span>
@@ -99,6 +99,16 @@
                                     <i class="ti ti-article"></i>
                                 </span>
                                 <span class="hide-menu">Berita
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminInformasi') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-article"></i>
+                                </span>
+                                <span class="hide-menu">informasi
                                 </span>
                             </a>
                         </li>
@@ -192,6 +202,14 @@
                                     <i class="ti ti-alert-circle"></i>
                                 </span>
                                 <span class="hide-menu">Pengajar</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminSesuaikanPengajar') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-alert-circle"></i>
+                                </span>
+                                <span class="hide-menu">Kelas Pengajar</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

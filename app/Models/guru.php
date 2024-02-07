@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class guru extends Model
 {
-    use HasFactory,HasUuids;
+    use HasFactory, HasUuids;
 
-    protected $fillable = ['nama', 'noHp','email','mapel','deskripsi','jk','status','foto','idAkun'];
+    protected $fillable = ['nama', 'noHp', 'email', 'mapel', 'deskripsi', 'jk', 'status', 'foto', 'idAkun'];
     protected $primaryKey = 'idGuru';
     protected $keyType = 'string';
 
-    public function mapel() {
+    public function mapel()
+    {
         return $this->belongsTo(Mapel::class);
     }
 
@@ -23,7 +24,8 @@ class guru extends Model
         return $this->hasMany(Kelas::class, 'idGuru');
     }
 
-    public function akun() {
+    public function akun()
+    {
         return $this->belongsTo(User::class);
     }
 }

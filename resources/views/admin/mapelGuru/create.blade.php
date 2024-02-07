@@ -14,7 +14,7 @@
                                     <label for="exampleInputUsername1">Mapel</label>
                                     <select name="idMapel" class="form-control">
                                         @foreach ($mapel as $item)
-                                            <option value="{{ $item->idMapel }}">{{ $item->mataPelajaran }}</option>
+                                            <option value="{{ $item->idMapel }}">{{ $item->mataPelajaran }} || kelas : {{$item->kelas}}</option>
                                         @endforeach
                                     </select>
                                     {{-- @error('fakultas_id')

@@ -10,7 +10,7 @@ class materi extends Model
 {
     use HasFactory,HasUuids;
 
-    protected $fillable = ['idMateri','namaMateri','namaFile','deskripsi','file','idGuru','idMapel'];
+    protected $fillable = ['idMateri','namaMateri','namaFile','deskripsi','file','idGuru','idMapelGuru'];
 
     protected $primaryKey = 'idMateri';
     protected $keyType = 'string';

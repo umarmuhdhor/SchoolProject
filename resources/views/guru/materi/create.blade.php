@@ -2,13 +2,14 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title fw-semibold mb-7">{{ $mapel->mataPelajaran }}</h4>
+            <h4 class="card-title fw-semibold mb-7">{{ $mapel->mapel->mataPelajaran }}</h4>
             @foreach ($materi as $item)
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->namaFile }}</h5>
                             <p class="card-text">{{ $item->guru['nama'] }}</p>
+                            <a href="{{ asset('materi/' . $item->file) }}" class="btn btn-primary" download>Download File</a>
                             <a href="#" class="btn btn-primary">Edit</a>
                         </div>
                     </div>
@@ -59,15 +60,16 @@
 
 
                         <div class="form-group mb-3">
-                            <label for="idMapel">Mapel</label>
-                            <span class="form-control">{{ $mapel->mataPelajaran }}</span>
-                            <input type="hidden" name="idMapel" value="{{ $mapel->idMapel }}">
+                            <label for="idMapelGuru">Mapel</label>
+                            <span class="form-control">{{ $mapel->mapel->mataPelajaran }} || {{$mapel->periode->tahunPeriode}}</span>
+                            <input type="hidden" name="idMapelGuru" value="{{ $mapel->idMapelGuru }}">
                         </div>
 
 
                         <div class="form-group mb-3">
                             <label for="file">File</label>
-                            <input type="file" class="form-control" name="file" placeholder="File" value="{{ old('file') }}" accept=".docx, application/pdf">
+                            <input type="file" class="form-control" name="file" placeholder="File"
+                                value="{{ old('file') }}" accept=".docx, application/pdf">
                             @error('file')
                                 <label for-"file" class="text-danger">{{ $message }}</label>
                             @enderror
@@ -75,7 +77,8 @@
 
                         <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
                         <a href="{{ url('guruMateri') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</button>
-                    </form>
+
+                        </form>
                 </div>
             </div>
         </div>
