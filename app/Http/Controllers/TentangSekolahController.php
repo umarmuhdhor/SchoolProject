@@ -33,27 +33,12 @@ class TentangSekolahController extends Controller
      */
     public function store(Request $request)
     {
-        //validasi data input form mahasiswa
         $validasi = $request->validate([
-            "judul" => "required",
+            "tentang" => "required",
             "deskripsi" => "required",
-            "idMurid" => "required",
-            "foto" => "image",
         ]);
-
-        $ext = $request->foto->getClientOriginalExtension();
-
-        // Buat nama file baru dengan timestamp atau string acak
-        $newFileName = uniqid() . '.' . $ext;
-
-        // Validasi foto menggunakan nama file baru
-        $validasi["foto"] = $newFileName;
-
-        // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('fotoprestasi'), $newFileName);
-
-        prestasi::create($validasi);
-        return redirect("adminPrestasi")->with("success", "Data Prestasi berhasil disimpan");
+        tentangsekolah::create($validasi);
+        return redirect("adminTentangSekolah")->with("success", "Data Sekolah berhasil disimpan");
     }
 
     /**
@@ -83,8 +68,13 @@ class TentangSekolahController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(prestasi $prestasi)
+    public function destroy($id)
     {
         //
+        $tentangSekolah = tentangsekolah::find($id);
+
+        if( $tentangSekolah->delete()){
+            return redirect("adminTentangSekolah")->with("success", "Tentang Sekolah Berhasil DiHapus");
+        }
     }
 }

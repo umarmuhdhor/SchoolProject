@@ -17,8 +17,13 @@ return new class extends Migration
             $table->string('judulBerita');
             $table->longText('sinopsis');
             $table->longText('isiBerita');
-            $table->date('tanggal'); 
-            $table->string('foto', 50);
+            $table->date('tanggal');
+            $table->string('thumbnail', 50);
+            $table->string('foto1', 50)->nullable();
+            $table->string('foto2', 50)->nullable();
+            $table->string('foto3', 50)->nullable();
+            $table->string('foto4', 50)->nullable();
+            $table->string('foto5', 50)->nullable();
             $table->timestamps();
         });
     }

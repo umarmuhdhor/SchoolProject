@@ -1,4 +1,4 @@
-{{-- @extends('layout.main')
+@extends('layout.main')
 @section('content')
     <!--welcome-hero start -->
     <section id="home" class="welcome-hero2">
@@ -19,7 +19,7 @@
                     style="width: 80px; height: 80px; border-radius: 50%; vertical-align: middle;">
             </div>
             <div style="text-align: center;">
-                <h2 style="font-size: 28px; font-weight: bold;">{{ $sekolah[0]->alamat }}</h2>
+                <h2 style="font-size: 28px; font-weight: bold;">SMAN 5 TALANG UBI</h2>
             </div>
             <div>
                 <img src="/path/to/school-logo.png" alt="Logo"
@@ -27,11 +27,15 @@
             </div>
         </div>
 
+
         <div style="background-color: #f7f7f7; padding: 20px; border-radius: 10px; margin-top: 20px; text-align: left;">
-            <div style="display: flex; justify-content: space-between; background-color: #f7f7f7;">
-                <p style="margin: 10px 0; color: #333; font-size: 18px;">Alamat </p>
-                <p style="margin: 10px 0; color: #333; font-size: 18px;">{{ $sekolah[0]->alamat }}</p>
-            </div>
+            @foreach ($sekolah as $item)
+                <div style="display: flex; justify-content: space-between; background-color: #f7f7f7;">
+                    <p style="margin: 10px 0; color: #333; font-size: 18px;">{{$item->tentang}}</p>
+                    <p style="margin: 10px 0; color: #333; font-size: 18px;">{{$item->deskirpsi}}</p>
+                </div>
+            @endforeach
+
             <div style="display: flex; justify-content: space-between; background-color: #f7f7f7;">
                 <p style="margin: 10px 0; color: #333; font-size: 18px;">Kelurahan </p>
                 <p style="margin: 10px 0; color: #333; font-size: 18px;">{{ $sekolah[0]->kelurahan }}</p>
@@ -66,4 +70,4 @@
             </div>
         </div>
     </div>
-@endsection --}}
+@endsection

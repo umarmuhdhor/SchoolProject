@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title fw-semibold mb-4">Berita Baru</h5>
+                    <h5 class="card-title fw-semibold mb-4">Berita Baru // blm biso diedit</h5>
                     <div class="card">
                         <div class="card-body">
                             <form class="forms-sample" method="POST" action="{{ route('adminBerita.update', $berita->idBerita) }}"
@@ -36,19 +36,52 @@
                                 </div>
 
                                 <!-- Tampilkan gambar yang lama -->
-                                @if ($berita->foto)
-                                    <img src="../../fotoBerita/{{ $berita->foto }}" alt="Foto Lama"
+                                @if ($berita->thumbnail)
+                                    <img src="../../fotoBerita/{{ $berita->thumbnail }}" alt="Foto Lama"
                                         style="max-width: 100%; height: auto;">
                                 @endif
 
                                 <div class="form-group mb-3">
-                                    <label for="foto">Thumbnail</label>
-                                    <input type="file" class="form-control" name="foto" placeholder="Foto"
+                                    <label for="thumbnail">Thumbnail</label>
+                                    <input type="file" class="form-control" name="thumbnail" placeholder="Foto"
                                         accept="image/png, image/jpeg">
-                                    @error('foto')
-                                        <label for="foto" class="text-danger">{{ $message }}</label>
+                                    @error('thumbnail')
+                                        <label for="thumbnail" class="text-danger">{{ $message }}</label>
                                     @enderror
                                 </div>
+
+
+                                <div class="form-group mb-3">
+                                    <label for="foto1">Foto Tambahan</label>
+                                    <input type="file" class="form-control" name="foto1" placeholder="foto tambahan"
+                                        value="{{ old('foto1') }}" accept="image/png, image/jpeg">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="foto2">Foto Tambahan</label>
+                                    <input type="file" class="form-control" name="foto2" placeholder="foto tambahan"
+                                        value="{{ old('foto2') }}" accept="image/png, image/jpeg">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="foto3">Foto Tambahan</label>
+                                    <input type="file" class="form-control" name="foto3" placeholder="foto tambahan"
+                                        value="{{ old('foto3') }}" accept="image/png, image/jpeg">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="foto4">Foto Tambahan</label>
+                                    <input type="file" class="form-control" name="foto4" placeholder="foto tambahan"
+                                        value="{{ old('foto4') }}" accept="image/png, image/jpeg">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="foto5">Foto Tambahan</label>
+                                    <input type="file" class="form-control" name="foto5" placeholder="foto tambahan"
+                                        value="{{ old('foto5') }}" accept="image/png, image/jpeg">
+                                </div>
+
+
 
                                 <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
                                 <a href="{{ url('adminBerita') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</a>

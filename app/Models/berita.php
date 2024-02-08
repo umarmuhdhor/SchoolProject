@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class berita extends Model
 {
     use HasFactory, HasUuids;
-    protected $fillable = ['judulBerita', 'sinopsis', 'isiBerita','foto'];
+    protected $fillable = ['judulBerita', 'sinopsis', 'isiBerita','thumbnail','tanggal','foto1','foto2','foto3','foto4','foto5'];
     protected $primaryKey = 'idBerita';
     protected $keyType = 'string';
 }

@@ -8,11 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class tentangsekolah extends Model
 {
-    use HasFactory,HasUuids;
+    use HasFactory;
 
-    protected $fillable = ['namaSekolah','alamat','kelurahan','kecamatan','kota','provinsi','kodePos','nomorTelpon','email','tahunBerdiiri','akredetasi'];
-
-    protected $primaryKey = 'idSekolah';
-    protected $keyType = 'string';
+    protected $fillable = ['tentang','deskripsi'];
 
 }

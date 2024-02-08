@@ -4,29 +4,35 @@
         <div class="card-body">
             <h4 class="card-title fw-semibold mb-7">Tentang Sekolah</h4>
             @foreach ($tentangSekolah as $item)
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-md-12 mb-3">
+                    <div class="card d-flex flex-row align-items-center" style="padding-right: 10px">
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->tentang }}</h5>
-                            <p class="card-text">{{ $item->deskripsi }}</p>
-                            <a href="#" class="btn btn-primary">Edit</a>
+                            <p class="card-text">{{ $item->deskirpsi }}</p>
+                        </div>
+                        <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
+                            <form action="{{ route('adminTentangSekolah.destroy', $item->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             @endforeach
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title fw-semibold mb-7">Tambahkan Materi</h4>
+                    <h4 class="card-title fw-semibold mb-7">Tentang Sekolah</h4>
 
                     <form class="forms-sample" method="POST" action="{{ route('adminTentangSekolah.store') }}"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
-                            <label for="namaMateri">Tentang</label>
-                            <input type="text" class="form-control" name="namaMateri" placeholder="Nama Materi"
-                                value="{{ old('namaMateri') }}">
-                            @error('namaMateri')
-                                <label for-"namaMateri" class="text-danger">{{ $message }}</label>
+                            <label for="tentang">Tentang</label>
+                            <input type="text" class="form-control" name="tentang" placeholder="Nama Materi"
+                                value="{{ old('tentang') }}">
+                            @error('tentang')
+                                <label for-"tentang" class="text-danger">{{ $message }}</label>
                             @enderror
                         </div>
 

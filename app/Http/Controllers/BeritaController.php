@@ -33,28 +33,55 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //validasi data input form mahasiswa
-        $validasi = $request->validate([
+        // Validasi data input form mahasiswa
+        $request->validate([
             "judulBerita" => "required",
             "sinopsis" => "required",
             "isiBerita" => "required",
-            "foto" => "image",
+            "thumbnail" => "image",
+            "tanggal" => "required",
+            "foto1" => "image",
+            "foto2" => "image",
+            "foto3" => "image",
+            "foto4" => "image",
+            "foto5" => "image",
         ]);
 
-        $ext = $request->foto->getClientOriginalExtension();
+        $extensions = ['thumbnail', 'foto1', 'foto2', 'foto3', 'foto4', 'foto5'];
+        $validasi = [];
 
-        // Buat nama file baru dengan timestamp atau string acak
-        $newFileName = uniqid() . '.' . $ext;
+        foreach ($extensions as $extension) {
+            $file = $request->{$extension};
 
-        // Validasi foto menggunakan nama file baru
-        $validasi["foto"] = $newFileName;
+            // Periksa apakah file ada
+            if ($file) {
+                $ext = $file->getClientOriginalExtension();
+                $newFileName = uniqid() . '.' . $ext;
+                $validasi[$extension] = $newFileName;
+                $file->move(public_path('fotoBerita'), $newFileName);
+            } else {
+                // Jika file tidak ada, atur nilai null
+                $validasi[$extension] = null;
+            }
+        }
 
-        // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('fotoBerita'), $newFileName);
+        // Buat objek Berita dan simpan data ke dalam database
+        Berita::create([
+            'judulBerita' => $request->judulBerita,
+            'sinopsis' => $request->sinopsis,
+            'isiBerita' => $request->isiBerita,
+            "tanggal" => $request->tanggal,
+            'thumbnail' => $validasi['thumbnail'],
+            'foto1' => $validasi['foto1'],
+            'foto2' => $validasi['foto2'],
+            'foto3' => $validasi['foto3'],
+            'foto4' => $validasi['foto4'],
+            'foto5' => $validasi['foto5'],
+        ]);
 
-        Berita::create($validasi);
-        return redirect("adminBerita")->with("success", "Data mahasiswa berhasil disimpan");
+        return redirect("adminBerita")->with("success", "Data berita berhasil disimpan");
     }
+
 
     /**
      * Display the specified resource.
@@ -81,7 +108,7 @@ class BeritaController extends Controller
     public function update(Request $request, berita $berita)
     {
         //
-
+        
     }
 
     /**

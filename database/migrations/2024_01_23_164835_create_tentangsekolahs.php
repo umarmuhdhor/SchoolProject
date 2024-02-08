@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tentangsekolahs', function (Blueprint $table) {
             $table->id();
             $table->string('tentang',50);
-            $table->string('deskirpsi');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }
