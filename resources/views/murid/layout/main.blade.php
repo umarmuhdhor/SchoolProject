@@ -72,7 +72,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ url('adminGuru') }}" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ url('muridPengumumanKelas') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
                                 </span>
@@ -80,7 +80,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            
+
                             <a class="sidebar-link" href="{{ url('adminMapel') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>

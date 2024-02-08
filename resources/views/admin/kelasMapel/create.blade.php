@@ -28,8 +28,8 @@
                                     <select name="idMapelGuru" class="form-control">
                                         <option value="" selected disabled>Select Mapel Guru</option>
                                         @foreach ($guru as $item)
-                                            <option value="{{ $item['idMapelGuru'] }}">
-                                                {{ $item->mapel->mataPelajaran }} - {{ $item->guru->nama }} - {{ $item->periode->tahunPeriode }}
+                                            <option value="{{ $item->idMapelGuru}}">
+                                                {{ $item->mapel->mataPelajaran }} - {{ $item->guru->nama }} - {{ $item->periode->tahunPeriode }} - {{$item->mapel->kelas}}
                                             </option>
                                         @endforeach
                                     </select>

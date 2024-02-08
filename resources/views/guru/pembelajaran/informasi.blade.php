@@ -12,9 +12,10 @@
                             <p style="text-align: justify;text-justify: inter-word;hyphens: auto;">
                                 {{ $item->deskripsi }}
                             </p>
+                            <a href="{{$item->link}}">{{$item->link}}</a>
                         </div>
                         <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
-                            <form action="{{ route('adminVisimisi.destroy', $item->id) }}" method="POST">
+                            <form action="{{ route('guruInformasiPerKelas.destroy', $item->idInformasi) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Hapus</button>
@@ -27,7 +28,7 @@
                 <div class="card-body">
                     <h4 class="card-title fw-semibold mb-7">Tambahkan Informasi Kelas</h4>
 
-                    <form class="forms-sample" method="POST" action="{{ route('adminBerita.store') }}"
+                    <form class="forms-sample" method="POST" action="{{ route('guruInformasiPerKelas.store') }}"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="form-group mb-3">
@@ -68,7 +69,7 @@
 
 
                         <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
-                        <a href="{{ url('adminBerita') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</a>
+                        <a href="{{ url('guruInformasiPerKelas') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</a>
                     </form>
                 </div>
             </div>

@@ -9,4 +9,20 @@ use Illuminate\Database\Eloquent\Model;
 class informasimapelperkelas extends Model
 {
     use HasFactory,HasUuids;
+
+    protected $fillable = ['judul', 'deskripsi', 'foto', 'link','idKelasMapel'];
+    protected $primaryKey = 'idInformasi';
+    protected $keyType = 'string';
+
+    public function mapelguru()
+    {
+        return $this->belongsTo(mapelGuru::class, 'idMapelGuru');
+    }
+
+    public function mapel()
+    {
+        return $this->belongsTo(mapel::class, 'idMapelGuru' ,'idMapel');
+    }
+
+
 }

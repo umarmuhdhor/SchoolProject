@@ -213,11 +213,11 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="single-blog-item">
                                 <div class="single-blog-item-img">
-                                    <img src="fotoBerita/{{ $item->foto }}" alt="blog image">
+                                    <img src="fotoBerita/{{ $item->thumbnail }}" alt="blog image">
                                 </div>
                                 <div class="single-blog-item-txt">
                                     <h2><a href="#">{{ $item->judulBerita }}</a></h2>
-                                    <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
+                                    <h4>posted <span>by</span> <a href="#">admin</a>{{$item->created_at}}</h4>
                                     <p class="blog-item-description">
                                         {{ $item->sinopsis }}
                                     </p>

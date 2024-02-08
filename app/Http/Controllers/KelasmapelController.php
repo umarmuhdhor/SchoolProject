@@ -28,8 +28,7 @@ class KelasmapelController extends Controller
     public function create()
     {
         //
-        $kelas = kelasmapel::all();
-
+        $kelas = kelas::all();
         $mapelGuru = mapelGuru::all();
         return view('admin.kelasMapel.create')->with('guru', $mapelGuru)->with('kelas', $kelas);
     }

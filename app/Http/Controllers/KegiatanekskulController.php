@@ -32,6 +32,7 @@ class KegiatanekskulController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**

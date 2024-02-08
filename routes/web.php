@@ -105,6 +105,7 @@ Route::resource('/guruInformasiPerKelas', InformasimapelperkelasController::clas
 
 
 Route::resource('/muridMateri', MateriMuridController::class)->middleware(['auth', 'verified','checkRole:murid']);
+Route::resource('/muridPengumumanKelas', InformasimapelperkelasController::class)->middleware(['auth', 'verified','checkRole:murid']);
 
 
 Route::middleware('auth')->group(function () {

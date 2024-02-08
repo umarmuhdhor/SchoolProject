@@ -12,9 +12,10 @@
                             <div class="form-group mb-3">
                                 <label for="jabatan">Jabatan</label>
                                 <select class="form-control jabatanSelector">
+                                    <option value="" selected disabled>Select Kelas</option>
+                                    <option value="staff">Staff</option>
                                     <option value="pejabat">Pejabat</option>
                                     <option value="guru">Guru</option>
-                                    <option value="staff">Staff</option>
                                 </select>
 
                                 @error('jabatan')
@@ -31,8 +32,9 @@
                             <div id="mapelInput" style="margin-bottom: 15px; display: none;">
                                 <label for="mapel">Mapel</label>
                                 <select class="form-control" name="jabatan">
+                                    <option value="" selected disabled>Select Kelas</option>
                                     @foreach ($mapel as $item)
-                                        <option value="Guru {{ $item->mataPelajaran }}">{{ $item->mataPelajaran }}</option>
+                                        <option value="Guru {{ $item->mataPelajaran }}">{{ $item->mataPelajaran }} || {{$item->kelas}}</option>
                                     @endforeach
                                 </select>
                             </div>
