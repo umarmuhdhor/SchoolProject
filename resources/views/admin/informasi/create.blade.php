@@ -7,7 +7,7 @@
                     <h5 class="card-title fw-semibold mb-4">Informasi</h5>
                     <div class="card">
                         <div class="card-body">
-                            <form class="forms-sample" method="POST" action="{{ route('adminKelas.store') }}"
+                            <form class="forms-sample" method="POST" action="{{ route('adminInformasi.store') }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group mb-3">
@@ -21,13 +21,10 @@
 
                                 <div class="form-group mb-3">
                                     <label for="exampleInputUsername2">Tujuan</label>
-                                    <select name="status" class="form-control">
+                                    <select name="tujuan" class="form-control">
                                         <option value="guru">Guru</option>
                                         <option value="murid">Murid</option>
                                     </select>
-                                    {{-- @error('mapel_id')
-                                        <label for="name" class="text-danger">{{ $$message }}</label>
-                                    @enderror --}}
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -48,21 +45,47 @@
 
 
                                 <div class="form-group mb-3">
-                                    <label for="foto">Foto Tampilan</label>
-                                    <input type="file" class="form-control" name="foto" placeholder="Foto"
-                                        value="{{ old('foto') }}" accept="image/png, image/jpeg">
-                                    @error('foto')
-                                        <label for="foto" class="text-danger">{{ $message }}</label>
+                                    <label for="foto1">Foto Tampilan</label>
+                                    <input type="file" class="form-control" name="foto1" placeholder="Foto"
+                                        value="{{ old('foto1') }}" accept="image/png, image/jpeg">
+                                    @error('foto1')
+                                        <label for="foto1" class="text-danger">{{ $message }}</label>
                                     @enderror
                                 </div>
+
 
                                 <div class="form-group mb-3">
                                     <label for="file">File</label>
                                     <input type="file" class="form-control" name="file" placeholder="File"
                                         value="{{ old('file') }}" accept=".docx, application/pdf">
                                     @error('file')
-                                        <label for-"buktiKelulusan" class="text-danger">{{ $message }}</label>
+                                        <label for-"file" class="text-danger">{{ $message }}</label>
                                     @enderror
+                                </div>
+
+
+                                <div class="form-group mb-3">
+                                    <label for="foto2">Foto Tambahan</label>
+                                    <input type="file" class="form-control" name="foto2" placeholder="Foto"
+                                        value="{{ old('foto2') }}" accept="image/png, image/jpeg">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="foto3">Foto Tambahan</label>
+                                    <input type="file" class="form-control" name="foto3" placeholder="Foto"
+                                        value="{{ old('foto3') }}" accept="image/png, image/jpeg">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="foto4">Foto Tambahan</label>
+                                    <input type="file" class="form-control" name="foto4" placeholder="Foto"
+                                        value="{{ old('foto4') }}" accept="image/png, image/jpeg">
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="foto5">Foto Tambahan</label>
+                                    <input type="file" class="form-control" name="foto5" placeholder="Foto"
+                                        value="{{ old('foto5') }}" accept="image/png, image/jpeg">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
