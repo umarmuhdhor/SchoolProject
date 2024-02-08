@@ -97,6 +97,7 @@ Route::resource('/adminInformasi', InformasiController::class)->middleware(['aut
 Route::resource('/adminSesuaikanPengajar', KelasmapelController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminTentangSekolah', TentangSekolahController::class)->middleware(['auth', 'verified','checkRole:admin']);
 
+Route::get('/guruInformasiPerKelas/create/{idKelasMapel}', 'InformasimapelperkelasController@create')->middleware(['auth', 'verified', 'checkRole:guru']);
 Route::resource('/guruMateri', MateriController::class)->middleware(['auth', 'verified','checkRole:guru']);
 Route::get('/guruPembelajaran', [KelasmapelController::class, 'display'])->middleware(['auth', 'verified', 'checkRole:guru']);
 Route::resource('/guruWaliKelas', KelasController::class)->middleware(['auth', 'verified','checkRole:guru']);

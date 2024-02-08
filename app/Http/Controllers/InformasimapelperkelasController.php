@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\guru;
 use App\Models\informasimapelperkelas;
+use App\Models\kelasmapel;
+use App\Models\mapelGuru;
 use Illuminate\Http\Request;
 
 class InformasimapelperkelasController extends Controller
@@ -22,7 +25,7 @@ class InformasimapelperkelasController extends Controller
     public function create()
     {
         //
-        return view('guru.pembelajaran.create');
+        
     }
 
     /**
@@ -39,9 +42,8 @@ class InformasimapelperkelasController extends Controller
     public function show($id)
     {
         //
-
-        $informasi = informasimapelperkelas::where('idKelasMurid',$id);
-        return view('guru.pembelajaran.informasi')->with('informasi',$informasi);
+        $informasi = informasimapelperkelas::where('idKelasMapel',$id);
+        return view('guru.pembelajaran.informasi')->with('informasi',$informasi)->with('idKelasMapel',$id);
     }
 
     /**
