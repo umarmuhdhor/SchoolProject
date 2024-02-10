@@ -40,9 +40,8 @@
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $nomorekskul++ }}</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $item->nama }}</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $item->guru->nama }}</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $item->idEkskul }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><a href="{{ url('daftarKegiatanEkskul',$item->idEkskul)}}">Liat Kegiatan</a></td>
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $item->status }}</td>
-
                         </tr>
                     @endforeach
                 </tbody>

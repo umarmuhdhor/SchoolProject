@@ -23,7 +23,7 @@ class KegiatanekskulController extends Controller
     public function create()
     {
         //
-        return view('admin.ekskul.tambahKegiatan');
+
     }
 
     /**
@@ -32,17 +32,61 @@ class KegiatanekskulController extends Controller
     public function store(Request $request)
     {
         //
-        
+        // Validasi data input form mahasiswa
+        $request->validate([
+            "judulKegiatan" => "required",
+            "ringkasan" => "required",
+            "isiKegiatan" => "required",
+            "tanggal" => "required",
+            "idEkskul" => "required",
+            "foto1" => "required",
+            "foto2" => "image",
+            "foto3" => "image",
+            "foto4" => "image",
+            "foto5" => "image",
+        ]);
+
+        $extensions = ['foto1', 'foto2', 'foto3', 'foto4', 'foto5'];
+        $validasi = [];
+
+        foreach ($extensions as $extension) {
+            $file = $request->{$extension};
+
+            // Periksa apakah file ada
+            if ($file) {
+                $ext = $file->getClientOriginalExtension();
+                $newFileName = uniqid() . '.' . $ext;
+                $validasi[$extension] = $newFileName;
+                $file->move(public_path('fotoKegiatanEkskul'), $newFileName);
+            } else {
+                // Jika file tidak ada, atur nilai null
+                $validasi[$extension] = null;
+            }
+        }
+        // Buat objek Kegiatan dan simpan data ke dalam database
+        kegiatanekskul::create([
+            'judulKegiatan' => $request->judulKegiatan,
+            'ringkasan' => $request->ringkasan,
+            'isiKegiatan' => $request->isiKegiatan,
+            "idEkskul" => $request->idEkskul,
+            "tanggal" => $request->tanggal,
+            'foto1' => $validasi['foto1'],
+            'foto2' => $validasi['foto2'],
+            'foto3' => $validasi['foto3'],
+            'foto4' => $validasi['foto4'],
+            'foto5' => $validasi['foto5'],
+        ]);
+
+        return redirect("adminKegiatanEkskul")->with("success", "Data Kegiatan berhasil disimpan");
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($idEkskul)
     {
         //
-        $kegiatan = kegiatanekskul::find($id);
-        return view('admin.ekskul.kegiatan')->with('kegiatan', $kegiatan);
+        return view('admin.ekskul.tambahKegiatan')->with('idEkskul', $idEkskul);
     }
 
     /**

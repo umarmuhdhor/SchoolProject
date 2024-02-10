@@ -7,7 +7,7 @@
                     <div class="row">
                         <h5 class="card-title fw-semibold mb-4">Informasi</h5>
                         @foreach ($kelasMapel as $item)
-                            <a href="{{ route('muridPengumumanKelas.index') }}" class="col-md-4">
+                            <a href="{{ route('muridPengumumanKelas' , ['id' => $item->idKelasMapel]) }}" class="col-md-4">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$item->mapelguru->mapel->mataPelajaran}}</h5>
@@ -15,7 +15,6 @@
                                 </div>
                             </a>
                         @endforeach
-
                     </div>
                 </div>
             </div>

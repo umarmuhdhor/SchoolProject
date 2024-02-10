@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ekskul;
 use App\Models\guru;
+use App\Models\kegiatanekskul;
 use App\Models\murid;
 use App\Models\periode;
 use Illuminate\Http\Request;
@@ -67,9 +68,11 @@ class EkskulController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ekskul $ekskul)
+    public function show($id)
     {
         //
+        $kegiatan = kegiatanekskul::where('idEkskul',$id)->get();
+        return view('admin.ekskul.kegiatan')->with('kegiatan', $kegiatan)->with('idEkskul',$id);
     }
 
     /**

@@ -14,49 +14,58 @@
     <!--explore start -->
     <section id="explore" class="explore">
         <div class="container">
-            <div class="section-header">
-                <h2>explore</h2>
-                <p>Explore New place, food, culture around the world and many more</p>
-            </div><!--/.section-header-->
             <div class="explore-content">
                 <div class="row">
-                    <div class=" col-md-4 col-sm-6">
-                        <div class="single-explore-item" style="border-radius: 20px;overflow: hidden;">
-                            <div class="single-explore-img">
-                                <img src="assets/images/explore/e1.jpg" alt="explore image">
-                            </div>
-                            <div class="single-explore-txt bg-theme-1">
-                                <h2 style="margin-left: 5px"><a href="#">Judul Berita Mungkin akan sepanjang ini
-                                        kurang lebih</a></h2>
-                                <p class="explore-rating-price"></p>
-                                <div class="explore-person">
-                                    <div class="row">
-                                        <div class="col-sm-11" style="margin-left: 5px">
-                                            <p style="text-align: justify">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incid ut labore et
-                                                disini tempat sinopsis dari sebuah berita mungkin akan sepanjang ini ? ya
-                                                sepanjang ini
-                                            </p>
+                    @foreach ($informasi as $item)
+                        <div class=" col-md-4 col-sm-6">
+                            <div class="single-explore-item" style="border-radius: 20px;overflow: hidden;">
+                                <div class="single-explore-img">
+                                    <img src="fotoInformasi/{{ $item->foto1 }}" alt="explore image"
+                                        style="height: 250px;width: 100%">
+                                </div>
+                                <div class="single-explore-txt bg-theme-1">
+                                    <h2 style="margin-left: 5px"><a href="#">{{ $item->judul }}</a></h2>
+                                    <div class="explore-person">
+                                        <div class="row">
+                                            <div class="col-sm-11" style="margin-left: 5px;margin-top:10px">
+                                                <p style="text-align: justify;text-justify: inter-word;hyphens: auto;">
+                                                    {{ substr($item->isiInformasi, 0, 300) }}...
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="explore-open-close-part">
-                                    <div class="row">
-                                        <div class="col-sm-5">
-                                            <button class="close-btn" onclick="window.location.href='#'">Download
-                                                Now</button>
-                                        </div>
-                                        <div class="col-sm-7">
-                                            <div class="explore-map-icon">
-                                                <a href="#"><i data-feather="upload"></i></a>
+                                    <div class="explore-open-close-part">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                @if ($item->file)
+                                                    <a href="fileInformasi/{{ $item->file }}"
+                                                        download="{{ $item->file }}.pdf">
+                                                        <button class="close-btn">Download Now</button>
+                                                    </a>
+                                                @else
+                                                    <a href="fileInformasi/{{ $item->file }}"
+                                                        download="{{ $item->file }}.pdf">
+                                                        <button class="close-btn">File Tidak Tersedia</button>
+                                                    </a>
+                                                @endif
+
                                             </div>
+                                            <div class="col-sm-7">
+                                                <div class="explore-map-icon">
+                                                    <a href="fileInformasi/{{ $item->file }}"
+                                                        download="{{ $item->file }}.pdf">
+                                                        <i data-feather="download"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div><!--/.container-->

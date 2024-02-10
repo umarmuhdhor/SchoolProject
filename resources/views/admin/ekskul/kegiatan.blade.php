@@ -6,7 +6,7 @@
                 <div class="card-body">
                     <div class="row">
                         <h5 class="card-title fw-semibold mb-4">Kegiatan Ekskul
-                            <a href="{{ route('adminKegiatanEkskul.create') }}"><span class="btn btn-outline-primary mx-3 ">Tambah
+                            <a href="{{ route('adminKegiatanEkskul.show' , $idEkskul) }}"><span class="btn btn-outline-primary mx-3 ">Tambah
                                     Kegiatan</span></a>
                         </h5>
                         {{-- <div class="row"> --}}
@@ -15,20 +15,18 @@
                                 <div class="col-md-12 mb-3">
                                     <div class="card d-flex flex-row align-items-center" style="padding-right: 10px">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $item->nama }}</h5>
-                                            <p class="card-text">{{ $item->periode->tahunPeriode }} ||
-                                                {{ $item->periode->semester }}</p>
+                                            <h5 class="card-title">{{ $item->judulKegiatan }}</h5>
+                                            {{-- <p class="card-text">{{ $item->periode->tahunPeriode }} ||
+                                                {{ $item->periode->semester }}</p> --}}
                                         </div>
                                         <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
                                             <a href="#" class="btn btn-primary">Edit</a>
-                                            <a href="{{ url('adminEkskul.show') }}" class="btn btn-success">Tambahkan
-                                                Kegiatan</a>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
                         @else
-                            <h1>Belum ada kegiatan</h1>
+                            <h3>Belum ada kegiatan</h3>
                         @endif
 
                         {{-- </div> --}}

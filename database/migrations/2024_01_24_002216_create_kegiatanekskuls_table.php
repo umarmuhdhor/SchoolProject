@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('kegiatanekskuls', function (Blueprint $table) {
             $table->id();
             $table->string('judulKegiatan');
-            $table->string('foto1', 50)->nullable();
+            $table->longText('ringkasan');
+            $table->longText('isiKegiatan');
+            $table->date('tanggal');
+            $table->string('foto1', 50);
             $table->string('foto2', 50)->nullable();
             $table->string('foto3', 50)->nullable();
             $table->string('foto4', 50)->nullable();
             $table->string('foto5', 50)->nullable();
-            $table->date('tanggal');
-            $table->String('ringkasan');
-            $table->longText('isiKegiatan');
             $table->uuid('idEkskul');
             $table->foreign('idEkskul')->references('idEkskul')->on('ekskuls')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();

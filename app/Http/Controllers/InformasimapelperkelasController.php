@@ -16,11 +16,15 @@ class InformasimapelperkelasController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function display($id){
+        $informasi = informasimapelperkelas::where('idKelasMapel',$id)->get();
+
+        return view('murid.pengumumanKelas.informasi')->with('informasi',$informasi);
+    }
     public function index()
     {
         //
         if (Auth::check()) {
-            // Get the ID of the logged-in user
             $userId = Auth::id();
             $idMurid = murid::where('idAkun', $userId)->first()->idMurid;
             $kelas = kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first();
@@ -29,8 +33,6 @@ class InformasimapelperkelasController extends Controller
 
         } else {
 
-            // No user is currently logged in
-            // Handle accordingly...
         }
     }
 

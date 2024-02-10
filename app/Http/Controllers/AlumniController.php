@@ -31,8 +31,29 @@ class AlumniController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        dd($request);
+         //validasi data input form mahasiswa
+         $validasi = $request->validate([
+            "status" => "required",
+            "idMurid" => "required",
+            "tempatKerja" => "nullable",
+            "namaKampus" => "nullable",
+            "buktiKelulusan" => "required|mimes:docx,pdf|max:20480"
+        ]);
+
+        $ext = $request->buktiKelulusan->getClientOriginalExtension();
+        $allowedExtensions = ['docx', 'pdf'];
+
+        if (!in_array($ext, $allowedExtensions)) {
+            return redirect()->back()->withInput()->withErrors(['file' => 'File harus berupa dokumen Word (docx) atau PDF.']);
+        }
+        $newFileName = uniqid() . '.' . $ext;
+
+        $validasi["buktiKelulusan"] = $newFileName;
+
+        $request->buktiKelulusan->move(public_path('buktiKelulusan'), $newFileName);
+
+        alumni::create($validasi);
+        return redirect("adminAlumni")->with("success", "File berhasil diupload");
     }
 
     /**

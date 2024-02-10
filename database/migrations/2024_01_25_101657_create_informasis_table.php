@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('informasis', function (Blueprint $table) {
             $table->uuid('idInformasi');
             $table->primary('idInformasi');
-            $table->string('judul', 70);
+            $table->string('judul');
             $table->longText('isiInformasi');
             $table->date('tanggal');
             $table->string('file', 100)->nullable();

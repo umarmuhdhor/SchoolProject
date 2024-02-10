@@ -40,18 +40,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DisplayController::class,'index'])->name('welcome');
-Route::get('/daftarMurid', [DisplayController::class,'daftarMurid'])->name('daftarMurid');
-Route::get('/tentangSekolah', [DisplayController::class,'tentangSekolah'])->name('tentangSekolah');
-Route::get('/sejarah', [DisplayController::class,'sejarah'])->name('sejarah');
-Route::get('/visimisi', [DisplayController::class,'visimisi'])->name('visimisi');
-Route::get('/ekskul', [DisplayController::class,'ekskul'])->name('ekskul');
-Route::get('/informasiGuru', [DisplayController::class,'informasiGuru'])->name('informasiGuru');
-Route::get('/informasiMurid', [DisplayController::class,'informasiMurid'])->name('informasiMurid');
-Route::get('/prestasi', [PrestasiController::class,'display'])->name('prestasi');
-Route::get('/prestasiMurid', [PrestasiController::class,'prestasiMurid'])->name('prestasiMurid');
-Route::get('/prestasiGuru', [PrestasiController::class,'prestasiGuru'])->name('prestasiGuru');
-Route::get('/prestasiSekolah', [PrestasiController::class,'prestasiSekolah'])->name('prestasiSekolah');
+Route::get('/', [DisplayController::class, 'index'])->name('welcome');
+Route::get('/daftarMurid', [DisplayController::class, 'daftarMurid'])->name('daftarMurid');
+Route::get('/tentangSekolah', [DisplayController::class, 'tentangSekolah'])->name('tentangSekolah');
+Route::get('/daftarKegiatanEkskul/{id}', [DisplayController::class, 'daftarKegiatanEkskul'])->name('tentangSekolah');
+Route::get('/sejarah', [DisplayController::class, 'sejarah'])->name('sejarah');
+Route::get('/visimisi', [DisplayController::class, 'visimisi'])->name('visimisi');
+Route::get('/ekskul', [DisplayController::class, 'ekskul'])->name('ekskul');
+Route::get('/informasiGuru', [DisplayController::class, 'informasiGuru'])->name('informasiGuru');
+Route::get('/informasiMurid', [DisplayController::class, 'informasiMurid'])->name('informasiMurid');
+Route::get('/prestasi', [PrestasiController::class, 'display'])->name('prestasi');
+Route::get('/prestasiMurid', [PrestasiController::class, 'prestasiMurid'])->name('prestasiMurid');
+Route::get('/prestasiGuru', [PrestasiController::class, 'prestasiGuru'])->name('prestasiGuru');
+Route::get('/prestasiSekolah', [PrestasiController::class, 'prestasiSekolah'])->name('prestasiSekolah');
 Route::get('/ppdb', function () {
     return view('ppdb');
 });
@@ -64,48 +65,49 @@ Route::get('/albumFoto', function () {
 
 Route::get('/guru', function () {
     return view('guru/dashboard');
-})->middleware(['auth', 'verified','checkRole:guru'])->name('guru.dashboard');
+})->middleware(['auth', 'verified', 'checkRole:guru'])->name('guru.dashboard');
 
 
 Route::get('/murid', function () {
     return view('murid/dashboard');
-})->middleware(['auth', 'verified','checkRole:murid'])->name('murid.dashboard');
+})->middleware(['auth', 'verified', 'checkRole:murid'])->name('murid.dashboard');
 
 Route::get('/admin', function () {
     return view('admin/dashboard');
-})->middleware(['auth', 'verified','checkRole:admin']);
+})->middleware(['auth', 'verified', 'checkRole:admin']);
 
 // Route::resource('/berita', BeritaController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminBerita', BeritaController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminGuru', GuruController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminMapel', MapelController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminKelas', KelasController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminEkskul', GuruController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminMurid', MuridController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminPrestasi', PrestasiController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminPeriode', PeriodeController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminJadwal', JadwalController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminKelasMurid', KelasmuridController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminJamPelajaran', JamPelajaranController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminMapelGuru', MapelGuruController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminVisimisi', VisimisiController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminJabatan', JabatanController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminEkskul', EkskulController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminKegiatanEkskul', KegiatanekskulController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminAlumni', AlumniController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminInformasi', InformasiController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminSesuaikanPengajar', KelasmapelController::class)->middleware(['auth', 'verified','checkRole:admin']);
-Route::resource('/adminTentangSekolah', TentangSekolahController::class)->middleware(['auth', 'verified','checkRole:admin']);
+Route::resource('/adminBerita', BeritaController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminGuru', GuruController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminMapel', MapelController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminKelas', KelasController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminEkskul', GuruController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminMurid', MuridController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminPrestasi', PrestasiController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminPeriode', PeriodeController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminJadwal', JadwalController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminKelasMurid', KelasmuridController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminJamPelajaran', JamPelajaranController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminMapelGuru', MapelGuruController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminVisimisi', VisimisiController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminJabatan', JabatanController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminEkskul', EkskulController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminKegiatanEkskul', KegiatanekskulController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminAlumni', AlumniController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminInformasi', InformasiController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminSesuaikanPengajar', KelasmapelController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminTentangSekolah', TentangSekolahController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 
 Route::get('/guruInformasiPerKelas/create/{idKelasMapel}', 'InformasimapelperkelasController@create')->middleware(['auth', 'verified', 'checkRole:guru']);
-Route::resource('/guruMateri', MateriController::class)->middleware(['auth', 'verified','checkRole:guru']);
+Route::resource('/guruMateri', MateriController::class)->middleware(['auth', 'verified', 'checkRole:guru']);
 Route::get('/guruPembelajaran', [KelasmapelController::class, 'display'])->middleware(['auth', 'verified', 'checkRole:guru']);
-Route::resource('/guruWaliKelas', KelasController::class)->middleware(['auth', 'verified','checkRole:guru']);
-Route::resource('/guruInformasiPerKelas', InformasimapelperkelasController::class)->middleware(['auth', 'verified','checkRole:guru']);
+Route::resource('/guruWaliKelas', KelasController::class)->middleware(['auth', 'verified', 'checkRole:guru']);
+Route::resource('/guruInformasiPerKelas', InformasimapelperkelasController::class)->middleware(['auth', 'verified', 'checkRole:guru']);
 
 
-Route::resource('/muridMateri', MateriMuridController::class)->middleware(['auth', 'verified','checkRole:murid']);
-Route::resource('/muridPengumumanKelas', InformasimapelperkelasController::class)->middleware(['auth', 'verified','checkRole:murid']);
+Route::resource('/muridMateri', MateriMuridController::class)->middleware(['auth', 'verified', 'checkRole:murid']);
+Route::get('/muridPengumumanKelas', [InformasimapelperkelasController::class, 'index'])->middleware(['auth', 'verified', 'checkRole:murid']);
+Route::get('/muridPengumumanKelas/{id}', [InformasimapelperkelasController::class, 'display'])->middleware(['auth', 'verified', 'checkRole:murid'])->name('muridPengumumanKelas');
 
 
 Route::middleware('auth')->group(function () {
@@ -114,4 +116,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

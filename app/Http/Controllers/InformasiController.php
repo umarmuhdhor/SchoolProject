@@ -37,9 +37,9 @@ class InformasiController extends Controller
             "judul" => "required",
             "isiInformasi" => "required",
             "tanggal" => "required|date",
-            "file" => "required|mimes:docx,pdf|max:20480",
+            "file" => "mimes:docx,pdf|max:20480",
             "tujuan" => 'required',
-            "foto1" => "image",
+            "foto1" => "required|image",
             "foto2" => "image",
             "foto3" => "image",
             "foto4" => "image",
@@ -64,17 +64,21 @@ class InformasiController extends Controller
             }
         }
 
-        // Validasi dan pengolahan file dokumen
-        $ext = $request->file->getClientOriginalExtension();
-        $allowedExtensions = ['docx', 'pdf'];
+        if ($request->file) {
+            // Validasi dan pengolahan file dokumen
+            $ext = $request->file->getClientOriginalExtension();
+            $allowedExtensions = ['docx', 'pdf'];
 
-        if (!in_array($ext, $allowedExtensions)) {
-            return redirect()->back()->withInput()->withErrors(['file' => 'File harus berupa dokumen Word (docx) atau PDF.']);
+            if (!in_array($ext, $allowedExtensions)) {
+                return redirect()->back()->withInput()->withErrors(['file' => 'File harus berupa dokumen Word (docx) atau PDF.']);
+            }
+
+            $newFileName = uniqid() . '.' . $ext;
+            $request->file->move(public_path('fileInformasi'), $newFileName);
+            $validasi["file"] = $newFileName;
+        } else {
+            $validasi['file'] = null;
         }
-
-        $newFileName = uniqid() . '.' . $ext;
-        $request->file->move(public_path('fileInformasi'), $newFileName);
-        $validasi["file"] = $newFileName;
 
         // Buat objek Informasi dan simpan data ke dalam database
         Informasi::create([

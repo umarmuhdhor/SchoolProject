@@ -3,16 +3,16 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title fw-semibold mb-4">Tambahkan Ekskul</h5>
+                <h5 class="card-title fw-semibold mb-4">Luluskan Murid</h5>
                 <div class="card">
                     <div class="card-body">
                         <form class="forms-sample" method="POST" action="{{ route('adminAlumni.store') }}"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="name">Nama</label>
-                                <input type="text" class="form-control" name="nama" placeholder="{{ $murid->nama }}"
-                                    value="{{ $murid->nama }}" readonly>
+                                <label for="nama">Nama</label>
+                                <input type="text" class="form-control" name="idMurid" placeholder="{{ $murid->nama }}"
+                                    value="{{ $murid->idMurid }}" readonly>
                                 @error('nama')
                                     <label for-"nama" class="text-danger">{{ $message }}</label>
                                 @enderror
@@ -40,10 +40,10 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <label for="file">Document Kelulusan</label>
-                                <input type="file" class="form-control" name="buktiKelulusan" placeholder="File"
-                                    value="{{ old('file') }}" accept=".docx, application/pdf">
-                                @error('file')
+                                <label for="buktiKelulusan">Document Kelulusan</label>
+                                <input type="file" class="form-control" name="buktiKelulusan" placeholder="buktiKelulusan"
+                                    value="{{ old('buktiKelulusan') }}" accept=".docx, application/pdf">
+                                @error('buktiKelulusan')
                                     <label for-"buktiKelulusan" class="text-danger">{{ $message }}</label>
                                 @enderror
                             </div>

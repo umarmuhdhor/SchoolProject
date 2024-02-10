@@ -15,7 +15,7 @@
                                     <div class="card d-flex flex-row align-items-center" style="padding-right: 10px">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $item->judul }} || {{$item->tujuan}}</h5>
-                                            <p class="card-text">{{ $item->isiInformasi}}</p>
+                                            <p class="card-text">{{ substr($item->isiInformasi, 0, 500) }}...</p>
                                         </div>
                                         <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
                                             <a href="#" class="btn btn-primary">Edit</a>

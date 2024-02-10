@@ -6,6 +6,7 @@ use App\Models\berita;
 use App\Models\ekskul;
 use App\Models\guru;
 use App\Models\informasi;
+use App\Models\kegiatanekskul;
 use App\Models\murid;
 use App\Models\tentangSekolah;
 use App\Models\visimisi;
@@ -24,10 +25,10 @@ class DisplayController extends Controller
             ->with("berita", $berita)
             ->with("visi", $visi)
             ->with("guru", $guru);
-
     }
 
-    public function daftarMurid(){
+    public function daftarMurid()
+    {
         $guru = guru::all();
         $murid = murid::all();
         $berita = berita::all();
@@ -38,7 +39,8 @@ class DisplayController extends Controller
             ->with("guru", $guru);
     }
 
-    public function ekskul(){
+    public function ekskul()
+    {
         $guru = guru::all();
         $murid = murid::all();
         $berita = berita::all();
@@ -51,36 +53,48 @@ class DisplayController extends Controller
             ->with("guru", $guru);
     }
 
-    public function tentangSekolah(){
+    public function tentangSekolah()
+    {
 
         $sekolah = tentangSekolah::all();
         return view("tentangSekolah")
             ->with("sekolah", $sekolah);
     }
 
-    public function sejarah(){
+    public function sejarah()
+    {
 
         $sekolah = tentangSekolah::all();
         return view("sejarah");
     }
 
-    public function visimisi(){
+    public function visimisi()
+    {
         $visi = visimisi::all();
         return view("visimisi")
             ->with("visi", $visi);
     }
 
-    public function informasiGuru(){
-        $informasi = informasi::all();
+    public function informasiGuru()
+    {
+        $informasi = informasi::where('tujuan', 'guru')->get();
         return view("informasiGuru")
             ->with("informasi", $informasi);
     }
 
-    public function informasiMurid(){
-        $informasi = informasi::all();
+    public function informasiMurid()
+    {
+        $informasi = informasi::where('tujuan', 'murid')->get();
         return view("informasiMurid")
             ->with("informasi", $informasi);
     }
 
-
+    public function daftarKegiatanEkskul($idEkskul)
+    {
+        $ekskul = ekskul::find($idEkskul);
+        $kegiatanEkskul = kegiatanekskul::where('idEkskul', $idEkskul)->get();
+        return view("daftarKegiatanEkskul")
+            ->with("kegiatanEkskul", $kegiatanEkskul)
+            ->with("ekskul", $ekskul);
+    }
 }
