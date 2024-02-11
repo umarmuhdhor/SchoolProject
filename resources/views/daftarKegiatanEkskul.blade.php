@@ -5,7 +5,7 @@
         <div class="container">
             <div class="welcome-hero-txt2">
                 <h2>
-                    Informasi Murid
+                    Kegiatan Ekskul // {{ $ekskul->nama }}
                 </h2>
             </div>
         </div>
@@ -16,20 +16,20 @@
         <div class="container">
             <div class="explore-content">
                 <div class="row">
-                    @foreach ($informasi as $item)
+                    @foreach ($kegiatanEkskul as $item)
                         <div class=" col-md-4 col-sm-6">
                             <div class="single-explore-item" style="border-radius: 20px;overflow: hidden;">
                                 <div class="single-explore-img">
-                                    <img src="fotoInformasi/{{ $item->foto1 }}" alt="explore image"
+                                    <img src="../fotoKegiatanEkskul/{{ $item->foto1 }}" alt="explore image"
                                         style="height: 250px;width: 100%">
                                 </div>
                                 <div class="single-explore-txt bg-theme-1">
-                                    <h2 style="margin-left: 5px"><a href="#">{{ $item->judul }}</a></h2>
+                                    <h2 style="margin-left: 5px"><a href="{{ url('kegiatanEkskul',$item->id)}}">{{ $item->judulKegiatan }}</a></h2>
                                     <div class="explore-person">
                                         <div class="row">
                                             <div class="col-sm-11" style="margin-left: 5px;margin-top:10px">
                                                 <p style="text-align: justify;text-justify: inter-word;hyphens: auto;">
-                                                    {{ substr($item->isiInformasi, 0, 300) }}...
+                                                    {{ substr($item->ringkasan, 0, 300) }}...
                                                 </p>
                                             </div>
                                         </div>
@@ -69,7 +69,6 @@
                 </div>
             </div>
         </div><!--/.container-->
-
     </section><!--/.explore-->
     <!--explore end -->
 @endsection

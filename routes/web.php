@@ -44,6 +44,7 @@ Route::get('/', [DisplayController::class, 'index'])->name('welcome');
 Route::get('/daftarMurid', [DisplayController::class, 'daftarMurid'])->name('daftarMurid');
 Route::get('/tentangSekolah', [DisplayController::class, 'tentangSekolah'])->name('tentangSekolah');
 Route::get('/daftarKegiatanEkskul/{id}', [DisplayController::class, 'daftarKegiatanEkskul'])->name('tentangSekolah');
+Route::get('/kegiatanEkskul/{id}', [DisplayController::class, 'kegiatanEkskul'])->name('tentangSekolah');
 Route::get('/sejarah', [DisplayController::class, 'sejarah'])->name('sejarah');
 Route::get('/visimisi', [DisplayController::class, 'visimisi'])->name('visimisi');
 Route::get('/ekskul', [DisplayController::class, 'ekskul'])->name('ekskul');

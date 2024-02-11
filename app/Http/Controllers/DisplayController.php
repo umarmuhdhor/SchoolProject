@@ -97,4 +97,11 @@ class DisplayController extends Controller
             ->with("kegiatanEkskul", $kegiatanEkskul)
             ->with("ekskul", $ekskul);
     }
+
+    public function kegiatanEkskul($idKegiatanEkskul)
+    {
+        $kegiatanEkskul = kegiatanekskul::find($idKegiatanEkskul);
+        return view("kegiatanEkskul")
+            ->with("kegiatanEkskul", $kegiatanEkskul);
+    }
 }
