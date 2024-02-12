@@ -3,24 +3,20 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title fw-semibold mb-4">Luluskan Murid</h5>
+                <h5 class="card-title fw-semibold mb-4">Luluskan Murid || {{$murid->nama}}</h5>
                 <div class="card">
                     <div class="card-body">
                         <form class="forms-sample" method="POST" action="{{ route('adminAlumni.store') }}"
                             enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group mb-3">
-                                <label for="nama">Nama</label>
-                                <input type="text" class="form-control" name="idMurid" placeholder="{{ $murid->nama }}"
-                                    value="{{ $murid->idMurid }}" readonly>
-                                @error('nama')
-                                    <label for-"nama" class="text-danger">{{ $message }}</label>
-                                @enderror
-                            </div>
+
+
+                            <input type="text" hidden name="idMurid" value="{{ $murid->idMurid }}" readonly>
 
                             <div class="form-group mb-3">
                                 <label for="exampleInputUsername2">Status</label>
                                 <select name="status" class="form-control">
+                                    <option value="" selected disabled>Select Status</option>
                                     <option value="tidakdiketahui">Tidak Diketahui</option>
                                     <option value="kerja">Kerja</option>
                                     <option value="kuliah">Kuliah</option>
@@ -41,8 +37,9 @@
 
                             <div class="form-group mb-3">
                                 <label for="buktiKelulusan">Document Kelulusan</label>
-                                <input type="file" class="form-control" name="buktiKelulusan" placeholder="buktiKelulusan"
-                                    value="{{ old('buktiKelulusan') }}" accept=".docx, application/pdf">
+                                <input type="file" class="form-control" name="buktiKelulusan"
+                                    placeholder="buktiKelulusan" value="{{ old('buktiKelulusan') }}"
+                                    accept=".docx, application/pdf">
                                 @error('buktiKelulusan')
                                     <label for-"buktiKelulusan" class="text-danger">{{ $message }}</label>
                                 @enderror
@@ -64,9 +61,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Event handler untuk mengubah status
-            $('select[name="status"]').change(function () {
+            $('select[name="status"]').change(function() {
                 var selectedStatus = $(this).val();
 
                 // Tampilkan/menyembunyikan input berdasarkan status

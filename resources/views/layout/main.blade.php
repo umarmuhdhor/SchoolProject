@@ -143,7 +143,7 @@
                                     <li><a href="{{ url('tentangSekolah') }}">Tentang Sekolah</a></li>
                                     <li><a href="{{ url('sejarah') }}">Sejarah Singkat</a></li>
                                     <li><a href="{{ url('visimisi') }}">Visi dan Misi</a></li>
-                                    <li><a href="{{ url('daftarMurid') }}">Guru dan Staff</a></li>
+                                    <li><a href="{{ url('guruDanStaff') }}">Guru dan Staff</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">

@@ -38,6 +38,7 @@
                 </div>
 
                 <!-- Daftar Murid -->
+                <!-- Daftar Murid -->
                 <div class="row" id="muridList">
                     @foreach ($murid as $item)
                         @php
@@ -53,15 +54,17 @@
                                 <div class="ml-auto">
                                     <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
                                     <a href="#" class="btn btn-primary">Edit</a>
-                                    <a href="{{ route('adminAlumni.show', $item->idMurid) }}"
-                                        class="btn btn-success">luluskan</a>
-                                    {{-- <a href="{{ route('adminKelas.show', $item->idKelas) }}"
-                                        class="btn btn-warning">Detail</a> --}}
+                                    @if ($item->status != 'lulus' && $item->status != 'pindah')
+                                        <a href="{{ route('adminAlumni.show', $item->idMurid) }}"
+                                            class="btn btn-success">Luluskan</a>
+                                    @endif
+                                    {{-- <a href="{{ route('adminKelas.show', $item->idKelas) }}" class="btn btn-warning">Detail</a> --}}
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
+
             </div>
         </div>
     </div>
@@ -81,7 +84,7 @@
         function filterByYear() {
             var selectedYear = $("#tahunFilter").val();
 
-            $(".murid-card").filter(function () {
+            $(".murid-card").filter(function() {
                 var tahunMurid = $(this).data("tahun").toString();
                 $(this).toggle(selectedYear === "" || tahunMurid === selectedYear);
             });

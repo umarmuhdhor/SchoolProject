@@ -24,7 +24,9 @@
                                         style="height: 250px;width: 100%">
                                 </div>
                                 <div class="single-explore-txt bg-theme-1">
-                                    <h2 style="margin-left: 5px"><a href="#">{{ $item->judul }}</a></h2>
+                                    <h2 style="margin-left: 5px"><a
+                                            href="{{ url('detailInformasiGuru', $item->idInformasi) }}">{{ $item->judul }}</a>
+                                    </h2>
                                     <div class="explore-person">
                                         <div class="row">
                                             <div class="col-sm-11" style="margin-left: 5px;margin-top:10px">

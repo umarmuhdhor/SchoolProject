@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\alumni;
 use App\Models\berita;
 use App\Models\ekskul;
 use App\Models\guru;
 use App\Models\informasi;
+use App\Models\jabatan;
 use App\Models\kegiatanekskul;
 use App\Models\murid;
 use App\Models\tentangSekolah;
@@ -29,14 +31,13 @@ class DisplayController extends Controller
 
     public function daftarMurid()
     {
-        $guru = guru::all();
-        $murid = murid::all();
+        $murid = murid::where('status','aktif')->get();
+        $alumni = alumni::all();
         $berita = berita::all();
-        $visi = visimisi::all();
         return view("daftarMurid")
             ->with("berita", $berita)
             ->with("murid", $murid)
-            ->with("guru", $guru);
+            ->with("alumni", $alumni);
     }
 
     public function ekskul()
@@ -60,6 +61,14 @@ class DisplayController extends Controller
         return view("tentangSekolah")
             ->with("sekolah", $sekolah);
     }
+    public function guruDanStaff()
+    {
+
+        $jabatan = jabatan::all();
+        return view("guru")
+            ->with("jabatan", $jabatan);
+    }
+
 
     public function sejarah()
     {
@@ -82,10 +91,24 @@ class DisplayController extends Controller
             ->with("informasi", $informasi);
     }
 
+    public function detailInformasiGuru($id)
+    {
+        $informasi = informasi::find($id);
+        return view("detailInformasiGuru")
+            ->with("informasi", $informasi);
+    }
+
     public function informasiMurid()
     {
         $informasi = informasi::where('tujuan', 'murid')->get();
         return view("informasiMurid")
+            ->with("informasi", $informasi);
+    }
+
+    public function detailInformasiMurid($id)
+    {
+        $informasi = informasi::find($id);
+        return view("detailInformasiMurid")
             ->with("informasi", $informasi);
     }
 

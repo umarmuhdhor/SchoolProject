@@ -31,8 +31,8 @@ class AlumniController extends Controller
      */
     public function store(Request $request)
     {
-         //validasi data input form mahasiswa
-         $validasi = $request->validate([
+        //validasi data input form mahasiswa
+        $validasi = $request->validate([
             "status" => "required",
             "idMurid" => "required",
             "tempatKerja" => "nullable",
@@ -53,7 +53,13 @@ class AlumniController extends Controller
         $request->buktiKelulusan->move(public_path('buktiKelulusan'), $newFileName);
 
         alumni::create($validasi);
-        return redirect("adminAlumni")->with("success", "File berhasil diupload");
+
+        // Mengupdate status murid menjadi lulus
+        $murid = Murid::find($validasi['idMurid']);
+        $murid->status = 'lulus';
+        $murid->save();
+
+        return redirect("adminMurid")->with("success", "File berhasil diupload");
     }
 
     /**

@@ -49,7 +49,7 @@
 
                     @foreach ($murid as $student)
                         <tr class="siswa-row" data-tahun="{{ $student->tahunLulus }}">
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $nomorSiswa++ }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;text-align: center">{{ $nomorSiswa++ }}</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $student->nama }}</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">
                                 <img src="fotoMurid/{{ $student->foto }}" alt="Foto Siswa" width="50"
@@ -72,9 +72,11 @@
                 <thead style="background-color: #f2f2f2;">
                     <tr>
                         <th style="padding: 10px; border: 1px solid #ddd; width: 5%;">Nomor</th>
-                        <th style="padding: 10px; border: 1px solid #ddd; width: 40%;">Nama</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; width: 30%;">Nama</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; width: 5%;">Status</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Tempat Kerja</th>
                         <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">PTN</th>
-                        <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Jalur Seleksi</th>
+                        <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Nomor Telpon</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,12 +84,15 @@
                         $nomorAlumni = 1;
                     @endphp
 
-                    @foreach ($murid as $alumnus)
+                    @foreach ($alumni as $alumnus)
                         <tr class="alumni-row" data-tahun="{{ $alumnus->tahunLulus }}">
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $nomorAlumni++ }}</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->nama }}</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->ptn }}</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->jalurSeleksi }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;text-align: center">{{ $nomorAlumni++ }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->murid->nama }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->status }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->tempatKerja }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->namaKampus }}</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->murid->noHp }}</td>
+
                         </tr>
                     @endforeach
                 </tbody>
@@ -151,7 +156,7 @@
                         <div class="col-md-4 col-sm-6">
                             <div class="single-blog-item">
                                 <div class="single-blog-item-img">
-                                    <img src="fotoBerita/{{ $item->foto }}" alt="blog image">
+                                    <img src="{{ asset('fotoBerita/' . $item->thumbnail) }}" alt="blog image">
                                 </div>
                                 <div class="single-blog-item-txt">
                                     <h2><a href="#">{{ $item->judulBerita }}</a></h2>
@@ -179,6 +184,16 @@
             $("#searchInput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
                 $("#siswaTable tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#searchInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#alumniTable tbody tr").filter(function() {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                 });
             });
