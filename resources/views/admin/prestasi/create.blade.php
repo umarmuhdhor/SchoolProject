@@ -20,11 +20,11 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="sinopsis">Sinopsis</label>
-                                    <input type="text" class="form-control" name="sinopsis"
-                                        placeholder="Penggalan Prestasi" value="{{ old('sinopsis') }}">
-                                    @error('sinopsis')
-                                        <label for-"sinopsis" class="text-danger">{{ $message }}</label>
+                                    <label for="deskripsi">deskripsi</label>
+                                    <input type="text" class="form-control" name="deskripsi"
+                                        placeholder="Penggalan Prestasi" value="{{ old('deskripsi') }}">
+                                    @error('deskripsi')
+                                        <label for-"deskripsi" class="text-danger">{{ $message }}</label>
                                     @enderror
                                 </div>
 
@@ -35,6 +35,24 @@
                                     @error('Prestasi')
                                         <label for-"isiPrestasi" class="text-danger">{{ $message }}</label>
                                     @enderror
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="tanggal">Tanggal</label>
+                                    <input id="tanggal" class="form-control" type="date" name="tanggal"
+                                        value="{{ old('tanggal') }}" required autocomplete="username"
+                                        placeholder="tanggal" />
+                                    <x-input-error :messages="$errors->get('tanggal')" class="mt-2" />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="exampleInputUsername2">Tujuan</label>
+                                    <select name="jenis" class="form-control">
+                                        <option value="" selected disabled>Select Tujuan</option>
+                                        <option value="murid">Murid</option>
+                                        <option value="guru">Guru</option>
+                                        <option value="sekolah">Sekolah</option>
+                                    </select>
                                 </div>
 
 
@@ -50,7 +68,8 @@
                                 </div>
 
                                 <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
-                                <a href="{{ url('adminPrestasi') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</button>
+                                <a href="{{ url('adminPrestasi') }}" class="btn btn-light"
+                                    fdprocessedid="s74qgr">Batal</button>
                             </form>
                         </div>
                     </div>

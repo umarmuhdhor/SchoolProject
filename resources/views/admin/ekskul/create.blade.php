@@ -31,6 +31,7 @@
                                 <div class="form-group mb-3">
                                     <label for="exampleInputUsername2">Status</label>
                                     <select name="status" class="form-control">
+                                        <option value="" selected disabled>Select Status</option>
                                         <option value="aktif">aktif</option>
                                         <option value="tidak aktif">tidak aktif</option>
                                     </select>

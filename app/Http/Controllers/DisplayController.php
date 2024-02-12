@@ -10,6 +10,7 @@ use App\Models\informasi;
 use App\Models\jabatan;
 use App\Models\kegiatanekskul;
 use App\Models\murid;
+use App\Models\prestasi;
 use App\Models\tentangSekolah;
 use App\Models\visimisi;
 use Illuminate\Http\Request;
@@ -126,5 +127,26 @@ class DisplayController extends Controller
         $kegiatanEkskul = kegiatanekskul::find($idKegiatanEkskul);
         return view("kegiatanEkskul")
             ->with("kegiatanEkskul", $kegiatanEkskul);
+    }
+
+    public function prestasiMurid()
+    {
+        $prestasi = prestasi::where('jenis', 'murid')->get();
+        return view("prestasiMurid")
+            ->with("prestasi", $prestasi);
+    }
+
+    public function prestasiGuru()
+    {
+        $prestasi = prestasi::where('jenis', 'guru')->get();
+        return view("prestasiMurid")
+            ->with("prestasi", $prestasi);
+    }
+
+    public function prestasiSekolah()
+    {
+        $prestasi = prestasi::where('jenis', 'sekolah')->get();
+        return view("prestasiMurid")
+            ->with("prestasi", $prestasi);
     }
 }

@@ -117,34 +117,42 @@
                     Kepala Sekolah dan Wakilnya
                 </h3>
                 <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-                    <div class="card">
-                        <div class="card-front"
-                            style="background-image: url(https://99px.ru/sstorage/56/2013/12/image_563012130153328414049.jpg);">
-                        </div>
-                        <div class="card-back">
-                            <h2>Jane Doe<br><span>Senior Designer</span></h2>
-                            <div class="social-icons">
-                                <a href="#" class="fa fa-facebook" aria-hidden="true"></a>
-                                <a href="#" class="fa fa-twitter" aria-hidden="true"></a>
-                                <a href="#" class="fa fa-google-plus" aria-hidden="true"></a>
-                                <a href="#" class="fa fa-linkedin" aria-hidden="true"></a>
-                                <a href="#" class="fa fa-instagram" aria-hidden="true"></a>
+                    @foreach ($jabatan as $item)
+                        @if (strpos(strtolower($item->jabatan), 'kepala sekolah') == 1)
+                            <div class="card">
+                                <div class="card-front"
+                                    style="background-image: url(https://99px.ru/sstorage/56/2013/12/image_563012130153328414049.jpg);">
+                                </div>
+                                <div class="card-back">
+                                    <h2>Jane Doe<br><span>Senior Designer</span></h2>
+                                    <div class="social-icons">
+                                        <a href="#" class="fa fa-facebook" aria-hidden="true"></a>
+                                        <a href="#" class="fa fa-twitter" aria-hidden="true"></a>
+                                        <a href="#" class="fa fa-google-plus" aria-hidden="true"></a>
+                                        <a href="#" class="fa fa-linkedin" aria-hidden="true"></a>
+                                        <a href="#" class="fa fa-instagram" aria-hidden="true"></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-front"></div>
-                        <div class="card-back">
-                            <h2>Jane Doe<br><span>Senior Designer</span></h2>
-                            <div class="social-icons">
-                                <a href="#" class="fa fa-facebook" aria-hidden="true"></a>
-                                <a href="#" class="fa fa-twitter" aria-hidden="true"></a>
-                                <a href="#" class="fa fa-google-plus" aria-hidden="true"></a>
-                                <a href="#" class="fa fa-linkedin" aria-hidden="true"></a>
-                                <a href="#" class="fa fa-instagram" aria-hidden="true"></a>
+                        @endif
+                        @if (strpos(strtolower($item->jabatan), 'wakil kepala sekolah') == 1)
+                            <div class="card">
+                                <div class="card-front"
+                                    style="background-image: url(https://99px.ru/sstorage/56/2013/12/image_563012130153328414049.jpg);">
+                                </div>
+                                <div class="card-back">
+                                    <h2>Jane Doe<br><span>Senior Designer</span></h2>
+                                    <div class="social-icons">
+                                        <a href="#" class="fa fa-facebook" aria-hidden="true"></a>
+                                        <a href="#" class="fa fa-twitter" aria-hidden="true"></a>
+                                        <a href="#" class="fa fa-google-plus" aria-hidden="true"></a>
+                                        <a href="#" class="fa fa-linkedin" aria-hidden="true"></a>
+                                        <a href="#" class="fa fa-instagram" aria-hidden="true"></a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        @endif
+                    @endforeach
                 </div>
             </div><!--/.section-header-->
             <div class="section-header">

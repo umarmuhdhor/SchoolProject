@@ -40,10 +40,13 @@ class PrestasiController extends Controller
     public function store(Request $request)
     {
         //validasi data input form mahasiswa
+
         $validasi = $request->validate([
             "judul" => "required",
             "deskripsi" => "required",
-            "idMurid" => "required",
+            "isiPrestasi" => "required",
+            "tanggal" => "required",
+            "jenis" => "required",
             "foto" => "image",
         ]);
 
@@ -56,7 +59,7 @@ class PrestasiController extends Controller
         $validasi["foto"] = $newFileName;
 
         // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('fotoprestasi'), $newFileName);
+        $request->foto->move(public_path('fotoPrestasi'), $newFileName);
 
         prestasi::create($validasi);
         return redirect("adminPrestasi")->with("success", "Data Prestasi berhasil disimpan");

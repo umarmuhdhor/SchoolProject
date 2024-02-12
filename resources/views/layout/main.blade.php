@@ -150,9 +150,9 @@
                                 <a href="" class="dropdown-toggle" data-toggle="dropdown">Prestasi<span
                                         class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ url('daftarMurid') }}">Siswa</a></li>
-                                    <li><a href="{{ url('daftarMurid') }}">Guru</a></li>
-                                    <li><a href="{{ url('daftarMurid') }}">Sekolah</a></li>
+                                    <li><a href="{{ url('prestasiMurid') }}">Murid</a></li>
+                                    <li><a href="{{ url('prestasiGuru') }}">Guru</a></li>
+                                    <li><a href="{{ url('prestasiSekolah') }}">Sekolah</a></li>
                                 </ul>
                             </li>
 

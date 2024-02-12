@@ -22,6 +22,7 @@
                                 <div class="form-group mb-3">
                                     <label for="exampleInputUsername2">Tujuan</label>
                                     <select name="tujuan" class="form-control">
+                                        <option value="" selected disabled>Select Status</option>
                                         <option value="guru">Guru</option>
                                         <option value="murid">Murid</option>
                                     </select>

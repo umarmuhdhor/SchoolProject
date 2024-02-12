@@ -10,7 +10,7 @@ class prestasi extends Model
 {
     use HasFactory,HasUuids;
 
-    protected $fillable = ['judul','deskripsi','foto','idMurid'];
+    protected $fillable = ['judul','deskripsi','isiPrestasi','tanggal','jenis','foto'];
 
     protected $primaryKey = 'idPrestasi';
     protected $keyType = 'string';
