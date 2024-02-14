@@ -22,6 +22,7 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\MateriMuridController;
 use App\Http\Controllers\MuridController;
 use App\Http\Controllers\PeriodeController;
+use App\Http\Controllers\PermintaanAksesController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangSekolahController;
@@ -114,6 +115,7 @@ Route::resource('/guruInformasiPerKelas', InformasimapelperkelasController::clas
 
 Route::resource('/muridMateri', MateriMuridController::class)->middleware(['auth', 'verified', 'checkRole:murid']);
 Route::get('/muridPengumumanKelas', [InformasimapelperkelasController::class, 'index'])->middleware(['auth', 'verified', 'checkRole:murid']);
+Route::resource('/muridPermintaanAkses', PermintaanAksesController::class)->middleware(['auth', 'verified', 'checkRole:murid']);
 Route::get('/muridPengumumanKelas/{id}', [InformasimapelperkelasController::class, 'display'])->middleware(['auth', 'verified', 'checkRole:murid'])->name('muridPengumumanKelas');
 Route::get('/muridLatihan/{link}', [LatihanController::class, 'muridLatihan'])->middleware(['auth', 'verified', 'checkRole:murid'])->name('muridLatihan');
 

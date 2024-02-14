@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sekolah</title>
-    <link rel="shortcut icon" type="image/png" href="../../assetsAdmin/images/logos/favicon.png" />
-    <link rel="stylesheet" href="../../assetsAdmin/css/styles.min.css" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assetsAdmin/images/logos/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('assetsAdmin/css/styles.min.css') }}" />
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -19,6 +20,18 @@
 </head>
 
 <body>
+    @if (Session::get('success'))
+        <div class="alert alert-success" id='alert'
+            style="position: fixed; top: 10px; right: 10px; z-index: 1000; max-width: 300px; opacity: 1; transition: opacity 2s ease-in-out;">
+            <p style="margin-bottom: 0;">{{ Session::get('success') }}</p>
+        </div>
+    @elseif (Session::get('error'))
+        <div class="alert alert-danger" id='alert'
+            style="position: fixed; top: 10px; right: 10px; z-index: 1000; max-width: 300px; opacity: 1; transition: opacity 2s ease-in-out;">
+            <p style="margin-bottom: 0;">{{ Session::get('error') }}</p>
+        </div>
+    @endif
+
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
@@ -28,7 +41,7 @@
             <div>
                 {{-- <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="./index.html" class="text-nowrap logo-img">
-                        <img src="../assetsAdmin/images/logos/dark-logo.svg" width="180" alt="" />
+                        <img src="assetsAdmin/images/logos/dark-logo.svg" width="180" alt="" />
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -123,8 +136,8 @@
 
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../assetsAdmin/images/profile/user-1.jpg" alt="" width="35"
-                                        height="35" class="rounded-circle">
+                                    <img src="{{ asset('assetsAdmin/images/profile/user-1.jpg') }}" alt=""
+                                        width="35" height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -168,13 +181,27 @@
             </div>
         </div>
     </div>
-    <script src="../assetsAdmin/libs/jquery/dist/jquery.min.js"></script>
-    <script src="../assetsAdmin/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assetsAdmin/js/sidebarmenu.js"></script>
-    <script src="../assetsAdmin/js/app.min.js"></script>
-    <script src="../assetsAdmin/libs/apexcharts/dist/apexcharts.min.js"></script>
-    <script src="../assetsAdmin/libs/simplebar/dist/simplebar.js"></script>
-    <script src="../assetsAdmin/js/dashboard.js"></script>
+    <script src="{{ asset('assetsAdmin/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('assetsAdmin/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assetsAdmin/js/sidebarmenu.js') }}"></script>
+    <script src="{{ asset('assetsAdmin/js/app.min.js') }}"></script>
+    <script src="{{ asset('assetsAdmin/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('assetsAdmin/libs/simplebar/dist/simplebar.js') }}"></script>
+    <script src="{{ asset('assetsAdmin/js/dashboard.js') }}"></script>
+    <script>
+        setTimeout(function() {
+            var alertElement = document.getElementById('alert');
+            if (alertElement) {
+                alertElement.style.opacity = 0;
+                alertElement.style.transition = 'opacity 2s ease-in-out';
+
+                // Menghilangkan elemen dari DOM setelah transisi selesai
+                setTimeout(function() {
+                    alertElement.parentNode.removeChild(alertElement);
+                }, 2000);
+            }
+        }, 3000);
+    </script>
 </body>
 
 </html>

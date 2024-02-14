@@ -18,7 +18,6 @@
             height: 100%;
         }
     </style>
-    </head>
 
     <body>
         <div class="card">

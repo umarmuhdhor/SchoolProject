@@ -19,6 +19,12 @@
 </head>
 
 <body>
+    @if (Session::get('success'))
+        <div class="alert alert-success" id='alert'
+            style="position: fixed; top: 10px; right: 10px; z-index: 1000; opacity: 1; transition: opacity 2s ease-in-out;">
+            {{ Session::get('success') }}
+        </div>
+    @endif
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
@@ -238,6 +244,20 @@
     <script src="../assetsAdmin/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../assetsAdmin/libs/simplebar/dist/simplebar.js"></script>
     <script src="../assetsAdmin/js/dashboard.js"></script>
+    <script>
+        setTimeout(function() {
+            var alertElement = document.getElementById('alert');
+            if (alertElement) {
+                alertElement.style.opacity = 0;
+                alertElement.style.transition = 'opacity 2s ease-in-out';
+
+                // Menghilangkan elemen dari DOM setelah transisi selesai
+                setTimeout(function() {
+                    alertElement.parentNode.removeChild(alertElement);
+                }, 2000);
+            }
+        }, 3000);
+    </script>
 </body>
 
 </html>

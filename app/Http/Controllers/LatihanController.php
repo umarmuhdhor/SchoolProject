@@ -28,12 +28,13 @@ class LatihanController extends Controller
 
                 $latihanExists = Latihan::where('idMurid', $idMurid)
                     ->where('idInformasi', $idInformasi)
-                    ->where('status', '1')
-                    ->exists();
+                    ->where('status', '1')->first();
 
-                if ($latihanExists) {
+
+
+                if ($latihanExists->exists()) {
                     //minta admin buat reset
-                    return view('murid.latihan.permintaan');
+                    return view('murid.latihan.permintaan')->with('idMurid',$idMurid)->with('idLatihan',$latihanExists->idLatihan);
                 } else {
                     latihan::create([
                         'status' => '1',

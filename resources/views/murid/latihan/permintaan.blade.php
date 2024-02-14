@@ -1,4 +1,4 @@
-@extends('guru/layout.main')
+@extends('murid/layout.main')
 @section('content')
     <div class="card">
         <div class="card-body">
@@ -6,7 +6,7 @@
                 Anda telah menyelesaikan latihan ini sebelumnya. Jika ingin membukanya kembali, mohon berikan alasan dan
                 kirimkan permintaan untuk membuka kembali latihan.
             </h4>
-            <form class="forms-sample" method="POST" action="{{ route('adminalasan.store') }}" enctype="multipart/form-data">
+            <form class="forms-sample" method="POST" action="{{ route('muridPermintaanAkses.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="alasan">alasan</label>
@@ -15,6 +15,10 @@
                         <label for="alasan" class="text-danger">{{ $message }}</label>
                     @enderror
                 </div>
+
+                <input type="text" value="proses" name="status" hidden/>
+                <input type="text" value="{{$idMurid}}" name="idMurid" hidden/>
+                <input type="text" value="{{$idLatihan}}" name="idLatihan" hidden/>
 
                 <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
             </form>

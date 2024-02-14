@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('permintaan_akses', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('idPermintaan');
+            $table->primary('idPermintaan');
+            $table->longText('alasan');
+            $table->enum('status', ['proses', 'terima','tolak'])->default('proses');
+            $table->uuid('idMurid');
+            $table->foreign('idMurid')->references('idMurid')->on('murids')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->uuid('idLatihan');
+            $table->foreign('idLatihan')->references('idLatihan')->on('latihans')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

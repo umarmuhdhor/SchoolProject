@@ -13,6 +13,7 @@ class PermintaanAksesController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -28,8 +29,28 @@ class PermintaanAksesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Pengecekan jika ada row yang memiliki idMurid dan idLatihan yang sama lebih dari 3x
+        $existingRequestsCount = permintaanAkses::where('idMurid', $request->idMurid)
+            ->where('idLatihan', $request->idLatihan)
+            ->count();
+
+        if ($existingRequestsCount >= 3) {
+            return redirect()->back()->with("error", "Permintaan akses tidak dapat dilanjutkan.lebih dari 3 permintaan sudah dikirimkan.");
+        }
+
+        // Validasi setelah pengecekan
+        $validasi = $request->validate([
+            "status" => "required",
+            "alasan" => "required",
+            "idMurid" => "required",
+            "idLatihan" => "required",
+        ]);
+        // Simpan data jika validasi berhasil
+        permintaanAkses::create($validasi);
+
+        return redirect()->back()->with("success", "Permintaan Berhasil dikirimkan");
     }
+
 
     /**
      * Display the specified resource.
