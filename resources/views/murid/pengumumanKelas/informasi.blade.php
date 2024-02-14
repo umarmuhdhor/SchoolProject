@@ -12,8 +12,15 @@
                             <p style="text-align: justify;text-justify: inter-word;hyphens: auto;">
                                 {{ $item->deskripsi }}
                             </p>
-                            <a href="{{$item->link}}">{{$item->link}}</a>
+                            <a href="{{ $item->link }}">{{ $item->link }}</a>
                         </div>
+
+                        <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
+                            @if ($item->jenis == 'latihan')
+                                <a href="{{ route('muridLatihan' , $item->idInformasi) }}" class="btn btn-primary" style="margin: 5px">Kerjakan</a>
+                            @endif
+                        </div>
+
                     </div>
                 </div>
             @endforeach

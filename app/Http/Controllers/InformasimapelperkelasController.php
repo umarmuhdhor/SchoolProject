@@ -16,10 +16,11 @@ class InformasimapelperkelasController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function display($id){
-        $informasi = informasimapelperkelas::where('idKelasMapel',$id)->get();
+    public function display($id)
+    {
+        $informasi = informasimapelperkelas::where('idKelasMapel', $id)->get();
 
-        return view('murid.pengumumanKelas.informasi')->with('informasi',$informasi);
+        return view('murid.pengumumanKelas.informasi')->with('informasi', $informasi);
     }
     public function index()
     {
@@ -28,11 +29,9 @@ class InformasimapelperkelasController extends Controller
             $userId = Auth::id();
             $idMurid = murid::where('idAkun', $userId)->first()->idMurid;
             $kelas = kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first();
-            $kelasMapel = kelasmapel::where('idKelas',$kelas->idKelas)->get();
-            return view('murid.pengumumanKelas.index')->with('kelas', $kelas)->with('kelasMapel',$kelasMapel);
-
+            $kelasMapel = kelasmapel::where('idKelas', $kelas->idKelas)->get();
+            return view('murid.pengumumanKelas.index')->with('kelas', $kelas)->with('kelasMapel', $kelasMapel);
         } else {
-
         }
     }
 
@@ -55,21 +54,24 @@ class InformasimapelperkelasController extends Controller
             'judul' => 'required',
             'deskripsi' => 'required',
             'link' => 'required',
+            'jenis' => 'required',
             'idKelasMapel' => 'required',
             'foto' => 'image',
         ]);
+        if ($request->foto) {
+            $ext = $request->foto->getClientOriginalExtension();
 
-        $ext = $request->foto->getClientOriginalExtension();
+            // Buat nama file baru dengan timestamp atau string acak
+            $newFileName = uniqid() . '.' . $ext;
 
-        // Buat nama file baru dengan timestamp atau string acak
-        $newFileName = uniqid() . '.' . $ext;
+            // Validasi foto menggunakan nama file baru
+            $validasi["foto"] = $newFileName;
 
-        // Validasi foto menggunakan nama file baru
-        $validasi["foto"] = $newFileName;
-
-        // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('fotoInformasiPerKelas'), $newFileName);
-
+            // Upload file foto ke dalam folder public
+            $request->foto->move(public_path('fotoInformasiPerKelas'), $newFileName);
+        } else {
+            $validasi["foto"] = null;
+        }
         informasimapelperkelas::create($validasi);
         return redirect()->back()->with("success", "Data Informasi berhasil disimpan");
     }
@@ -80,8 +82,8 @@ class InformasimapelperkelasController extends Controller
     public function show($id)
     {
         //
-        $informasi = informasimapelperkelas::where('idKelasMapel',$id)->get();
-        return view('guru.pembelajaran.informasi')->with('informasi',$informasi)->with('idKelasMapel',$id);
+        $informasi = informasimapelperkelas::where('idKelasMapel', $id)->get();
+        return view('guru.pembelajaran.informasi')->with('informasi', $informasi)->with('idKelasMapel', $id);
     }
 
     /**
@@ -108,7 +110,7 @@ class InformasimapelperkelasController extends Controller
         //
         $informasi = informasimapelperkelas::find($id);
 
-        if( $informasi->delete()){
+        if ($informasi->delete()) {
             return redirect()->back()->with("success", "Informasi Berhasil dihapus");
         }
     }

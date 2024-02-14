@@ -5,7 +5,7 @@
         <div class="container">
             <div class="welcome-hero-txt2">
                 <h2>
-                    Prestasi Murid
+                    Prestasi Guru
                 </h2>
             </div>
         </div>

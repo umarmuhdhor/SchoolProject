@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AlumniController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DisplayController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\KegiatanekskulController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KelasmapelController;
 use App\Http\Controllers\KelasmuridController;
+use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\MapelGuruController;
 use App\Http\Controllers\MateriController;
@@ -101,6 +103,7 @@ Route::resource('/adminAlumni', AlumniController::class)->middleware(['auth', 'v
 Route::resource('/adminInformasi', InformasiController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminSesuaikanPengajar', KelasmapelController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminTentangSekolah', TentangSekolahController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::get('/cookie', [AdminController::class, 'resetCookie'])->middleware(['auth', 'verified', 'checkRole:admin']);
 
 Route::get('/guruInformasiPerKelas/create/{idKelasMapel}', 'InformasimapelperkelasController@create')->middleware(['auth', 'verified', 'checkRole:guru']);
 Route::resource('/guruMateri', MateriController::class)->middleware(['auth', 'verified', 'checkRole:guru']);
@@ -112,6 +115,7 @@ Route::resource('/guruInformasiPerKelas', InformasimapelperkelasController::clas
 Route::resource('/muridMateri', MateriMuridController::class)->middleware(['auth', 'verified', 'checkRole:murid']);
 Route::get('/muridPengumumanKelas', [InformasimapelperkelasController::class, 'index'])->middleware(['auth', 'verified', 'checkRole:murid']);
 Route::get('/muridPengumumanKelas/{id}', [InformasimapelperkelasController::class, 'display'])->middleware(['auth', 'verified', 'checkRole:murid'])->name('muridPengumumanKelas');
+Route::get('/muridLatihan/{link}', [LatihanController::class, 'muridLatihan'])->middleware(['auth', 'verified', 'checkRole:murid'])->name('muridLatihan');
 
 
 Route::middleware('auth')->group(function () {

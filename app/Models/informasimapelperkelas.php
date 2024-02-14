@@ -10,7 +10,7 @@ class informasimapelperkelas extends Model
 {
     use HasFactory,HasUuids;
 
-    protected $fillable = ['judul', 'deskripsi', 'foto', 'link','idKelasMapel'];
+    protected $fillable = ['judul', 'deskripsi', 'foto', 'link','jenis','idKelasMapel'];
     protected $primaryKey = 'idInformasi';
     protected $keyType = 'string';
 

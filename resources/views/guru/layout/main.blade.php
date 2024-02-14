@@ -70,7 +70,7 @@
                                 <span class="hide-menu">Informasi Pembelajaran</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        {{-- <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('guruWaliKelas') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
@@ -149,7 +149,7 @@
                                 </span>
                                 <span class="hide-menu">Sample Page</span>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

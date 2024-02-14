@@ -7,6 +7,7 @@ use App\Models\berita;
 use App\Models\ekskul;
 use App\Models\guru;
 use App\Models\informasi;
+use App\Models\informasimapelperkelas;
 use App\Models\jabatan;
 use App\Models\kegiatanekskul;
 use App\Models\murid;
@@ -149,4 +150,6 @@ class DisplayController extends Controller
         return view("prestasiMurid")
             ->with("prestasi", $prestasi);
     }
+
+
 }

@@ -12,8 +12,9 @@
                             <p style="text-align: justify;text-justify: inter-word;hyphens: auto;">
                                 {{ $item->deskripsi }}
                             </p>
-                            <a href="{{$item->link}}">{{$item->link}}</a>
+                            <a href="{{ $item->link }}">{{ $item->link }}</a>
                         </div>
+                        
                         <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
                             <form action="{{ route('guruInformasiPerKelas.destroy', $item->idInformasi) }}" method="POST">
                                 @csrf
@@ -21,6 +22,7 @@
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                             </form>
                         </div>
+
                     </div>
                 </div>
             @endforeach
@@ -48,12 +50,17 @@
                             @enderror
                         </div>
 
+
+
                         <div class="form-group mb-3">
-                            <label for="foto">Foto</label>
-                            <input type="file" class="form-control" name="foto" placeholder="Foto"
-                                value="{{ old('foto') }}" accept="image/png, image/jpeg">
-                            @error('foto')
-                                <label for="foto" class="text-danger">{{ $message }}</label>
+                            <label for="exampleInputUsername2">jenis</label>
+                            <select name="jenis" class="form-control">
+                                <option value="" selected disabled>Select jenis</option>
+                                <option value="latihan">Google form</option>
+                                <option value="informasi">Informasi Biasa</option>
+                            </select>
+                            @error('jenis')
+                                <label for="jenis" class="text-danger">{{ $message }}</label>
                             @enderror
                         </div>
 
@@ -67,6 +74,14 @@
                         </div>
                         <input type="hidden" name="idKelasMapel" value="{{ $idKelasMapel }}">
 
+                        <div class="form-group mb-3">
+                            <label for="foto">Foto</label>
+                            <input type="file" class="form-control" name="foto" placeholder="Foto"
+                                value="{{ old('foto') }}" accept="image/png, image/jpeg">
+                            @error('foto')
+                                <label for="foto" class="text-danger">{{ $message }}</label>
+                            @enderror
+                        </div>
 
                         <button type="submit" class="btn btn-primary mr-2" fdprocessedid="ff1kyw">Simpan</button>
                         <a href="{{ url('guruInformasiPerKelas') }}" class="btn btn-light" fdprocessedid="s74qgr">Batal</a>
