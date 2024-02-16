@@ -147,7 +147,7 @@ class DisplayController extends Controller
     public function prestasiSekolah()
     {
         $prestasi = prestasi::where('jenis', 'sekolah')->get();
-        return view("prestasiMurid")
+        return view("prestasiSekolah")
             ->with("prestasi", $prestasi);
     }
 

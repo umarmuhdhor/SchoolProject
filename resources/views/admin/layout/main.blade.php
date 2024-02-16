@@ -222,11 +222,11 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ url('adminPermintaan') }}" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-file-description"></i>
+                                    <i class="ti ti-alert-circle"></i>
                                 </span>
-                                <span class="hide-menu">Forms</span>
+                                <span class="hide-menu">Permintaan Akses</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

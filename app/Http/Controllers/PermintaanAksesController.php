@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\permintaanAkses;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class PermintaanAksesController extends Controller
     public function index()
     {
         //
-
+        $permintaan = permintaanAkses::where('status','proses')->get();
+        return view('admin.permintaanAkses.index')->with('permintaan', $permintaan);
     }
 
     /**
@@ -29,6 +31,14 @@ class PermintaanAksesController extends Controller
      */
     public function store(Request $request)
     {
+        // Pengecekan jika ada row yang memiliki idMurid dan idLatihan yang sama lebih dari 3x
+        $existingRequest = permintaanAkses::where('idMurid', $request->idMurid)
+            ->where('idLatihan', $request->idLatihan)->where('status', 'proses')
+            ->exists();
+
+        if ($existingRequest) {
+            return redirect()->back()->with("error", "Permintaan akses sudah dikirimkan, silahkan tunggu akses dari admin.");
+        }
         // Pengecekan jika ada row yang memiliki idMurid dan idLatihan yang sama lebih dari 3x
         $existingRequestsCount = permintaanAkses::where('idMurid', $request->idMurid)
             ->where('idLatihan', $request->idLatihan)
@@ -63,7 +73,7 @@ class PermintaanAksesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(permintaanAkses $permintaanAkses)
+    public function edit($id, $request)
     {
         //
     }
@@ -71,10 +81,29 @@ class PermintaanAksesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, permintaanAkses $permintaanAkses)
+    public function update(Request $request)
     {
-        //
+        $permintaanAkses = permintaanAkses::find($request->idPermintaan);
+        // Validasi input atau langkah lain yang diperlukan
+        if ($request->status == 'terima') {
+            // Update status pada permintaanAkses
+            $permintaanAkses->update(['status' => 'terima']);
+
+            // Pastikan bahwa relasi latihan ada sebelum mencoba update
+            if ($permintaanAkses->latihan) {
+                $permintaanAkses->latihan->update(['status' => '0']);
+            }
+        } elseif ($request->status == 'tolak') {
+            // Update status pada permintaanAkses
+            $permintaanAkses->update(['status' => 'tolak']);
+
+            // Tidak ada perubahan pada latihans jika status ditolak
+        }
+
+        return redirect()->route('adminPermintaan.index');
     }
+
+
 
     /**
      * Remove the specified resource from storage.

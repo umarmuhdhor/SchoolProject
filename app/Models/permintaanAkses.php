@@ -13,4 +13,16 @@ class permintaanAkses extends Model
     protected $fillable = ['idMurid', 'idLatihan', 'status','alasan'];
     protected $primaryKey = 'idPermintaan'; // Gantilah 'id' dengan nama kolom UUID Anda
     protected $keyType = 'string';
+
+    public function murid()
+    {
+        return $this->belongsTo(murid::class, 'idMurid');
+    }
+
+    public function latihan()
+    {
+        return $this->belongsTo(latihan::class, 'idLatihan');
+    }
+
+
 }

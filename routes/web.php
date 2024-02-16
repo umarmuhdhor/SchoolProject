@@ -104,6 +104,7 @@ Route::resource('/adminAlumni', AlumniController::class)->middleware(['auth', 'v
 Route::resource('/adminInformasi', InformasiController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminSesuaikanPengajar', KelasmapelController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminTentangSekolah', TentangSekolahController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminPermintaan', PermintaanAksesController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::get('/cookie', [AdminController::class, 'resetCookie'])->middleware(['auth', 'verified', 'checkRole:admin']);
 
 Route::get('/guruInformasiPerKelas/create/{idKelasMapel}', 'InformasimapelperkelasController@create')->middleware(['auth', 'verified', 'checkRole:guru']);
