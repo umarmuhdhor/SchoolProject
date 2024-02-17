@@ -21,6 +21,7 @@ use App\Http\Controllers\MapelGuruController;
 use App\Http\Controllers\MateriController;
 use App\Http\Controllers\MateriMuridController;
 use App\Http\Controllers\MuridController;
+use App\Http\Controllers\P5Controller;
 use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\PermintaanAksesController;
 use App\Http\Controllers\PrestasiController;
@@ -105,6 +106,7 @@ Route::resource('/adminInformasi', InformasiController::class)->middleware(['aut
 Route::resource('/adminSesuaikanPengajar', KelasmapelController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminTentangSekolah', TentangSekolahController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminPermintaan', PermintaanAksesController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminP5', P5Controller::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::get('/cookie', [AdminController::class, 'resetCookie'])->middleware(['auth', 'verified', 'checkRole:admin']);
 
 Route::get('/guruInformasiPerKelas/create/{idKelasMapel}', 'InformasimapelperkelasController@create')->middleware(['auth', 'verified', 'checkRole:guru']);
