@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\Mapel;
-use App\Models\Materi;
-use App\Models\Guru;
-use App\Models\Kelasmapel;
-use App\Models\Kelasmurid;
-use App\Models\Murid;
+use App\Models\mapel;
+use App\Models\materi;
+use App\Models\guru;
+use App\Models\kelasmapel;
+use App\Models\kelasmurid;
+use App\Models\murid;
 use Illuminate\Http\Request;
 
 class MateriMuridController extends Controller
@@ -24,9 +24,9 @@ class MateriMuridController extends Controller
         if (Auth::check()) {
             // Get the ID of the logged-in user
             $userId = Auth::id();
-            $idMurid = Murid::where('idAkun', $userId)->first()->idMurid;
-            $idKelas = Kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first()->idKelas;
-            $KelasMapel = Kelasmapel::where('idKelas', $idKelas)
+            $idMurid = murid::where('idAkun', $userId)->first()->idMurid;
+            $idKelas = kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first()->idKelas;
+            $KelasMapel = kelasmapel::where('idKelas', $idKelas)
                 ->join('mapel_gurus', 'kelasmapels.idMapelGuru', '=', 'mapel_gurus.idMapelGuru')
                 ->join('mapels', 'mapel_gurus.idMapel', '=', 'mapels.idMapel')
                 ->join('gurus', 'mapel_gurus.idGuru', '=', 'gurus.idGuru')

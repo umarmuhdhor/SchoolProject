@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mapel;
+use App\Models\mapel;
 use Illuminate\Http\Request;
 
 class MapelController extends Controller

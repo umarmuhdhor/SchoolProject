@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guru;
-use App\Models\Jabatan;
-use App\Models\Mapel;
-use App\Models\Periode;
+use App\Models\guru;
+use App\Models\jabatan;
+use App\Models\mapel;
+use App\Models\periode;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -17,7 +17,7 @@ class JabatanController extends Controller
     public function index()
     {
         //
-        $jabatan = Jabatan::all();
+        $jabatan = jabatan::all();
         return view('admin.jabatan.index')->with('jabatan', $jabatan);
     }
 
@@ -27,9 +27,9 @@ class JabatanController extends Controller
     public function create()
     {
         //
-        $guru = Guru::all();
-        $periode = Periode::all();
-        $mapel = Mapel::all();
+        $guru = guru::all();
+        $periode = periode::all();
+        $mapel = mapel::all();
         return view('admin.jabatan.create')->with('guru', $guru)->with('periode',$periode)->with('mapel',$mapel);
     }
 
@@ -46,7 +46,7 @@ class JabatanController extends Controller
             'status' => 'required',
         ]);
 
-        Jabatan::create($validasi);
+        jabatan::create($validasi);
         return redirect("adminJabatan")->with("success", "Data Jabatan berhasil disimpan");
 
     }

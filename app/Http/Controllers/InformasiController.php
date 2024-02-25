@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Informasi;
+use App\Models\informasi;
 use Illuminate\Http\Request;
 
 class InformasiController extends Controller

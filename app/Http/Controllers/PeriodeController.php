@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Periode;
+use App\Models\periode;
 use Illuminate\Http\Request;
 
 class PeriodeController extends Controller
@@ -23,7 +23,7 @@ class PeriodeController extends Controller
     public function create()
     {
         //
-        $periode = Periode::all();
+        $periode = periode::all();
         return view("admin.periode.create")->with("periode", $periode);
     }
 

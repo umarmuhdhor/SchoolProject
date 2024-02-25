@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Visimisi;
+use App\Models\visimisi;
 use Illuminate\Http\Request;
 
 class VisimisiController extends Controller
@@ -13,7 +13,7 @@ class VisimisiController extends Controller
     public function index()
     {
         //
-        $visimisi = Visimisi::all();
+        $visimisi = visimisi::all();
         return view("admin.visimisi.index")->with("visimisi", $visimisi);
     }
 
@@ -38,7 +38,7 @@ class VisimisiController extends Controller
             "misi" => "required",
         ]);
 
-        Visimisi::create($validasi);
+        visimisi::create($validasi);
         return redirect("adminVisimisi")->with("success", "Misi berhasil disimpan");
     }
 
@@ -72,7 +72,7 @@ class VisimisiController extends Controller
     public function destroy($id)
     {
         //
-        $visimisi = Visimisi::find($id);
+        $visimisi = visimisi::find($id);
 
         if( $visimisi->delete()){
             return redirect("adminVisimisi")->with("success", "Misi berhasil disimpan");

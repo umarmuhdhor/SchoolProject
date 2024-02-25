@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\P5;
+use App\Models\p5;
 use Illuminate\Http\Request;
 
 class P5Controller extends Controller
@@ -13,7 +13,7 @@ class P5Controller extends Controller
     public function index()
     {
         //
-        $p5 = P5::all();
+        $p5 = p5::all();
         return view("admin.p5.index")->with("p5", $p5);
     }
 
@@ -63,7 +63,7 @@ class P5Controller extends Controller
         }
 
         // Buat objek Berita dan simpan data ke dalam database
-        P5::create([
+        p5::create([
             'judul' => $request->judul,
             'isi' => $request->isi,
             "tanggal" => $request->tanggal,

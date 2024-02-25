@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\Mapel;
-use App\Models\Materi;
-use App\Models\Guru;
-use App\Models\MapelGuru;
+use App\Models\mapel;
+use App\Models\materi;
+use App\Models\guru;
+use App\Models\mapelGuru;
 use Illuminate\Http\Request;
 
 class MateriController extends Controller
@@ -28,7 +28,7 @@ class MateriController extends Controller
     public function create(Request $request)
     {
         $idMapel = $request->input('idMapel');
-        $idMapelGuru = MapelGuru::where('idMapel', $idMapel)->first()->idMapelGuru;
+        $idMapelGuru = mapelGuru::where('idMapel', $idMapel)->first()->idMapelGuru;
         $loggedInUser = Auth::user();
 
         if ($loggedInUser) {
@@ -41,8 +41,8 @@ class MateriController extends Controller
             }
         }
 
-        $mapelGuru = MapelGuru::find($idMapelGuru);
-        $materi = Materi::where('idMapelGuru', $idMapelGuru)->get();
+        $mapelGuru = mapelGuru::find($idMapelGuru);
+        $materi = materi::where('idMapelGuru', $idMapelGuru)->get();
         return view("guru.materi.create")->with(["materi" => $materi, "mapel" => $mapelGuru, "idGuru" => $idGuru]);
     }
 

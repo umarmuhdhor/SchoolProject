@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berita;
+use App\Models\berita;
 use Illuminate\Http\Request;
 
 class BeritaController extends Controller
@@ -98,7 +98,7 @@ class BeritaController extends Controller
     {
         //
 
-        $berita = Berita::find($id);
+        $berita = berita::find($id);
         return view("admin.berita.edit")->with("berita", $berita);
     }
 
@@ -117,7 +117,7 @@ class BeritaController extends Controller
     public function destroy($id)
     {
         // Temukan data berita berdasarkan ID
-        $berita = Berita::find($id);
+        $berita = berita::find($id);
 
         // Pastikan data ditemukan
         if (!$berita) {

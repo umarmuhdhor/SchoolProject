@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ekskul;
-use App\Models\Guru;
-use App\Models\Kegiatanekskul;
-use App\Models\Murid;
-use App\Models\Periode;
+use App\Models\ekskul;
+use App\Models\guru;
+use App\Models\kegiatanekskul;
+use App\Models\murid;
+use App\Models\periode;
 use Illuminate\Http\Request;
 
 class EkskulController extends Controller
@@ -17,7 +17,7 @@ class EkskulController extends Controller
     public function index()
     {
         //
-        $ekskul = Ekskul::all();
+        $ekskul = ekskul::all();
         return view('admin.ekskul.index')->with('ekskul', $ekskul);
     }
 
@@ -27,9 +27,9 @@ class EkskulController extends Controller
     public function create()
     {
         //
-        $murid = Murid::all();
-        $periode = Periode::all();
-        $guru = Guru::all();
+        $murid = murid::all();
+        $periode = periode::all();
+        $guru = guru::all();
         return view('admin.ekskul.create')
             ->with('guru', $guru)
             ->with('murid', $murid)
@@ -71,7 +71,7 @@ class EkskulController extends Controller
     public function show($id)
     {
         //
-        $kegiatan = Kegiatanekskul::where('idEkskul',$id)->get();
+        $kegiatan = kegiatanekskul::where('idEkskul',$id)->get();
         return view('admin.ekskul.kegiatan')->with('kegiatan', $kegiatan)->with('idEkskul',$id);
     }
 

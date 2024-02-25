@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prestasi;
-use App\Models\Tentangsekolah;
+use App\Models\prestasi;
+use App\Models\tentangsekolah;
 use Illuminate\Http\Request;
 
 class TentangSekolahController extends Controller
@@ -14,7 +14,7 @@ class TentangSekolahController extends Controller
     public function index()
     {
         //
-        $tentangSekolah = Tentangsekolah::all();
+        $tentangSekolah = tentangsekolah::all();
         return view("admin.tentangSekolah.index")->with('tentangSekolah',$tentangSekolah);
     }
 
@@ -24,7 +24,7 @@ class TentangSekolahController extends Controller
     public function create()
     {
         //
-        $prestasi = Prestasi::all();
+        $prestasi = prestasi::all();
         return view("admin.prestasi.create")->with("prestasi", $prestasi);
     }
 
@@ -37,7 +37,7 @@ class TentangSekolahController extends Controller
             "tentang" => "required",
             "deskripsi" => "required",
         ]);
-        Tentangsekolah::create($validasi);
+        tentangsekolah::create($validasi);
         return redirect("adminTentangSekolah")->with("success", "Data Sekolah berhasil disimpan");
     }
 
@@ -71,7 +71,7 @@ class TentangSekolahController extends Controller
     public function destroy($id)
     {
         //
-        $tentangSekolah = Tentangsekolah::find($id);
+        $tentangSekolah = tentangsekolah::find($id);
 
         if( $tentangSekolah->delete()){
             return redirect("adminTentangSekolah")->with("success", "Tentang Sekolah Berhasil DiHapus");

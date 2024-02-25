@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prestasi;
+use App\Models\prestasi;
 use Illuminate\Http\Request;
 
 class PrestasiController extends Controller
@@ -14,13 +14,13 @@ class PrestasiController extends Controller
     public function display()
     {
         //
-        $prestasi = Prestasi::all();
+        $prestasi = prestasi::all();
         return view("prestasi")->with("prestasi", $prestasi);
     }
     public function index()
     {
         //
-        $prestasi = Prestasi::all();
+        $prestasi = prestasi::all();
         return view("admin.prestasi.index")->with("prestasi", $prestasi);
     }
 
@@ -30,7 +30,7 @@ class PrestasiController extends Controller
     public function create()
     {
         //
-        $prestasi = Prestasi::all();
+        $prestasi = prestasi::all();
         return view("admin.prestasi.create")->with("prestasi", $prestasi);
     }
 
@@ -61,7 +61,7 @@ class PrestasiController extends Controller
         // Upload file foto ke dalam folder public
         $request->foto->move(public_path('fotoPrestasi'), $newFileName);
 
-        Prestasi::create($validasi);
+        prestasi::create($validasi);
         return redirect("adminPrestasi")->with("success", "Data Prestasi berhasil disimpan");
     }
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Murid;
+use App\Models\murid;
 use App\Models\User;
 use Illuminate\Http\Request;
 

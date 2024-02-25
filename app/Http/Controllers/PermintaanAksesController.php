@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\PermintaanAkses;
+use App\Models\permintaanAkses;
 use Illuminate\Http\Request;
 
 class PermintaanAksesController extends Controller
@@ -14,7 +14,7 @@ class PermintaanAksesController extends Controller
     public function index()
     {
         //
-        $permintaan = PermintaanAkses::where('status','proses')->get();
+        $permintaan = permintaanAkses::where('status','proses')->get();
         return view('admin.permintaanAkses.index')->with('permintaan', $permintaan);
     }
 
@@ -32,7 +32,7 @@ class PermintaanAksesController extends Controller
     public function store(Request $request)
     {
         // Pengecekan jika ada row yang memiliki idMurid dan idLatihan yang sama lebih dari 3x
-        $existingRequest = PermintaanAkses::where('idMurid', $request->idMurid)
+        $existingRequest = permintaanAkses::where('idMurid', $request->idMurid)
             ->where('idLatihan', $request->idLatihan)->where('status', 'proses')
             ->exists();
 
@@ -40,7 +40,7 @@ class PermintaanAksesController extends Controller
             return redirect()->back()->with("error", "Permintaan akses sudah dikirimkan, silahkan tunggu akses dari admin.");
         }
         // Pengecekan jika ada row yang memiliki idMurid dan idLatihan yang sama lebih dari 3x
-        $existingRequestsCount = PermintaanAkses::where('idMurid', $request->idMurid)
+        $existingRequestsCount = permintaanAkses::where('idMurid', $request->idMurid)
             ->where('idLatihan', $request->idLatihan)
             ->count();
 
@@ -56,7 +56,7 @@ class PermintaanAksesController extends Controller
             "idLatihan" => "required",
         ]);
         // Simpan data jika validasi berhasil
-        PermintaanAkses::create($validasi);
+        permintaanAkses::create($validasi);
 
         return redirect()->back()->with("success", "Permintaan Berhasil dikirimkan");
     }

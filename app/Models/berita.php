@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Berita extends Model
+class berita extends Model
 {
     use HasFactory, HasUuids;
     protected $fillable = ['judulBerita', 'sinopsis', 'isiBerita','thumbnail','tanggal','foto1','foto2','foto3','foto4','foto5'];

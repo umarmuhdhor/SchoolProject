@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guru;
-use App\Models\Kelas;
-use App\Models\Kelasmapel;
-use App\Models\MapelGuru;
+use App\Models\guru;
+use App\Models\kelas;
+use App\Models\kelasmapel;
+use App\Models\mapelGuru;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +18,7 @@ class KelasmapelController extends Controller
     public function index()
     {
         //
-        $kelas = Kelasmapel::all();
+        $kelas = kelasmapel::all();
         return view('admin.kelasMapel.index')->with('kelas', $kelas);
     }
 
@@ -28,8 +28,8 @@ class KelasmapelController extends Controller
     public function create()
     {
         //
-        $kelas = Kelas::all();
-        $mapelGuru = MapelGuru::all();
+        $kelas = kelas::all();
+        $mapelGuru = mapelGuru::all();
         return view('admin.kelasMapel.create')->with('guru', $mapelGuru)->with('kelas', $kelas);
     }
 

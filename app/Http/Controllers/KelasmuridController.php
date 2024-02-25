@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelasmurid;
-use App\Models\Murid;
+use App\Models\kelasmurid;
+use App\Models\murid;
 use Illuminate\Http\Request;
 
 class KelasmuridController extends Controller
@@ -14,6 +14,7 @@ class KelasmuridController extends Controller
     public function index()
     {
         //
+        dd('tes');
     }
 
     /**
@@ -35,7 +36,7 @@ class KelasmuridController extends Controller
             'status' => 'required'
         ]);
 
-        Kelasmurid::create($validasi);
+        kelasmurid::create($validasi);
         return redirect()->back()->with("success", "murid berhasil ditambahkan kedalam kelas");
     }
 
@@ -81,7 +82,7 @@ class KelasmuridController extends Controller
     public function destroy($id)
     {
         //
-        $kelasmurid = Kelasmurid::find($id);
+        $kelasmurid = kelasmurid::find($id);
 
         if ($kelasmurid->delete()) {
             return redirect()->back()->with("success", "murid berhasil ditambahkan kedalam kelas");

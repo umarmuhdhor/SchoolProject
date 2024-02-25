@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guru;
-use App\Models\Informasimapelperkelas;
-use App\Models\Kelasmapel;
-use App\Models\Kelasmurid;
-use App\Models\MapelGuru;
-use App\Models\Murid;
+use App\Models\guru;
+use App\Models\informasimapelperkelas;
+use App\Models\kelasmapel;
+use App\Models\kelasmurid;
+use App\Models\mapelGuru;
+use App\Models\murid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +18,7 @@ class InformasimapelperkelasController extends Controller
      */
     public function display($id)
     {
-        $informasi = Informasimapelperkelas::where('idKelasMapel', $id)->get();
+        $informasi = informasimapelperkelas::where('idKelasMapel', $id)->get();
 
         return view('murid.pengumumanKelas.informasi')->with('informasi', $informasi);
     }
@@ -27,9 +27,9 @@ class InformasimapelperkelasController extends Controller
         //
         if (Auth::check()) {
             $userId = Auth::id();
-            $idMurid = Murid::where('idAkun', $userId)->first()->idMurid;
-            $kelas = Kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first();
-            $kelasMapel = Kelasmapel::where('idKelas', $kelas->idKelas)->get();
+            $idMurid = murid::where('idAkun', $userId)->first()->idMurid;
+            $kelas = kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first();
+            $kelasMapel = kelasmapel::where('idKelas', $kelas->idKelas)->get();
             return view('murid.pengumumanKelas.index')->with('kelas', $kelas)->with('kelasMapel', $kelasMapel);
         } else {
         }
@@ -72,7 +72,7 @@ class InformasimapelperkelasController extends Controller
         } else {
             $validasi["foto"] = null;
         }
-        Informasimapelperkelas::create($validasi);
+        informasimapelperkelas::create($validasi);
         return redirect()->back()->with("success", "Data Informasi berhasil disimpan");
     }
 
@@ -82,7 +82,7 @@ class InformasimapelperkelasController extends Controller
     public function show($id)
     {
         //
-        $informasi = Informasimapelperkelas::where('idKelasMapel', $id)->get();
+        $informasi = informasimapelperkelas::where('idKelasMapel', $id)->get();
         return view('guru.pembelajaran.informasi')->with('informasi', $informasi)->with('idKelasMapel', $id);
     }
 
@@ -108,7 +108,7 @@ class InformasimapelperkelasController extends Controller
     public function destroy($id)
     {
         //
-        $informasi = Informasimapelperkelas::find($id);
+        $informasi = informasimapelperkelas::find($id);
 
         if ($informasi->delete()) {
             return redirect()->back()->with("success", "Informasi Berhasil dihapus");

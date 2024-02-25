@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Informasimapelperkelas;
-use App\Models\Latihan;
-use App\Models\Murid;
+use App\Models\informasimapelperkelas;
+use App\Models\latihan;
+use App\Models\murid;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -47,7 +47,7 @@ class LatihanController extends Controller
                         'idMurid' => $idMurid,
                         'idInformasi' => $idInformasi,
                     ]);
-                    $link = Informasimapelperkelas::find($idInformasi)->first()->link;
+                    $link = informasimapelperkelas::find($idInformasi)->first()->link;
                     // Load halaman /latihan
                     return view('murid.latihan.index')->with('link', $link);
                 }

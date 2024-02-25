@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guru;
-use App\Models\Kelas;
-use App\Models\Murid;
-use App\Models\Periode;
+use App\Models\guru;
+use App\Models\kelas;
+use App\Models\murid;
+use App\Models\periode;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -28,7 +28,7 @@ class KelasController extends Controller
         //
         $kelas = Kelas::all();
         $guru = Guru::all();
-        $periode = Periode::all();
+        $periode = periode::all();
         return view("admin.kelas.create")->with("kelas", $kelas)->with('guru', $guru)->with('periode', $periode);
     }
 
@@ -45,7 +45,7 @@ class KelasController extends Controller
             "idPeriode" => "required",
         ]);
 
-        Kelas::create($validasi);
+        kelas::create($validasi);
         return redirect("adminKelas")->with("success", "Data kelas berhasil disimpan");
     }
 

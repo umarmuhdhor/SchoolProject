@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guru;
-use App\Models\Kelas;
-use App\Models\Mapel;
-use App\Models\MapelGuru;
-use App\Models\Periode;
+use App\Models\guru;
+use App\Models\kelas;
+use App\Models\mapel;
+use App\Models\mapelGuru;
+use App\Models\periode;
 use Illuminate\Http\Request;
 
 class MapelGuruController extends Controller
@@ -17,7 +17,7 @@ class MapelGuruController extends Controller
     public function index()
     {
         //
-        $mapelGuru = MapelGuru::all();
+        $mapelGuru = mapelGuru::all();
         return view("admin.mapelGuru.index")->with("mapelGuru", $mapelGuru);
     }
 
@@ -27,10 +27,10 @@ class MapelGuruController extends Controller
     public function create()
     {
         //
-        $kelas = Kelas::all();
-        $guru = Guru::all();
-        $periode = Periode::all();
-        $mapel = Mapel::all();
+        $kelas = kelas::all();
+        $guru = guru::all();
+        $periode = periode::all();
+        $mapel = mapel::all();
 
 
         return view("admin.mapelGuru.create")->with("kelas", $kelas)->with('guru', $guru)->with('periode', $periode)->with('mapel',$mapel);
@@ -48,7 +48,7 @@ class MapelGuruController extends Controller
             'idPeriode' => "required"
         ]);
 
-        MapelGuru::create($validasi);
+        mapelGuru::create($validasi);
         return redirect('adminMapelGuru')->with("success", "guru berhasil ditambahkan sebagai pengajar");
     }
 

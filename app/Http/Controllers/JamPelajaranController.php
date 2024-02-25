@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JamPelajaran;
+use App\Models\jamPelajaran;
 use Illuminate\Http\Request;
 
 class JamPelajaranController extends Controller
@@ -13,7 +13,7 @@ class JamPelajaranController extends Controller
     public function index()
     {
         //
-        $jam = JamPelajaran::all();
+        $jam = jamPelajaran::all();
         return view("admin.jamPelajaran.index")->with("jam", $jam);
     }
     /**
@@ -35,7 +35,7 @@ class JamPelajaranController extends Controller
             "jam" => "required",
         ]);
 
-        JamPelajaran::create($validasi);
+        jamPelajaran::create($validasi);
         return redirect("adminJamPelajaran")->with("success", "Data jam pelajaran berhasil disimpan");
     }
 
