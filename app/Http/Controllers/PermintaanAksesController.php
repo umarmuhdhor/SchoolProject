@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\permintaanAkses;
+use App\Models\PermintaanAkses;
 use Illuminate\Http\Request;
 
 class PermintaanAksesController extends Controller

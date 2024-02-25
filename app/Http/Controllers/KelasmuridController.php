@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kelasmurid;
-use App\Models\murid;
+use App\Models\Kelasmurid;
+use App\Models\Murid;
 use Illuminate\Http\Request;
 
 class KelasmuridController extends Controller

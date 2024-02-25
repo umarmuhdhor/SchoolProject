@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\alumni;
-use App\Models\murid;
+use App\Models\Alumni;
+use App\Models\Murid;
 use Illuminate\Http\Request;
 
 class AlumniController extends Controller

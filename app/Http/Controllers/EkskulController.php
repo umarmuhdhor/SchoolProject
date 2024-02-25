@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ekskul;
-use App\Models\guru;
-use App\Models\kegiatanekskul;
-use App\Models\murid;
-use App\Models\periode;
+use App\Models\Ekskul;
+use App\Models\Guru;
+use App\Models\Kegiatanekskul;
+use App\Models\Murid;
+use App\Models\Periode;
 use Illuminate\Http\Request;
 
 class EkskulController extends Controller

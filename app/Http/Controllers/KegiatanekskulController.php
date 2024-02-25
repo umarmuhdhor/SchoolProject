@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kegiatanekskul;
+use App\Models\Kegiatanekskul;
 use Illuminate\Http\Request;
 
 class KegiatanekskulController extends Controller

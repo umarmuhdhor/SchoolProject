@@ -14,7 +14,7 @@
         rel="stylesheet">
 
     <!-- title of site -->
-    <title>Directory Landing Page</title>
+    <title>SMAN 5 TALANG UBI</title>
 
     <!-- For favicon png -->
     <link rel="shortcut icon" type="image/icon" href="{{ asset('assets/logo/favicon.png') }}" />

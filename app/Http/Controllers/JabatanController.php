@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\guru;
-use App\Models\jabatan;
-use App\Models\mapel;
-use App\Models\periode;
+use App\Models\Guru;
+use App\Models\Jabatan;
+use App\Models\Mapel;
+use App\Models\Periode;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 

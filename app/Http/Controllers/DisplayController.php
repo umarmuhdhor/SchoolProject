@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\alumni;
-use App\Models\berita;
-use App\Models\ekskul;
-use App\Models\guru;
-use App\Models\informasi;
-use App\Models\informasimapelperkelas;
-use App\Models\jabatan;
-use App\Models\kegiatanekskul;
-use App\Models\murid;
-use App\Models\p5;
-use App\Models\prestasi;
-use App\Models\tentangSekolah;
-use App\Models\visimisi;
+use App\Models\Alumni;
+use App\Models\Berita;
+use App\Models\Ekskul;
+use App\Models\Guru;
+use App\Models\Informasi;
+use App\Models\Informasimapelperkelas;
+use App\Models\Jabatan;
+use App\Models\Kegiatanekskul;
+use App\Models\Murid;
+use App\Models\P5;
+use App\Models\Prestasi;
+use App\Models\TentangSekolah;
+use App\Models\Visimisi;
 use Illuminate\Http\Request;
 
 class DisplayController extends Controller

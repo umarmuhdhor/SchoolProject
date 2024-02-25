@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\guru;
-use App\Models\kelas;
-use App\Models\mapel;
-use App\Models\mapelGuru;
-use App\Models\periode;
+use App\Models\Guru;
+use App\Models\Kelas;
+use App\Models\Mapel;
+use App\Models\MapelGuru;
+use App\Models\Periode;
 use Illuminate\Http\Request;
 
 class MapelGuruController extends Controller

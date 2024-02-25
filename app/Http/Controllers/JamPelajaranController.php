@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\jamPelajaran;
+use App\Models\JamPelajaran;
 use Illuminate\Http\Request;
 
 class JamPelajaranController extends Controller

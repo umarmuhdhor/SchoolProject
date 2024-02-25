@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\gurumapelperkelas;
+use App\Models\Gurumapelperkelas;
 use Illuminate\Http\Request;
 
 class GurumapelperkelasController extends Controller

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\mapel;
-use App\Models\materi;
-use App\Models\guru;
-use App\Models\kelasmapel;
-use App\Models\kelasmurid;
-use App\Models\murid;
+use App\Models\Mapel;
+use App\Models\Materi;
+use App\Models\Guru;
+use App\Models\Kelasmapel;
+use App\Models\Kelasmurid;
+use App\Models\Murid;
 use Illuminate\Http\Request;
 
 class MateriMuridController extends Controller

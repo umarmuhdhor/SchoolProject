@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\informasimapelperkelas;
-use App\Models\latihan;
-use App\Models\murid;
+use App\Models\Informasimapelperkelas;
+use App\Models\Latihan;
+use App\Models\Murid;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 

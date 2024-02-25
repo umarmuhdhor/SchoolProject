@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\p5;
+use App\Models\P5;
 use Illuminate\Http\Request;
 
 class P5Controller extends Controller

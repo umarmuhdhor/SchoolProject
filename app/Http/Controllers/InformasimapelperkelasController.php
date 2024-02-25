@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\guru;
-use App\Models\informasimapelperkelas;
-use App\Models\kelasmapel;
-use App\Models\kelasmurid;
-use App\Models\mapelGuru;
-use App\Models\murid;
+use App\Models\Guru;
+use App\Models\Informasimapelperkelas;
+use App\Models\Kelasmapel;
+use App\Models\Kelasmurid;
+use App\Models\MapelGuru;
+use App\Models\Murid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\mapel;
-use App\Models\materi;
-use App\Models\guru;
-use App\Models\mapelGuru;
+use App\Models\Mapel;
+use App\Models\Materi;
+use App\Models\Guru;
+use App\Models\MapelGuru;
 use Illuminate\Http\Request;
 
 class MateriController extends Controller

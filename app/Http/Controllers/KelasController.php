@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\guru;
-use App\Models\kelas;
-use App\Models\murid;
-use App\Models\periode;
+use App\Models\Guru;
+use App\Models\Kelas;
+use App\Models\Murid;
+use App\Models\Periode;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller

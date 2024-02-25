@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\periode;
+use App\Models\Periode;
 use Illuminate\Http\Request;
 
 class PeriodeController extends Controller

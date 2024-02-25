@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\prestasi;
-use App\Models\tentangsekolah;
+use App\Models\Prestasi;
+use App\Models\Tentangsekolah;
 use Illuminate\Http\Request;
 
 class TentangSekolahController extends Controller

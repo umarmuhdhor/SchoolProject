@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\guru;
-use App\Models\kelas;
-use App\Models\kelasmapel;
-use App\Models\mapelGuru;
+use App\Models\Guru;
+use App\Models\Kelas;
+use App\Models\Kelasmapel;
+use App\Models\MapelGuru;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

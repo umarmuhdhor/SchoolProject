@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\guru;
-use App\Models\mapel;
+use App\Models\Guru;
+use App\Models\Mapel;
 use App\Models\User;
 use Illuminate\Http\Request;
 
