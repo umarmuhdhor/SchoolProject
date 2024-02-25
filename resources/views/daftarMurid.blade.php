@@ -4,9 +4,7 @@
     <section id="home" class="welcome-hero2">
         <div class="container">
             <div class="welcome-hero-txt2">
-                <h2>Daftar Murid dan Alumni
-
-                </h2>
+                <h2>Daftar Murid dan Alumni</h2>
             </div>
         </div>
     </section><!--/.welcome-hero-->
@@ -76,7 +74,7 @@
                         <th style="padding: 10px; border: 1px solid #ddd; width: 5%;">Status</th>
                         <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Tempat Kerja</th>
                         <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">PTN</th>
-                        <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Nomor Telpon</th>
+                        {{-- <th style="padding: 10px; border: 1px solid #ddd; width: 20%;">Nomor Telpon</th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -91,7 +89,7 @@
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->status }}</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->tempatKerja }}</td>
                             <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->namaKampus }}</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->murid->noHp }}</td>
+                            {{-- <td style="padding: 10px; border: 1px solid #ddd;">{{ $alumnus->murid->noHp }}</td> --}}
 
                         </tr>
                     @endforeach
