@@ -47,7 +47,7 @@ class LatihanController extends Controller
                         'idMurid' => $idMurid,
                         'idInformasi' => $idInformasi,
                     ]);
-                    $link = informasimapelperkelas::find($idInformasi)->first()->link;
+                    $link = Informasimapelperkelas::find($idInformasi)->first()->link;
                     // Load halaman /latihan
                     return view('murid.latihan.index')->with('link', $link);
                 }

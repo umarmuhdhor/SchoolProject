@@ -23,9 +23,9 @@ class DisplayController extends Controller
     public function index()
     {
         //
-        $guru = guru::all();
-        $berita = berita::all();
-        $visi = visimisi::all();
+        $guru = Guru::all();
+        $berita = Berita::all();
+        $visi = Visimisi::all();
         return view("welcome")
             ->with("berita", $berita)
             ->with("visi", $visi)
@@ -34,9 +34,9 @@ class DisplayController extends Controller
 
     public function daftarMurid()
     {
-        $murid = murid::where('status','aktif')->get();
-        $alumni = alumni::all();
-        $berita = berita::all();
+        $murid = Murid::where('status','aktif')->get();
+        $alumni = Alumni::all();
+        $berita = Berita::all();
         return view("daftarMurid")
             ->with("berita", $berita)
             ->with("murid", $murid)
@@ -45,11 +45,11 @@ class DisplayController extends Controller
 
     public function ekskul()
     {
-        $guru = guru::all();
-        $murid = murid::all();
-        $berita = berita::all();
-        $ekskul = ekskul::all();
-        $visi = visimisi::all();
+        $guru = Guru::all();
+        $murid = Murid::all();
+        $berita = Berita::all();
+        $ekskul = Ekskul::all();
+        $visi = Visimisi::all();
         return view("ekskul")
             ->with("berita", $berita)
             ->with("murid", $murid)
@@ -60,14 +60,14 @@ class DisplayController extends Controller
     public function tentangSekolah()
     {
 
-        $sekolah = tentangSekolah::all();
+        $sekolah = TentangSekolah::all();
         return view("tentangSekolah")
             ->with("sekolah", $sekolah);
     }
     public function guruDanStaff()
     {
 
-        $jabatan = jabatan::all();
+        $jabatan = Jabatan::all();
         return view("guru")
             ->with("jabatan", $jabatan);
     }
@@ -76,49 +76,49 @@ class DisplayController extends Controller
     public function sejarah()
     {
 
-        $sekolah = tentangSekolah::all();
+        $sekolah = TentangSekolah::all();
         return view("sejarah");
     }
 
     public function visimisi()
     {
-        $visi = visimisi::all();
+        $visi = Visimisi::all();
         return view("visimisi")
             ->with("visi", $visi);
     }
 
     public function informasiGuru()
     {
-        $informasi = informasi::where('tujuan', 'guru')->get();
+        $informasi = Informasi::where('tujuan', 'guru')->get();
         return view("informasiGuru")
             ->with("informasi", $informasi);
     }
 
     public function detailInformasiGuru($id)
     {
-        $informasi = informasi::find($id);
+        $informasi = Informasi::find($id);
         return view("detailInformasiGuru")
             ->with("informasi", $informasi);
     }
 
     public function informasiMurid()
     {
-        $informasi = informasi::where('tujuan', 'murid')->get();
+        $informasi = Informasi::where('tujuan', 'murid')->get();
         return view("informasiMurid")
             ->with("informasi", $informasi);
     }
 
     public function detailInformasiMurid($id)
     {
-        $informasi = informasi::find($id);
+        $informasi = Informasi::find($id);
         return view("detailInformasiMurid")
             ->with("informasi", $informasi);
     }
 
     public function daftarKegiatanEkskul($idEkskul)
     {
-        $ekskul = ekskul::find($idEkskul);
-        $kegiatanEkskul = kegiatanekskul::where('idEkskul', $idEkskul)->get();
+        $ekskul = Ekskul::find($idEkskul);
+        $kegiatanEkskul = Kegiatanekskul::where('idEkskul', $idEkskul)->get();
         return view("daftarKegiatanEkskul")
             ->with("kegiatanEkskul", $kegiatanEkskul)
             ->with("ekskul", $ekskul);
@@ -126,34 +126,34 @@ class DisplayController extends Controller
 
     public function kegiatanEkskul($idKegiatanEkskul)
     {
-        $kegiatanEkskul = kegiatanekskul::find($idKegiatanEkskul);
+        $kegiatanEkskul = Kegiatanekskul::find($idKegiatanEkskul);
         return view("kegiatanEkskul")
             ->with("kegiatanEkskul", $kegiatanEkskul);
     }
 
     public function prestasiMurid()
     {
-        $prestasi = prestasi::where('jenis', 'murid')->get();
+        $prestasi = Prestasi::where('jenis', 'murid')->get();
         return view("prestasiMurid")
             ->with("prestasi", $prestasi);
     }
 
     public function prestasiGuru()
     {
-        $prestasi = prestasi::where('jenis', 'guru')->get();
+        $prestasi = Prestasi::where('jenis', 'guru')->get();
         return view("prestasiMurid")
             ->with("prestasi", $prestasi);
     }
 
     public function prestasiSekolah()
     {
-        $prestasi = prestasi::where('jenis', 'sekolah')->get();
+        $prestasi = Prestasi::where('jenis', 'sekolah')->get();
         return view("prestasiSekolah")
             ->with("prestasi", $prestasi);
     }
 
     public function p5(){
-        $p5 = p5::all();
+        $p5 = P5::all();
         return view('p5')->with('p5',$p5);
     }
 

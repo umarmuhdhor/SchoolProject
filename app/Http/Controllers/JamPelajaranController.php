@@ -13,7 +13,7 @@ class JamPelajaranController extends Controller
     public function index()
     {
         //
-        $jam = jamPelajaran::all();
+        $jam = JamPelajaran::all();
         return view("admin.jamPelajaran.index")->with("jam", $jam);
     }
     /**
@@ -35,7 +35,7 @@ class JamPelajaranController extends Controller
             "jam" => "required",
         ]);
 
-        jamPelajaran::create($validasi);
+        JamPelajaran::create($validasi);
         return redirect("adminJamPelajaran")->with("success", "Data jam pelajaran berhasil disimpan");
     }
 

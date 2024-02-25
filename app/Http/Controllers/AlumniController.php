@@ -52,7 +52,7 @@ class AlumniController extends Controller
 
         $request->buktiKelulusan->move(public_path('buktiKelulusan'), $newFileName);
 
-        alumni::create($validasi);
+        Alumni::create($validasi);
 
         // Mengupdate status murid menjadi lulus
         $murid = Murid::find($validasi['idMurid']);
@@ -68,7 +68,7 @@ class AlumniController extends Controller
     public function show($id)
     {
         //
-        $murid = murid::find($id);
+        $murid = Murid::find($id);
         return view("admin.alumni.create")->with("murid", $murid);
     }
 

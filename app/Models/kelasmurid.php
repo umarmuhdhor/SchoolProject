@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class kelasmurid extends Model
+class Kelasmurid extends Model
 {
     use HasFactory,HasUuids;
 

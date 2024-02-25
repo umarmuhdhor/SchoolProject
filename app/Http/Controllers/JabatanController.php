@@ -17,7 +17,7 @@ class JabatanController extends Controller
     public function index()
     {
         //
-        $jabatan = jabatan::all();
+        $jabatan = Jabatan::all();
         return view('admin.jabatan.index')->with('jabatan', $jabatan);
     }
 
@@ -27,9 +27,9 @@ class JabatanController extends Controller
     public function create()
     {
         //
-        $guru = guru::all();
-        $periode = periode::all();
-        $mapel = mapel::all();
+        $guru = Guru::all();
+        $periode = Periode::all();
+        $mapel = Mapel::all();
         return view('admin.jabatan.create')->with('guru', $guru)->with('periode',$periode)->with('mapel',$mapel);
     }
 
@@ -46,7 +46,7 @@ class JabatanController extends Controller
             'status' => 'required',
         ]);
 
-        jabatan::create($validasi);
+        Jabatan::create($validasi);
         return redirect("adminJabatan")->with("success", "Data Jabatan berhasil disimpan");
 
     }

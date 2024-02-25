@@ -17,7 +17,7 @@ class MapelGuruController extends Controller
     public function index()
     {
         //
-        $mapelGuru = mapelGuru::all();
+        $mapelGuru = MapelGuru::all();
         return view("admin.mapelGuru.index")->with("mapelGuru", $mapelGuru);
     }
 
@@ -27,10 +27,10 @@ class MapelGuruController extends Controller
     public function create()
     {
         //
-        $kelas = kelas::all();
-        $guru = guru::all();
-        $periode = periode::all();
-        $mapel = mapel::all();
+        $kelas = Kelas::all();
+        $guru = Guru::all();
+        $periode = Periode::all();
+        $mapel = Mapel::all();
 
 
         return view("admin.mapelGuru.create")->with("kelas", $kelas)->with('guru', $guru)->with('periode', $periode)->with('mapel',$mapel);
@@ -48,7 +48,7 @@ class MapelGuruController extends Controller
             'idPeriode' => "required"
         ]);
 
-        mapelGuru::create($validasi);
+        MapelGuru::create($validasi);
         return redirect('adminMapelGuru')->with("success", "guru berhasil ditambahkan sebagai pengajar");
     }
 

@@ -58,42 +58,6 @@
 </head>
 
 <body>
-    {{-- <header id="header-top" class="header-top">
-        <ul>
-            <li>
-                <div class="header-top-left">
-                    <ul>
-                        <li class="select-opt">
-                            <select name="language" id="language">
-                                <option value="default">EN</option>
-                                <option value="Bangla">BN</option>
-                                <option value="Arabic">AB</option>
-                            </select>
-                        </li>
-                        <li class="select-opt">
-                            <select name="currency" id="currency">
-                                <option value="usd">USD</option>
-                                <option value="euro">Euro</option>
-                                <option value="bdt">BDT</option>
-                            </select>
-                        </li>
-                        <li class="select-opt">
-                            <a href="#"><span class="lnr lnr-magnifier"></span></a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="head-responsive-right pull-right">
-                <div class="header-top-right">
-                    <ul>
-                        <li class="header-top-contact">
-                            +1 222 777 6565
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </header> --}}
     <!--/.header-top-->
     <!-- top-area Start -->
     <section class="top-area">
@@ -133,7 +97,6 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('informasiGuru') }}">Informasi Guru</a></li>
                                     <li><a href="{{ url('informasiMurid') }}">Informasi Murid</a></li>
-                                    {{-- <li><a href="{{ url('informasiKurikulum') }}">Informasi Kurikulum</a></li> --}}
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -201,36 +164,14 @@
                     </div>
                     <div class="col-sm-9">
                         <ul class="footer-menu-item">
-                            <li class="scroll"><a href="#works">Visi Misi</a></li>
-                            <li class="scroll"><a href="#explore">Tentang Kami</a></li>
-                            <li class="scroll"><a href="#reviews">Staf</a></li>
-                            <li class="scroll"><a href="#contact">contact</a></li>
-                            <li class=" scroll"><a href="#contact">my account</a></li>
+                            <li><a href="{{ url('visimisi') }}">Visi Misi</a></li>
+                            <li><a href="{{ url('tentangSekolah') }}">Tentang Kami</a></li>
+                            <li><a href="{{ url('guruDanStaff') }}">Staf</a></li>
+                            <li><a href="{{ url('informasiMurid') }}">Murid dan Alumni</a></li>
                         </ul><!--/.nav -->
                     </div>
                 </div>
             </div>
-            {{-- <div class="hm-footer-copyright">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <p>
-                            &copy;copyright. designed and developed by <a
-                                href="https://www.themesine.com/">themesine</a>
-                        </p><!--/p-->
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="footer-social">
-                            <span><i class="fa fa-phone"> +1 (222) 777 8888</i></span>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div><!--/.hm-footer-copyright-->
-        </div><!--/.container--> --}}
 
             <div id="scroll-Top">
                 <div class="return-to-top">

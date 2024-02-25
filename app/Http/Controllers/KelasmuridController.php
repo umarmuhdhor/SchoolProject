@@ -14,7 +14,6 @@ class KelasmuridController extends Controller
     public function index()
     {
         //
-        dd('tes');
     }
 
     /**
@@ -36,7 +35,7 @@ class KelasmuridController extends Controller
             'status' => 'required'
         ]);
 
-        kelasmurid::create($validasi);
+        Kelasmurid::create($validasi);
         return redirect()->back()->with("success", "murid berhasil ditambahkan kedalam kelas");
     }
 
@@ -82,7 +81,7 @@ class KelasmuridController extends Controller
     public function destroy($id)
     {
         //
-        $kelasmurid = kelasmurid::find($id);
+        $kelasmurid = Kelasmurid::find($id);
 
         if ($kelasmurid->delete()) {
             return redirect()->back()->with("success", "murid berhasil ditambahkan kedalam kelas");

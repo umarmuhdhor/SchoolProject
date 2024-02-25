@@ -13,7 +13,7 @@ class VisimisiController extends Controller
     public function index()
     {
         //
-        $visimisi = visimisi::all();
+        $visimisi = Visimisi::all();
         return view("admin.visimisi.index")->with("visimisi", $visimisi);
     }
 
@@ -38,7 +38,7 @@ class VisimisiController extends Controller
             "misi" => "required",
         ]);
 
-        visimisi::create($validasi);
+        Visimisi::create($validasi);
         return redirect("adminVisimisi")->with("success", "Misi berhasil disimpan");
     }
 
@@ -72,7 +72,7 @@ class VisimisiController extends Controller
     public function destroy($id)
     {
         //
-        $visimisi = visimisi::find($id);
+        $visimisi = Visimisi::find($id);
 
         if( $visimisi->delete()){
             return redirect("adminVisimisi")->with("success", "Misi berhasil disimpan");

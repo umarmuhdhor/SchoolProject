@@ -21,6 +21,10 @@
     <!--explore start -->
     <section id="explore" class="explore">
         <div class="container">
+            <div class="section-header">
+                <h2>Text blabla</h2>
+                <p></p>
+            </div><!--/.section-header-->
             <div class="explore-content">
                 <div class="row">
                     @foreach ($p5 as $item)

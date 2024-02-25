@@ -24,9 +24,9 @@ class MateriMuridController extends Controller
         if (Auth::check()) {
             // Get the ID of the logged-in user
             $userId = Auth::id();
-            $idMurid = murid::where('idAkun', $userId)->first()->idMurid;
-            $idKelas = kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first()->idKelas;
-            $KelasMapel = kelasmapel::where('idKelas', $idKelas)
+            $idMurid = Murid::where('idAkun', $userId)->first()->idMurid;
+            $idKelas = Kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first()->idKelas;
+            $KelasMapel = Kelasmapel::where('idKelas', $idKelas)
                 ->join('mapel_gurus', 'kelasmapels.idMapelGuru', '=', 'mapel_gurus.idMapelGuru')
                 ->join('mapels', 'mapel_gurus.idMapel', '=', 'mapels.idMapel')
                 ->join('gurus', 'mapel_gurus.idGuru', '=', 'gurus.idGuru')
@@ -84,7 +84,7 @@ class MateriMuridController extends Controller
     {
         // Menggunakan join untuk mengambil data dari tabel terkait
 
-        
+
         $materi = Materi::join('mapel_gurus', 'materis.idMapelGuru', '=', 'mapel_gurus.idMapelGuru')
             ->join('mapels', 'mapel_gurus.idMapel', '=', 'mapels.idMapel')
             ->join('gurus', 'mapel_gurus.idGuru', '=', 'gurus.idGuru')

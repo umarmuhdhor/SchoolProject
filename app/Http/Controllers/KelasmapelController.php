@@ -18,7 +18,7 @@ class KelasmapelController extends Controller
     public function index()
     {
         //
-        $kelas = kelasmapel::all();
+        $kelas = Kelasmapel::all();
         return view('admin.kelasMapel.index')->with('kelas', $kelas);
     }
 
@@ -28,8 +28,8 @@ class KelasmapelController extends Controller
     public function create()
     {
         //
-        $kelas = kelas::all();
-        $mapelGuru = mapelGuru::all();
+        $kelas = Kelas::all();
+        $mapelGuru = MapelGuru::all();
         return view('admin.kelasMapel.create')->with('guru', $mapelGuru)->with('kelas', $kelas);
     }
 

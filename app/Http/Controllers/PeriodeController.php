@@ -23,7 +23,7 @@ class PeriodeController extends Controller
     public function create()
     {
         //
-        $periode = periode::all();
+        $periode = Periode::all();
         return view("admin.periode.create")->with("periode", $periode);
     }
 

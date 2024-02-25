@@ -18,7 +18,7 @@ class InformasimapelperkelasController extends Controller
      */
     public function display($id)
     {
-        $informasi = informasimapelperkelas::where('idKelasMapel', $id)->get();
+        $informasi = Informasimapelperkelas::where('idKelasMapel', $id)->get();
 
         return view('murid.pengumumanKelas.informasi')->with('informasi', $informasi);
     }
@@ -27,9 +27,9 @@ class InformasimapelperkelasController extends Controller
         //
         if (Auth::check()) {
             $userId = Auth::id();
-            $idMurid = murid::where('idAkun', $userId)->first()->idMurid;
-            $kelas = kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first();
-            $kelasMapel = kelasmapel::where('idKelas', $kelas->idKelas)->get();
+            $idMurid = Murid::where('idAkun', $userId)->first()->idMurid;
+            $kelas = Kelasmurid::where('idMurid', $idMurid)->where('status', 'aktif')->first();
+            $kelasMapel = Kelasmapel::where('idKelas', $kelas->idKelas)->get();
             return view('murid.pengumumanKelas.index')->with('kelas', $kelas)->with('kelasMapel', $kelasMapel);
         } else {
         }
@@ -72,7 +72,7 @@ class InformasimapelperkelasController extends Controller
         } else {
             $validasi["foto"] = null;
         }
-        informasimapelperkelas::create($validasi);
+        Informasimapelperkelas::create($validasi);
         return redirect()->back()->with("success", "Data Informasi berhasil disimpan");
     }
 
@@ -82,7 +82,7 @@ class InformasimapelperkelasController extends Controller
     public function show($id)
     {
         //
-        $informasi = informasimapelperkelas::where('idKelasMapel', $id)->get();
+        $informasi = Informasimapelperkelas::where('idKelasMapel', $id)->get();
         return view('guru.pembelajaran.informasi')->with('informasi', $informasi)->with('idKelasMapel', $id);
     }
 
@@ -108,7 +108,7 @@ class InformasimapelperkelasController extends Controller
     public function destroy($id)
     {
         //
-        $informasi = informasimapelperkelas::find($id);
+        $informasi = Informasimapelperkelas::find($id);
 
         if ($informasi->delete()) {
             return redirect()->back()->with("success", "Informasi Berhasil dihapus");

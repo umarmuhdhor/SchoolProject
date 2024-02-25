@@ -14,13 +14,13 @@ class PrestasiController extends Controller
     public function display()
     {
         //
-        $prestasi = prestasi::all();
+        $prestasi = Prestasi::all();
         return view("prestasi")->with("prestasi", $prestasi);
     }
     public function index()
     {
         //
-        $prestasi = prestasi::all();
+        $prestasi = Prestasi::all();
         return view("admin.prestasi.index")->with("prestasi", $prestasi);
     }
 
@@ -30,7 +30,7 @@ class PrestasiController extends Controller
     public function create()
     {
         //
-        $prestasi = prestasi::all();
+        $prestasi = Prestasi::all();
         return view("admin.prestasi.create")->with("prestasi", $prestasi);
     }
 
@@ -61,7 +61,7 @@ class PrestasiController extends Controller
         // Upload file foto ke dalam folder public
         $request->foto->move(public_path('fotoPrestasi'), $newFileName);
 
-        prestasi::create($validasi);
+        Prestasi::create($validasi);
         return redirect("adminPrestasi")->with("success", "Data Prestasi berhasil disimpan");
     }
 

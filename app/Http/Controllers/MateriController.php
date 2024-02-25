@@ -28,7 +28,7 @@ class MateriController extends Controller
     public function create(Request $request)
     {
         $idMapel = $request->input('idMapel');
-        $idMapelGuru = mapelGuru::where('idMapel', $idMapel)->first()->idMapelGuru;
+        $idMapelGuru = MapelGuru::where('idMapel', $idMapel)->first()->idMapelGuru;
         $loggedInUser = Auth::user();
 
         if ($loggedInUser) {
@@ -41,8 +41,8 @@ class MateriController extends Controller
             }
         }
 
-        $mapelGuru = mapelGuru::find($idMapelGuru);
-        $materi = materi::where('idMapelGuru', $idMapelGuru)->get();
+        $mapelGuru = MapelGuru::find($idMapelGuru);
+        $materi = Materi::where('idMapelGuru', $idMapelGuru)->get();
         return view("guru.materi.create")->with(["materi" => $materi, "mapel" => $mapelGuru, "idGuru" => $idGuru]);
     }
 

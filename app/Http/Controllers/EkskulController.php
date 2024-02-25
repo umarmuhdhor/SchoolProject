@@ -17,7 +17,7 @@ class EkskulController extends Controller
     public function index()
     {
         //
-        $ekskul = ekskul::all();
+        $ekskul = Ekskul::all();
         return view('admin.ekskul.index')->with('ekskul', $ekskul);
     }
 
@@ -27,9 +27,9 @@ class EkskulController extends Controller
     public function create()
     {
         //
-        $murid = murid::all();
-        $periode = periode::all();
-        $guru = guru::all();
+        $murid = Murid::all();
+        $periode = Periode::all();
+        $guru = Guru::all();
         return view('admin.ekskul.create')
             ->with('guru', $guru)
             ->with('murid', $murid)
@@ -71,7 +71,7 @@ class EkskulController extends Controller
     public function show($id)
     {
         //
-        $kegiatan = kegiatanekskul::where('idEkskul',$id)->get();
+        $kegiatan = Kegiatanekskul::where('idEkskul',$id)->get();
         return view('admin.ekskul.kegiatan')->with('kegiatan', $kegiatan)->with('idEkskul',$id);
     }
 

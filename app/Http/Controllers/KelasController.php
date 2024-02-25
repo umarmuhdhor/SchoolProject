@@ -28,7 +28,7 @@ class KelasController extends Controller
         //
         $kelas = Kelas::all();
         $guru = Guru::all();
-        $periode = periode::all();
+        $periode = Periode::all();
         return view("admin.kelas.create")->with("kelas", $kelas)->with('guru', $guru)->with('periode', $periode);
     }
 
@@ -45,7 +45,7 @@ class KelasController extends Controller
             "idPeriode" => "required",
         ]);
 
-        kelas::create($validasi);
+        Kelas::create($validasi);
         return redirect("adminKelas")->with("success", "Data kelas berhasil disimpan");
     }
 

@@ -14,7 +14,7 @@ class TentangSekolahController extends Controller
     public function index()
     {
         //
-        $tentangSekolah = tentangsekolah::all();
+        $tentangSekolah = Tentangsekolah::all();
         return view("admin.tentangSekolah.index")->with('tentangSekolah',$tentangSekolah);
     }
 
@@ -24,7 +24,7 @@ class TentangSekolahController extends Controller
     public function create()
     {
         //
-        $prestasi = prestasi::all();
+        $prestasi = Prestasi::all();
         return view("admin.prestasi.create")->with("prestasi", $prestasi);
     }
 
@@ -37,7 +37,7 @@ class TentangSekolahController extends Controller
             "tentang" => "required",
             "deskripsi" => "required",
         ]);
-        tentangsekolah::create($validasi);
+        Tentangsekolah::create($validasi);
         return redirect("adminTentangSekolah")->with("success", "Data Sekolah berhasil disimpan");
     }
 
@@ -71,7 +71,7 @@ class TentangSekolahController extends Controller
     public function destroy($id)
     {
         //
-        $tentangSekolah = tentangsekolah::find($id);
+        $tentangSekolah = Tentangsekolah::find($id);
 
         if( $tentangSekolah->delete()){
             return redirect("adminTentangSekolah")->with("success", "Tentang Sekolah Berhasil DiHapus");
