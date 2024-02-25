@@ -117,12 +117,45 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
                         <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                            <li><a href="{{ route('welcome') }}">home</a></li>
-                            <li><a href="{{ route('welcome') }}">Visi Misi</a></li>
-                            <li><a href="{{ route('welcome') }}">Tentang Kami</a></li>
-                            <li><a href="{{ route('welcome') }}">Staff</a></li>
-                            <li><a href="{{ route('welcome') }}">Berita</a></li>
-                            <li><a href="{{ route('welcome') }}">contact</a></li>
+                            <li><a href="{{ url('/') }}">home</a></li>
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Kesiswaan<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    {{-- <li><a href="{{url('osis')}}">Osis</a></li> --}}
+                                    <li><a href="{{ url('ekskul') }}">Ekskul</a></li>
+                                    <li><a href="{{ url('daftarMurid') }}">Murid dan Alumni</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Kurikulum<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url('informasiGuru') }}">Informasi Guru</a></li>
+                                    <li><a href="{{ url('informasiMurid') }}">Informasi Murid</a></li>
+                                    <li><a href="{{ url('informasiKurikulum') }}">Informasi Kurikulum</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Profile<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url('tentangSekolah') }}">Tentang Sekolah</a></li>
+                                    <li><a href="{{ url('sejarah') }}">Sejarah Singkat</a></li>
+                                    <li><a href="{{ url('visimisi') }}">Visi dan Misi</a></li>
+                                    <li><a href="{{ url('guruDanStaff') }}">Guru dan Staff</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">Prestasi<span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url('prestasiMurid') }}">Murid</a></li>
+                                    <li><a href="{{ url('prestasiGuru') }}">Guru</a></li>
+                                    <li><a href="{{ url('prestasiSekolah') }}">Sekolah</a></li>
+                                </ul>
+                            </li>
+
                             @if (Route::has('login'))
                                 <li class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                                     @auth
@@ -198,8 +231,8 @@
                             <div class="single-list-topics-icon">
                                 <i class="flaticon-pills"></i>
                             </div>
-                            <h2><a href="{{ url('albumFoto') }}">Album Foto</a></h2>
-                            <p>Kenangan</p>
+                            <h2><a href="{{ url('p5') }}">P5</a></h2>
+                            <p>Kurikulum Merdeka</p>
                         </div>
                     </li>
 
@@ -209,124 +242,6 @@
 
     </section><!--/.list-topics-->
     <!--list-topics end-->
-
-    {{-- <!--works start -->
-    <section id="works" class="works">
-        <div class="container">
-            <div class="section-header">
-                <h2>Prestasi</h2>
-                <p>Unggul dalam prestasi, berkarakter dan cinta lingkungan</p>
-            </div><!--/.section-header-->
-            <div class="works-content">
-
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-how-works">
-                            <div class="single-how-works-icon">
-                                <i class="flaticon-lightbulb-idea"></i>
-                            </div>
-                            <h2><a href="#">choose <span> what to</span> do</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt
-                                ut laboremagna aliqua.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-how-works">
-                            <div class="single-how-works-icon">
-                                <i class="flaticon-networking"></i>
-                            </div>
-                            <h2><a href="#">find <span> what you want</span></a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt
-                                ut laboremagna aliqua.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-how-works">
-                            <div class="single-how-works-icon">
-                                <i class="flaticon-location-on-road"></i>
-                            </div>
-                            <h2><a href="#">explore <span> amazing</span> place</a></h2>
-                            <p>
-                                Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor incididunt
-                                ut laboremagna aliqua.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/.container-->
-
-    </section><!--/.works-->
-    <!--works end --> --}}
-
-
-    <!--blog start -->
-    <section id="blog" class="blog">
-        <div class="section-header">
-            <h2>news and articles</h2>
-            <p>Always upto date with our latest News and Articles </p>
-        </div><!--/.section-header-->
-        <div class="blog-content">
-            <div class="row">
-                {{-- @foreach ($prestasi as $item)
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-blog-item">
-                            <div class="single-blog-item-img">
-                                <img src="foto/{{ $item->foto }}" alt="blog image">
-                            </div>
-                            <div class="single-blog-item-txt">
-                                <h2><a href="#">{{ $item->judul }}</a></h2>
-                                <h4>posted <span>by</span> <a href="#">admin</a> march 2018</h4>
-                                <p>
-                                    {{ $item->deskripsi }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach --}}
-            </div>
-        </div>
-
-    </section><!--/.blog-->
-    <!--blog end -->
-
-    {{-- <!-- statistics strat -->
-    <section id="statistics" class="statistics">
-        <div class="container">
-            <div class="statistics-counter">
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-ststistics-box">
-                        <div class="statistics-content">
-                            <div class="counter">30</div> <span>+</span>
-                        </div><!--/.statistics-content-->
-                        <h3>Staff</h3>
-                    </div><!--/.single-ststistics-box-->
-                </div><!--/.col-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-ststistics-box">
-                        <div class="statistics-content">
-                            <div class="counter">300</div> <span>+</span>
-                        </div><!--/.statistics-content-->
-                        <h3>Peserta didik aktif</h3>
-                    </div><!--/.single-ststistics-box-->
-                </div><!--/.col-->
-                <div class="col-md-4 col-sm-6">
-                    <div class="single-ststistics-box">
-                        <div class="statistics-content">
-                            <div class="counter">2000</div> <span>+</span>
-                        </div><!--/.statistics-content-->
-                        <h3>Alumni</h3>
-                    </div><!--/.single-ststistics-box-->
-                </div><!--/.col-->
-            </div><!--/.statistics-counter-->
-        </div><!--/.container-->
-
-    </section><!--/.counter-->
-    <!-- statistics end --> --}}
 
     <!--footer start-->
     <footer id="footer" class="footer">

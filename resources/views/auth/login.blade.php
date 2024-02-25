@@ -57,6 +57,31 @@
     <title>Document</title>
     <link href="assetsLogin/app.css" rel="stylesheet">
 
+    <style>
+        .form-container {
+            width: 100%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .sign-up-container {
+            display: none;
+        }
+
+        .overlay-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            transition: transform 0.6s ease-in-out;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -84,7 +109,7 @@
                 <input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation"
                     required autocomplete="new-password" placeholder="Konfirmasi Password" />
 
-                <input type="hidden" name="role" value="admin"/>
+                <input type="hidden" name="role" value="admin" />
 
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 <button type="submit">Sign Up</button>
@@ -108,20 +133,6 @@
                 {{-- <a href="#">Forgot your password?</a> --}}
                 <button type="submit">Sign In</button>
             </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button type="submit" class="ghost" id="signUp">Sign Up</button>
-                </div>
-            </div>
         </div>
     </div>
     <script src="assetsLogin/app.js"></script>

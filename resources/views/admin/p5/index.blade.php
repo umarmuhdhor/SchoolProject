@@ -12,12 +12,20 @@
                         @foreach ($p5 as $item)
                             <div class="col-md-4">
                                 <div class="card">
-                                    <img src="fotop5/{{ $item->foto1 }}" class="card-img-top" alt="..."
-                                        width="20" height="230">
+                                    <img src="fotop5/{{ $item->foto1 }}" class="card-img-top" alt="..." width="20"
+                                        height="230">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $item->judul }}</h5>
-                                        <p class="card-text">{{ $item->isi }}</p>
-                                        <a href="{{ route('adminP5.edit' , $item->id) }}" class="btn btn-primary">Edit</a>
+                                        <p class="card-text">{{ substr($item->isi, 0, 150) }}...</p>
+                                        <div class="ml-auto" style="display: flex;flex-direction: row">
+                                            <a href="{{ route('adminP5.edit', $item->id) }}"
+                                                class="btn btn-primary" style="margin-right: 10px">Edit</a>
+                                            <form action="{{ route('adminP5.destroy', $item->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -46,7 +46,7 @@
                             <div class="single-list-topics-icon">
                                 <i class="flaticon-pills"></i>
                             </div>
-                            <h2><a href="#">P5</a></h2>
+                            <h2><a href="{{url('p5')}}">P5</a></h2>
                             <p>Kurikulum Merdeka</p>
                         </div>
                     </li>
@@ -200,37 +200,7 @@
     </section><!--/.counter-->
     <!-- statistics end -->
 
-    <!--blog start -->
-    <section id="blog" class="blog">
-        <div class="container">
-            <div class="section-header">
-                <h2>news and articles</h2>
-                <p>Always upto date with our latest News and Articles </p>
-            </div><!--/.section-header-->
-            <div class="blog-content">
-                <div class="row">
-                    @foreach ($berita as $item)
-                        <div class="col-md-4 col-sm-6">
-                            <div class="single-blog-item">
-                                <div class="single-blog-item-img">
-                                    <img src="fotoBerita/{{ $item->thumbnail }}" alt="blog image">
-                                </div>
-                                <div class="single-blog-item-txt">
-                                    <h2><a href="#">{{ $item->judulBerita }}</a></h2>
-                                    <h4>posted <span>by</span> <a href="#">admin</a>{{$item->created_at}}</h4>
-                                    <p class="blog-item-description">
-                                        {{ $item->sinopsis }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div><!--/.container-->
-
-    </section><!--/.blog-->
-    <!--blog end -->
+   `
 
     {{-- <!--subscription strat -->
     <section id="contact" class="subscription">

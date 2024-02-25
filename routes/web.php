@@ -61,13 +61,12 @@ Route::get('/prestasi', [PrestasiController::class, 'display'])->name('prestasi'
 Route::get('/prestasiMurid', [DisplayController::class, 'prestasiMurid'])->name('prestasiMurid');
 Route::get('/prestasiGuru', [DisplayController::class, 'prestasiGuru'])->name('prestasiGuru');
 Route::get('/prestasiSekolah', [DisplayController::class, 'prestasiSekolah'])->name('prestasiSekolah');
+Route::get('/p5', [DisplayController::class, 'p5'])->name('p5');
 Route::get('/ppdb', function () {
     return view('ppdb');
 });
 
-Route::get('/albumFoto', function () {
-    return view('albumFoto');
-});
+
 
 
 

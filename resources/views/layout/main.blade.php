@@ -133,7 +133,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ url('informasiGuru') }}">Informasi Guru</a></li>
                                     <li><a href="{{ url('informasiMurid') }}">Informasi Murid</a></li>
-                                    <li><a href="{{ url('informasiKurikulum') }}">Informasi Kurikulum</a></li>
+                                    {{-- <li><a href="{{ url('informasiKurikulum') }}">Informasi Kurikulum</a></li> --}}
                                 </ul>
                             </li>
                             <li class="dropdown">

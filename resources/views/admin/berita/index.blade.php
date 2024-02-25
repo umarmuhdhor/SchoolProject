@@ -16,8 +16,16 @@
                                         width="20" height="230">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $item->judulBerita }}</h5>
-                                        <p class="card-text">{{ $item->sinopsis }}</p>
-                                        <a href="{{ route('adminBerita.edit' , $item->idBerita) }}" class="btn btn-primary">Edit</a>
+                                        <p class="card-text">{{ substr($item->sinopsis, 0, 150) }}...</p>
+                                        <div class="ml-auto" style="display: flex;flex-direction: row">
+                                            <a href="{{ route('adminBerita.edit', $item->idBerita) }}"
+                                                class="btn btn-primary" style="margin-right: 5px">Edit</a>
+                                            <form action="{{ route('adminBerita.destroy', $item->idBerita) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

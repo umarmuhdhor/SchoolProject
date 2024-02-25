@@ -125,8 +125,35 @@ class InformasiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(informasi $informasi)
+    public function destroy($id)
     {
-        //
+        // Temukan data Informasi berdasarkan ID
+        $informasi = Informasi::find($id);
+
+        // Pastikan data ditemukan
+        if (!$informasi) {
+            return redirect("adminInformasi")->with("error", "Informasi tidak ditemukan");
+        }
+
+        // Array kolom foto yang ingin dihapus
+        $fotoColumns = ['foto1', 'foto2','foto3','foto3','foto4','foto5'];
+
+        // Loop untuk menghapus setiap foto
+        foreach ($fotoColumns as $fotoColumn) {
+            if ($informasi->$fotoColumn) {
+                $fotoPath = public_path('fotoInformasi/') . $informasi->$fotoColumn;
+
+                if (file_exists($fotoPath)) {
+                    unlink($fotoPath); // Hapus foto dari folder
+                }
+            }
+        }
+
+        // Hapus data dari database
+        if ($informasi->delete()) {
+            return redirect("adminInformasi")->with("success", "Informasi berhasil dihapus");
+        } else {
+            return redirect("adminInformasi")->with("error", "Gagal menghapus Informasi");
+        }
     }
 }

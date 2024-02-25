@@ -32,8 +32,8 @@ class P5Controller extends Controller
     public function store(Request $request)
     {
         //
-         // Validasi data input form mahasiswa
-         $request->validate([
+        // Validasi data input form mahasiswa
+        $request->validate([
             "judul" => "required",
             "isi" => "required",
             "tanggal" => "required",
@@ -104,8 +104,35 @@ class P5Controller extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(p5 $p5)
+    public function destroy($id)
     {
-        //
+        // Temukan data p5 berdasarkan ID
+        $p5 = P5::find($id);
+
+        // Pastikan data ditemukan
+        if (!$p5) {
+            return redirect("adminP5")->with("error", "P5 tidak ditemukan");
+        }
+
+        // Array kolom foto yang ingin dihapus
+        $fotoColumns = ['foto1', 'foto2','foto3','foto3','foto4','foto5'];
+
+        // Loop untuk menghapus setiap foto
+        foreach ($fotoColumns as $fotoColumn) {
+            if ($p5->$fotoColumn) {
+                $fotoPath = public_path('fotoP5/') . $p5->$fotoColumn;
+
+                if (file_exists($fotoPath)) {
+                    unlink($fotoPath); // Hapus foto dari folder
+                }
+            }
+        }
+
+        // Hapus data dari database
+        if ($p5->delete()) {
+            return redirect("adminP5")->with("success", "P5 berhasil dihapus");
+        } else {
+            return redirect("adminP5")->with("error", "Gagal menghapus P5");
+        }
     }
 }

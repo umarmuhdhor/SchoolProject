@@ -221,14 +221,14 @@
                                 <span class="hide-menu">Kelas Pengajar</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        {{-- <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('adminJadwal') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-alert-circle"></i>
                                 </span>
                                 <span class="hide-menu">Jadwal</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('adminPermintaan') }}" aria-expanded="false">

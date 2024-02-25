@@ -11,6 +11,7 @@ use App\Models\informasimapelperkelas;
 use App\Models\jabatan;
 use App\Models\kegiatanekskul;
 use App\Models\murid;
+use App\Models\p5;
 use App\Models\prestasi;
 use App\Models\tentangSekolah;
 use App\Models\visimisi;
@@ -149,6 +150,11 @@ class DisplayController extends Controller
         $prestasi = prestasi::where('jenis', 'sekolah')->get();
         return view("prestasiSekolah")
             ->with("prestasi", $prestasi);
+    }
+
+    public function p5(){
+        $p5 = p5::all();
+        return view('p5')->with('p5',$p5);
     }
 
 

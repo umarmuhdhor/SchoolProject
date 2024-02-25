@@ -98,7 +98,7 @@ class BeritaController extends Controller
     {
         //
 
-        $berita = berita::find($id);
+        $berita = Berita::find($id);
         return view("admin.berita.edit")->with("berita", $berita);
     }
 
@@ -108,14 +108,41 @@ class BeritaController extends Controller
     public function update(Request $request, berita $berita)
     {
         //
-        
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(berita $berita)
+    public function destroy($id)
     {
-        //
+        // Temukan data berita berdasarkan ID
+        $berita = Berita::find($id);
+
+        // Pastikan data ditemukan
+        if (!$berita) {
+            return redirect("adminBerita")->with("error", "berita tidak ditemukan");
+        }
+
+        // Array kolom foto yang ingin dihapus
+        $fotoColumns = ['thumbnail','foto1', 'foto2', 'foto3', 'foto3', 'foto4', 'foto5'];
+
+        // Loop untuk menghapus setiap foto
+        foreach ($fotoColumns as $fotoColumn) {
+            if ($berita->$fotoColumn) {
+                $fotoPath = public_path('fotoBerita/') . $berita->$fotoColumn;
+
+                if (file_exists($fotoPath)) {
+                    unlink($fotoPath); // Hapus foto dari folder
+                }
+            }
+        }
+
+        // Hapus data dari database
+        if ($berita->delete()) {
+            return redirect("adminBerita")->with("success", "berita berhasil dihapus");
+        } else {
+            return redirect("adminBerita")->with("error", "Gagal menghapus berita");
+        }
     }
 }

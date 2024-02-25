@@ -6,7 +6,8 @@
                 <div class="card-body">
                     <div class="row">
                         <h5 class="card-title fw-semibold mb-4">Kegiatan Ekskul
-                            <a href="{{ route('adminKegiatanEkskul.show' , $idEkskul) }}"><span class="btn btn-outline-primary mx-3 ">Tambah
+                            <a href="{{ route('adminKegiatanEkskul.show', $idEkskul) }}"><span
+                                    class="btn btn-outline-primary mx-3 ">Tambah
                                     Kegiatan</span></a>
                         </h5>
                         {{-- <div class="row"> --}}
@@ -19,8 +20,14 @@
                                             {{-- <p class="card-text">{{ $item->periode->tahunPeriode }} ||
                                                 {{ $item->periode->semester }}</p> --}}
                                         </div>
-                                        <div class="ml-auto"> <!-- Menempatkan tombol edit di sisi kanan (ml-auto) -->
-                                            <a href="#" class="btn btn-primary">Edit</a>
+                                        <div class="ml-auto" style="display: flex;flex-direction: row">
+                                            <a href="{{ route('adminKegiatanEkskul.edit', $item->id) }}" class="btn btn-primary"
+                                                style="margin-right: 10px">Edit</a>
+                                            <form action="{{ route('adminKegiatanEkskul.destroy', $item->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

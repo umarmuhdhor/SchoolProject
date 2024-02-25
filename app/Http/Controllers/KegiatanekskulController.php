@@ -77,7 +77,7 @@ class KegiatanekskulController extends Controller
             'foto5' => $validasi['foto5'],
         ]);
 
-        return redirect("adminKegiatanEkskul")->with("success", "Data Kegiatan berhasil disimpan");
+        return redirect('adminEkskul')->with("success", "Data Kegiatan berhasil disimpan");
     }
 
     /**
@@ -108,8 +108,35 @@ class KegiatanekskulController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(kegiatanekskul $kegiatanekskul)
+    public function destroy($id)
     {
-        //
+        // Temukan data KegiatanEkskul berdasarkan ID
+        $kegiatan = KegiatanEkskul::find($id);
+
+        // Pastikan data ditemukan
+        if (!$kegiatan) {
+            return redirect("adminKegiatanEkskul")->with("error", "KegiatanEkskul tidak ditemukan");
+        }
+
+        // Array kolom foto yang ingin dihapus
+        $fotoColumns = ['foto1', 'foto2','foto3','foto3','foto4','foto5'];
+
+        // Loop untuk menghapus setiap foto
+        foreach ($fotoColumns as $fotoColumn) {
+            if ($kegiatan->$fotoColumn) {
+                $fotoPath = public_path('fotoKegiatanEkskul/') . $kegiatan->$fotoColumn;
+
+                if (file_exists($fotoPath)) {
+                    unlink($fotoPath); // Hapus foto dari folder
+                }
+            }
+        }
+
+        // Hapus data dari database
+        if ($kegiatan->delete()) {
+            return redirect()->back()->with("success", "KegiatanEkskul berhasil dihapus");
+        } else {
+            return redirect()->back()->with("error", "Gagal menghapus KegiatanEkskul");
+        }
     }
 }

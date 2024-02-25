@@ -32,6 +32,9 @@
 
             function showAlert() {
                 warningCount += 1
+                if(warningCount > 3){
+                    redirectToDashboard();
+                }
                 return confirm("Anda yakin ingin meninggalkan halaman ini? Ini adalah peringatan ke-" + (warningCount));
             }
 
@@ -39,15 +42,6 @@
                 window.location.href =
                     '{{ route('murid.dashboard') }}'; // Ganti "dashboard" dengan nama rute ke halaman dashboard
             }
-
-
-            // Event listener saat sebelum halaman ditutup
-            window.onbeforeunload = function() {
-                console.log('alert 1');
-                showAlert();
-            };
-
-
 
             // Event listener saat perubahan visibilitas halaman
             document.addEventListener('visibilitychange', function() {
