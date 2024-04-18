@@ -59,7 +59,7 @@ class PrestasiController extends Controller
         $validasi["foto"] = $newFileName;
 
         // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('fotoPrestasi'), $newFileName);
+        $request->foto->move('fotoPrestasi', $newFileName);
 
         prestasi::create($validasi);
         return redirect("adminPrestasi")->with("success", "Data Prestasi berhasil disimpan");

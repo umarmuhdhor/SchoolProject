@@ -37,7 +37,7 @@ class TentangSekolahController extends Controller
             "tentang" => "required",
             "deskripsi" => "required",
         ]);
-        tentangsekolah::create($validasi);
+        tentangSekolah::create($validasi);
         return redirect("adminTentangSekolah")->with("success", "Data Sekolah berhasil disimpan");
     }
 
@@ -71,7 +71,7 @@ class TentangSekolahController extends Controller
     public function destroy($id)
     {
         //
-        $tentangSekolah = tentangsekolah::find($id);
+        $tentangSekolah = tentangSekolah::find($id);
 
         if( $tentangSekolah->delete()){
             return redirect("adminTentangSekolah")->with("success", "Tentang Sekolah Berhasil DiHapus");

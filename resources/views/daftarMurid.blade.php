@@ -21,6 +21,9 @@
                     <option value="siswa">Siswa</option>
                     <option value="alumni">Alumni</option>
                 </select>
+
+                <!-- Tombol Unduh Excel -->
+                <button onclick="downloadExcel()">Unduh Excel</button>
             </div>
 
             <!-- Search Input -->
@@ -196,6 +199,15 @@
                 });
             });
         });
+    </script>
+    {{-- download file excel --}}
+    <script>
+        function downloadExcel() {
+            var dataType = document.getElementById('dataType').value;
+
+            // Redirect ke route yang menangani proses unduh Excel
+            window.location.href = '/download-excel/' + dataType;
+        }
     </script>
     <!-- JavaScript for Student Table -->
     <script>

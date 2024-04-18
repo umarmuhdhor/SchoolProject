@@ -25,7 +25,7 @@ class mapelGuru extends Model
     }
 
     public function mapel() {
-        return $this->belongsTo(Mapel::class, 'idMapel');
+        return $this->belongsTo(mapel::class, 'idMapel');
     }
 
 

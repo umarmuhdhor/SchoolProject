@@ -55,7 +55,7 @@ class P5Controller extends Controller
                 $ext = $file->getClientOriginalExtension();
                 $newFileName = uniqid() . '.' . $ext;
                 $validasi[$extension] = $newFileName;
-                $file->move(public_path('fotoP5'), $newFileName);
+                $file->move('fotoP5', $newFileName);
             } else {
                 // Jika file tidak ada, atur nilai null
                 $validasi[$extension] = null;

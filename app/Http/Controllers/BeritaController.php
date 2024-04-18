@@ -58,7 +58,7 @@ class BeritaController extends Controller
                 $ext = $file->getClientOriginalExtension();
                 $newFileName = uniqid() . '.' . $ext;
                 $validasi[$extension] = $newFileName;
-                $file->move(public_path('fotoBerita'), $newFileName);
+                $file->move('fotoBerita', $newFileName);
             } else {
                 // Jika file tidak ada, atur nilai null
                 $validasi[$extension] = null;
@@ -125,7 +125,7 @@ class BeritaController extends Controller
         }
 
         // Array kolom foto yang ingin dihapus
-        $fotoColumns = ['thumbnail','foto1', 'foto2', 'foto3', 'foto3', 'foto4', 'foto5'];
+        $fotoColumns = ['thumbnail', 'foto1', 'foto2', 'foto3', 'foto3', 'foto4', 'foto5'];
 
         // Loop untuk menghapus setiap foto
         foreach ($fotoColumns as $fotoColumn) {

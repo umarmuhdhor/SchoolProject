@@ -16,26 +16,26 @@ class kelasmapel extends Model
 
     public function mapelguru()
     {
-        return $this->belongsTo(MapelGuru::class, 'idMapelGuru');
+        return $this->belongsTo(mapelGuru::class, 'idMapelGuru');
     }
 
     public function periode()
     {
-        return $this->belongsTo(Periode::class, 'idMapelGuru', 'idPeriode');
+        return $this->belongsTo(periode::class, 'idMapelGuru', 'idPeriode');
     }
 
     public function mapel()
     {
-        return $this->belongsTo(Mapel::class, 'idMapelGuru', 'idMapel');
+        return $this->belongsTo(mapel::class, 'idMapelGuru', 'idMapel');
     }
 
     public function guru()
     {
-        return $this->belongsTo(Guru::class, 'idMapelGuru', 'idGuru');
+        return $this->belongsTo(guru::class, 'idMapelGuru', 'idGuru');
     }
 
     public function kelas()
     {
-        return $this->belongsTo(Kelas::class, 'idKelas');
+        return $this->belongsTo(kelas::class, 'idKelas');
     }
 }

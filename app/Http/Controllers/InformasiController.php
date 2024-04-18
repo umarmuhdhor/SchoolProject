@@ -57,7 +57,7 @@ class InformasiController extends Controller
                 $ext = $file->getClientOriginalExtension();
                 $newFileName = uniqid() . '.' . $ext;
                 $validasi[$extension] = $newFileName;
-                $file->move(public_path('fotoInformasi'), $newFileName);
+                $file->move('fotoInformasi', $newFileName);
             } else {
                 // Jika file tidak ada, atur nilai null
                 $validasi[$extension] = null;

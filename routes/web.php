@@ -24,6 +24,7 @@ use App\Http\Controllers\MuridController;
 use App\Http\Controllers\P5Controller;
 use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\PermintaanAksesController;
+use App\Http\Controllers\PpdbController;
 use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TentangSekolahController;
@@ -62,9 +63,10 @@ Route::get('/prestasiMurid', [DisplayController::class, 'prestasiMurid'])->name(
 Route::get('/prestasiGuru', [DisplayController::class, 'prestasiGuru'])->name('prestasiGuru');
 Route::get('/prestasiSekolah', [DisplayController::class, 'prestasiSekolah'])->name('prestasiSekolah');
 Route::get('/p5', [DisplayController::class, 'p5'])->name('p5');
-Route::get('/ppdb', function () {
-    return view('ppdb');
-});
+Route::get('/ppdb', [DisplayController::class, 'ppdb'])->name('ppdb');
+// Route::get('/ppdb', function () {
+//     return view('ppdb');
+// });
 
 
 
@@ -85,7 +87,7 @@ Route::get('/admin', function () {
 
 // Route::resource('/berita', BeritaController::class)->middleware(['auth', 'verified','checkRole:admin']);
 Route::resource('/adminBerita', BeritaController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
-Route::resource('/adminGuru', GuruController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminGuru', GuruController::class);
 Route::resource('/adminMapel', MapelController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminKelas', KelasController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminEkskul', GuruController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
@@ -106,6 +108,7 @@ Route::resource('/adminSesuaikanPengajar', KelasmapelController::class)->middlew
 Route::resource('/adminTentangSekolah', TentangSekolahController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminPermintaan', PermintaanAksesController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::resource('/adminP5', P5Controller::class)->middleware(['auth', 'verified', 'checkRole:admin']);
+Route::resource('/adminPPDB', PpdbController::class)->middleware(['auth', 'verified', 'checkRole:admin']);
 Route::get('/cookie', [AdminController::class, 'resetCookie'])->middleware(['auth', 'verified', 'checkRole:admin']);
 
 Route::get('/guruInformasiPerKelas/create/{idKelasMapel}', 'InformasimapelperkelasController@create')->middleware(['auth', 'verified', 'checkRole:guru']);

@@ -15,10 +15,10 @@ class ekskul extends Model
     protected $keyType = 'string';
 
     public function guru() {
-        return $this->belongsTo(Guru::class, 'idGuru');
+        return $this->belongsTo(guru::class, 'idGuru');
     }
 
     public function periode() {
-        return $this->belongsTo(Periode::class, 'idPeriode');
+        return $this->belongsTo(periode::class, 'idPeriode');
     }
 }

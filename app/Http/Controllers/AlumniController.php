@@ -50,7 +50,7 @@ class AlumniController extends Controller
 
         $validasi["buktiKelulusan"] = $newFileName;
 
-        $request->buktiKelulusan->move(public_path('buktiKelulusan'), $newFileName);
+        $request->buktiKelulusan->move('buktiKelulusan', $newFileName);
 
         Alumni::create($validasi);
 

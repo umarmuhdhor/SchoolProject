@@ -33,14 +33,19 @@ class LatihanController extends Controller
 
 
                 if ($latihanExists) {
+                    $link = informasimapelperkelas::find($idInformasi)->link;
+
+                    dd($link);
+                    return view('murid.latihan.index')->with('link', $link);
                     //minta admin buat reset
-                    if ($latihanExists->status == '0') {
-                        $link = informasimapelperkelas::find($idInformasi)->first()->link;
-                        // Load halaman /latihan
-                        return view('murid.latihan.index')->with('link', $link);
-                    } else {
-                        return view('murid.latihan.permintaan')->with('idMurid', $idMurid)->with('idLatihan', $latihanExists->idLatihan);
-                    }
+                    // if ($latihanExists->status == '0') {
+                    //     $link = informasimapelperkelas::find($idInformasi)->first()->link;
+                    //     // Load halaman /latihan
+                    //     $latihanExists->update(['status' => '1']);
+                    //     return view('murid.latihan.index')->with('link', $link);
+                    // } else {
+                    //     return view('murid.latihan.permintaan')->with('idMurid', $idMurid)->with('idLatihan', $latihanExists->idLatihan);
+                    // }
                 } else {
                     latihan::create([
                         'status' => '1',

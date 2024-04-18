@@ -6,6 +6,7 @@ use App\Models\guru;
 use App\Models\mapel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GuruController extends Controller
 {
@@ -50,14 +51,12 @@ class GuruController extends Controller
 
         $ext = $request->foto->getClientOriginalExtension();
 
-        // Buat nama file baru dengan timestamp atau string acak
         $newFileName = uniqid() . '.' . $ext;
 
-        // Validasi foto menggunakan nama file baru
         $validasi["foto"] = $newFileName;
 
-        // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('fotoGuru'), $newFileName);
+
+        $request->foto->move('fotoGuru', $newFileName);
 
         Guru::create($validasi);
         return redirect("adminGuru")->with("success", "Data mahasiswa berhasil disimpan");

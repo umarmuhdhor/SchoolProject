@@ -14,11 +14,12 @@ class materi extends Model
 
     protected $primaryKey = 'idMateri';
     protected $keyType = 'string';
+
     public function mapel() {
-        return $this->belongsTo(Mapel::class, 'idMapel');
+        return $this->belongsTo(mapel::class, 'idMapel');
     }
 
     public function guru() {
-        return $this->belongsTo(Guru::class, 'idGuru');
+        return $this->belongsTo(guru::class, 'idGuru');
     }
 }

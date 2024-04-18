@@ -46,10 +46,13 @@ require __DIR__.'/../vendor/autoload.php';
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
+// Mendapatkan instance Kernel
 $kernel = $app->make(Kernel::class);
 
+// Menangani permintaan dan mengirimkan respons
 $response = $kernel->handle(
     $request = Request::capture()
 )->send();
 
+// Menyelesaikan permintaan
 $kernel->terminate($request, $response);

@@ -60,7 +60,7 @@ class EkskulController extends Controller
         $validasi["foto"] = $newFileName;
 
         // Upload file foto ke dalam folder public
-        $request->foto->move(public_path('LogoEkskul'), $newFileName);
+        $request->foto->move('LogoEkskul', $newFileName);
         ekskul::create($validasi);
         return redirect("adminEkskul")->with("success", "Data ekskul berhasil disimpan");
     }

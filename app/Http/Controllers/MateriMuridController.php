@@ -71,7 +71,7 @@ class MateriMuridController extends Controller
 
         $validasi["file"] = $newFileName;
 
-        $request->file->move(public_path('materi'), $newFileName);
+        $request->file->move('materi', $newFileName);
 
         Materi::create($validasi);
         return redirect("guruMateri")->with("success", "File berhasil diupload");

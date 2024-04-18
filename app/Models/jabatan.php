@@ -16,6 +16,6 @@ class jabatan extends Model
 
     public function guru()
     {
-        return $this->belongsTo(Guru::class, 'idGuru');
+        return $this->belongsTo(guru::class, 'idGuru');
     }
 }

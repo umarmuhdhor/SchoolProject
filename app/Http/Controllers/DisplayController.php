@@ -12,6 +12,7 @@ use App\Models\jabatan;
 use App\Models\kegiatanekskul;
 use App\Models\murid;
 use App\Models\p5;
+use App\Models\ppdb;
 use App\Models\prestasi;
 use App\Models\tentangSekolah;
 use App\Models\visimisi;
@@ -157,5 +158,9 @@ class DisplayController extends Controller
         return view('p5')->with('p5',$p5);
     }
 
+    public function ppdb(){
+        $ppdb = ppdb::all();
+        return view('ppdb')->with('ppdb',$ppdb);
+    }
 
 }

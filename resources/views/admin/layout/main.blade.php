@@ -93,6 +93,15 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ url('adminPPDB') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-article"></i>
+                                </span>
+                                <span class="hide-menu">PPDB
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('adminP5') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-article"></i>
@@ -284,7 +293,7 @@
                                         <x-dropdown-link :href="route('profile.edit')"
                                             class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
-                                            <p class="mb-0 fs-3">My Profile</p>
+                                            {{-- <p class="mb-0 fs-3">My Profile</p> --}}
                                         </x-dropdown-link>
 
                                         {{-- <a href="javascript:void(0)"

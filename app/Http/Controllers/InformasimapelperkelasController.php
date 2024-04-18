@@ -68,7 +68,7 @@ class InformasimapelperkelasController extends Controller
             $validasi["foto"] = $newFileName;
 
             // Upload file foto ke dalam folder public
-            $request->foto->move(public_path('fotoInformasiPerKelas'), $newFileName);
+            $request->foto->move('fotoInformasiPerKelas', $newFileName);
         } else {
             $validasi["foto"] = null;
         }

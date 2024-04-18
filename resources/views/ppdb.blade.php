@@ -206,6 +206,39 @@
     </section><!--/.list-topics-->
     <!--list-topics end-->
 
+    <!--works start -->
+    <section id="works" class="works">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="font-size: 30px">Judul</h2>
+                <p style="text-align: justify">Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book. It has survived not only five centuries, but also the leap into
+                    electronic typesetting, remaining essentially unchanged. It was popularised in
+                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                    and more recently with desktop publishing software like Aldus PageMaker including
+                    versions of Lorem Ipsum.</p>
+            </div><!--/.section-header-->
+            @if ($ppdb)
+                <div class="row">
+                    <div class=" col-md-4 col-sm-6">
+                        <div class="single-explore-item" style="border-radius: 20px;overflow: hidden;">
+                            <div class="single-explore-img">
+                                <img src="{{ asset('fotoPpdb/' . $ppdb->foto1) }}" alt="explore image"
+                                    style="height: 250px; width: 100%">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+        </div><!--/.container-->
+    </section><!--/.works-->
+    <!--works end -->
+
     <!--footer start-->
     <footer id="footer" class="footer">
         <div class="container">

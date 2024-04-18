@@ -15,19 +15,19 @@ class kelas extends Model
 
     public function periode()
     {
-        return $this->belongsTo(Periode::class, 'idPeriode');
+        return $this->belongsTo(periode::class, 'idPeriode');
     }
 
     public function guru()
     {
-        return $this->belongsTo(Guru::class, 'idGuru');
+        return $this->belongsTo(guru::class, 'idGuru');
     }
 
     // Relasi ke model Murid
     // Model Kelas
     public function murids()
     {
-        return $this->belongsToMany(Murid::class, 'kelasmurids', 'idKelas', 'idMurid')
+        return $this->belongsToMany(murid::class, 'kelasmurids', 'idKelas', 'idMurid')
             ->withPivot('idKelasMurid'); // Pastikan Anda memasukkan pivot key di sini
     }
 }
